@@ -7,18 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9CF6228E2C22074700DE50F6 /* HoneyFarmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF6228D2C22074700DE50F6 /* HoneyFarmApp.swift */; };
-		9CF622902C22074700DE50F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF6228F2C22074700DE50F6 /* ContentView.swift */; };
-		9CF622922C22074800DE50F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CF622912C22074800DE50F6 /* Assets.xcassets */; };
-		9CF622952C22074800DE50F6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CF622942C22074800DE50F6 /* Preview Assets.xcassets */; };
+		9CFFE9CF2C230C8500D42950 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9BD2C230C8500D42950 /* Models.swift */; };
+		9CFFE9D02C230C8500D42950 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CFFE9BF2C230C8500D42950 /* Preview Assets.xcassets */; };
+		9CFFE9D12C230C8500D42950 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9C12C230C8500D42950 /* Colors.swift */; };
+		9CFFE9D22C230C8500D42950 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9C22C230C8500D42950 /* Fonts.swift */; };
+		9CFFE9D32C230C8500D42950 /* ConnectionPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9C42C230C8500D42950 /* ConnectionPromptView.swift */; };
+		9CFFE9D42C230C8500D42950 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9C52C230C8500D42950 /* ContentView.swift */; };
+		9CFFE9D52C230C8500D42950 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9C62C230C8500D42950 /* HomeView.swift */; };
+		9CFFE9D62C230C8500D42950 /* VaultDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9C72C230C8500D42950 /* VaultDetailView.swift */; };
+		9CFFE9D72C230C8500D42950 /* VaultItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9C82C230C8500D42950 /* VaultItemView.swift */; };
+		9CFFE9D82C230C8500D42950 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9C92C230C8500D42950 /* WelcomeView.swift */; };
+		9CFFE9D92C230C8500D42950 /* YieldVaultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9CA2C230C8500D42950 /* YieldVaultsView.swift */; };
+		9CFFE9DA2C230C8500D42950 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CFFE9CC2C230C8500D42950 /* Assets.xcassets */; };
+		9CFFE9DB2C230C8500D42950 /* ApiaryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9CD2C230C8500D42950 /* ApiaryApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9CF6228A2C22074700DE50F6 /* HoneyFarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HoneyFarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9CF6228D2C22074700DE50F6 /* HoneyFarmApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoneyFarmApp.swift; sourceTree = "<group>"; };
-		9CF6228F2C22074700DE50F6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		9CF622912C22074800DE50F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9CF622942C22074800DE50F6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9CF6228A2C22074700DE50F6 /* Apiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Apiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CFFE9BD2C230C8500D42950 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		9CFFE9BF2C230C8500D42950 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9CFFE9C12C230C8500D42950 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		9CFFE9C22C230C8500D42950 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		9CFFE9C42C230C8500D42950 /* ConnectionPromptView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionPromptView.swift; sourceTree = "<group>"; };
+		9CFFE9C52C230C8500D42950 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9CFFE9C62C230C8500D42950 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9CFFE9C72C230C8500D42950 /* VaultDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaultDetailView.swift; sourceTree = "<group>"; };
+		9CFFE9C82C230C8500D42950 /* VaultItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaultItemView.swift; sourceTree = "<group>"; };
+		9CFFE9C92C230C8500D42950 /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		9CFFE9CA2C230C8500D42950 /* YieldVaultsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YieldVaultsView.swift; sourceTree = "<group>"; };
+		9CFFE9CC2C230C8500D42950 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9CFFE9CD2C230C8500D42950 /* ApiaryApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiaryApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +53,7 @@
 		9CF622812C22074700DE50F6 = {
 			isa = PBXGroup;
 			children = (
-				9CF6228C2C22074700DE50F6 /* HoneyFarm */,
+				9CFFE9CE2C230C8500D42950 /* Apiary */,
 				9CF6228B2C22074700DE50F6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,36 +61,69 @@
 		9CF6228B2C22074700DE50F6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9CF6228A2C22074700DE50F6 /* HoneyFarm.app */,
+				9CF6228A2C22074700DE50F6 /* Apiary.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9CF6228C2C22074700DE50F6 /* HoneyFarm */ = {
+		9CFFE9BE2C230C8500D42950 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				9CF6228D2C22074700DE50F6 /* HoneyFarmApp.swift */,
-				9CF6228F2C22074700DE50F6 /* ContentView.swift */,
-				9CF622912C22074800DE50F6 /* Assets.xcassets */,
-				9CF622932C22074800DE50F6 /* Preview Content */,
+				9CFFE9BD2C230C8500D42950 /* Models.swift */,
 			);
-			path = HoneyFarm;
+			path = Data;
 			sourceTree = "<group>";
 		};
-		9CF622932C22074800DE50F6 /* Preview Content */ = {
+		9CFFE9C02C230C8500D42950 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				9CF622942C22074800DE50F6 /* Preview Assets.xcassets */,
+				9CFFE9BF2C230C8500D42950 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9CFFE9C32C230C8500D42950 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				9CFFE9C12C230C8500D42950 /* Colors.swift */,
+				9CFFE9C22C230C8500D42950 /* Fonts.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		9CFFE9CB2C230C8500D42950 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9CFFE9C42C230C8500D42950 /* ConnectionPromptView.swift */,
+				9CFFE9C52C230C8500D42950 /* ContentView.swift */,
+				9CFFE9C62C230C8500D42950 /* HomeView.swift */,
+				9CFFE9C72C230C8500D42950 /* VaultDetailView.swift */,
+				9CFFE9C82C230C8500D42950 /* VaultItemView.swift */,
+				9CFFE9C92C230C8500D42950 /* WelcomeView.swift */,
+				9CFFE9CA2C230C8500D42950 /* YieldVaultsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9CFFE9CE2C230C8500D42950 /* Apiary */ = {
+			isa = PBXGroup;
+			children = (
+				9CFFE9BE2C230C8500D42950 /* Data */,
+				9CFFE9C02C230C8500D42950 /* Preview Content */,
+				9CFFE9C32C230C8500D42950 /* Styles */,
+				9CFFE9CB2C230C8500D42950 /* Views */,
+				9CFFE9CC2C230C8500D42950 /* Assets.xcassets */,
+				9CFFE9CD2C230C8500D42950 /* ApiaryApp.swift */,
+			);
+			path = Apiary;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9CF622892C22074700DE50F6 /* HoneyFarm */ = {
+		9CF622892C22074700DE50F6 /* Apiary */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9CF622982C22074800DE50F6 /* Build configuration list for PBXNativeTarget "HoneyFarm" */;
+			buildConfigurationList = 9CF622982C22074800DE50F6 /* Build configuration list for PBXNativeTarget "Apiary" */;
 			buildPhases = (
 				9CF622862C22074700DE50F6 /* Sources */,
 				9CF622872C22074700DE50F6 /* Frameworks */,
@@ -82,9 +133,11 @@
 			);
 			dependencies = (
 			);
-			name = HoneyFarm;
+			name = Apiary;
+			packageProductDependencies = (
+			);
 			productName = HoneyFarm;
-			productReference = 9CF6228A2C22074700DE50F6 /* HoneyFarm.app */;
+			productReference = 9CF6228A2C22074700DE50F6 /* Apiary.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +155,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9CF622852C22074700DE50F6 /* Build configuration list for PBXProject "HoneyFarm" */;
+			buildConfigurationList = 9CF622852C22074700DE50F6 /* Build configuration list for PBXProject "Apiary" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -111,11 +164,13 @@
 				Base,
 			);
 			mainGroup = 9CF622812C22074700DE50F6;
+			packageReferences = (
+			);
 			productRefGroup = 9CF6228B2C22074700DE50F6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9CF622892C22074700DE50F6 /* HoneyFarm */,
+				9CF622892C22074700DE50F6 /* Apiary */,
 			);
 		};
 /* End PBXProject section */
@@ -125,8 +180,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CF622952C22074800DE50F6 /* Preview Assets.xcassets in Resources */,
-				9CF622922C22074800DE50F6 /* Assets.xcassets in Resources */,
+				9CFFE9D02C230C8500D42950 /* Preview Assets.xcassets in Resources */,
+				9CFFE9DA2C230C8500D42950 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +192,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CF622902C22074700DE50F6 /* ContentView.swift in Sources */,
-				9CF6228E2C22074700DE50F6 /* HoneyFarmApp.swift in Sources */,
+				9CFFE9D22C230C8500D42950 /* Fonts.swift in Sources */,
+				9CFFE9D42C230C8500D42950 /* ContentView.swift in Sources */,
+				9CFFE9D52C230C8500D42950 /* HomeView.swift in Sources */,
+				9CFFE9D32C230C8500D42950 /* ConnectionPromptView.swift in Sources */,
+				9CFFE9CF2C230C8500D42950 /* Models.swift in Sources */,
+				9CFFE9D62C230C8500D42950 /* VaultDetailView.swift in Sources */,
+				9CFFE9D12C230C8500D42950 /* Colors.swift in Sources */,
+				9CFFE9DB2C230C8500D42950 /* ApiaryApp.swift in Sources */,
+				9CFFE9D92C230C8500D42950 /* YieldVaultsView.swift in Sources */,
+				9CFFE9D82C230C8500D42950 /* WelcomeView.swift in Sources */,
+				9CFFE9D72C230C8500D42950 /* VaultItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +261,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -254,7 +318,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -271,21 +335,23 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"HoneyFarm/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Apiary/Preview Content\"";
 				DEVELOPMENT_TEAM = 3GBQ2H4QX7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Apiary;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.meb.HoneyFarm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.meb.Apiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -300,21 +366,23 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"HoneyFarm/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Apiary/Preview Content\"";
 				DEVELOPMENT_TEAM = 3GBQ2H4QX7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Apiary;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.meb.HoneyFarm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.meb.Apiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -325,7 +393,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9CF622852C22074700DE50F6 /* Build configuration list for PBXProject "HoneyFarm" */ = {
+		9CF622852C22074700DE50F6 /* Build configuration list for PBXProject "Apiary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9CF622962C22074800DE50F6 /* Debug */,
@@ -334,7 +402,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9CF622982C22074800DE50F6 /* Build configuration list for PBXNativeTarget "HoneyFarm" */ = {
+		9CF622982C22074800DE50F6 /* Build configuration list for PBXNativeTarget "Apiary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9CF622992C22074800DE50F6 /* Debug */,
