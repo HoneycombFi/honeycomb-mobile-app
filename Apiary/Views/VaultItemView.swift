@@ -14,13 +14,24 @@ struct VaultItemView: View {
                     .foregroundColor(.white)
                 Spacer()
                 if vault.name != "New Hives Coming Soon" {
-                    Button(action: {
-                        // TODO: add Vault action
-                    }) {
-                        Image(systemName: "plus.circle.fill")
-                            .resizable()
-                            .frame(width: 28, height: 28)
-                            .foregroundColor(.yellow)
+                    if isConnected {
+                        Button(action: {
+                            // TODO: add Vault action
+                        }) {
+                            Image(systemName: "plus.circle.fill")
+                                .resizable()
+                                .frame(width: 28, height: 28)
+                                .foregroundColor(.yellow)
+                        }
+                    } else {
+                        Button(action: {}) {
+                            Image(systemName: "plus.circle.fill")
+                                .resizable()
+                                .frame(width: 28, height: 28)
+                                .foregroundColor(.gray)
+                                .opacity(0.2)
+                        }
+                        .disabled(true)
                     }
                 }
             }

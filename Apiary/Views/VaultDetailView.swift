@@ -39,12 +39,22 @@ struct VaultDetailView: View {
                                 .font(.headline)
                                 .foregroundColor(.white)
                             Spacer()
-                            Button(action: {
-                                // TODO: add action
-                            }) {
-                                Image(systemName: "plus.circle.fill")
-                                    .foregroundColor(.yellow)
-                                    .font(.title)
+                            if isConnected {
+                                Button(action: {
+                                    // TODO: add Vault action
+                                }) {
+                                    Image(systemName: "plus.circle.fill")
+                                        .foregroundColor(.yellow)
+                                        .font(.title)
+                                }
+                            } else {
+                                Button(action: {}) {
+                                    Image(systemName: "plus.circle.fill")
+                                        .foregroundColor(.gray)
+                                        .font(.title)
+                                        .opacity(0.2)
+                                }
+                                .disabled(true)
                             }
                         }
                         .padding([.leading, .trailing, .top])
