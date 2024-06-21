@@ -10,49 +10,39 @@ struct ApiaryApp: App {
 
     var body: some Scene {
         WindowGroup {
-            Group {
-                if showWelcomeView {
-                    WelcomeView(showWelcomeView: $showWelcomeView)
-                        .transition(.opacity)
-                } else {
-                    TabView {
-                        NavigationView {
-                            VStack {
-                                TopBarView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
+            NavigationView {
+                Group {
+                    if showWelcomeView {
+                        WelcomeView(showWelcomeView: $showWelcomeView)
+                            .transition(.opacity)
+                    } else {
+                        VStack {
+                            TopBarView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
+                            TabView {
                                 HomeView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
-                            }
-                        }
-                        .tabItem {
-                            Image(systemName: "house.fill")
-                            Text("Home")
-                        }
-                        
-                        NavigationView {
-                            VStack {
-                                TopBarView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
+                                    .tabItem {
+                                        Image(systemName: "house.fill")
+                                        Text("Home")
+                                    }
+                                
                                 YieldVaultsView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
-                            }
-                        }
-                        .tabItem {
-                            Image(systemName: "circle.grid.hex")
-                            Text("My Apiary")
-                        }
-                        
-                        NavigationView {
-                            VStack {
-                                TopBarView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
+                                    .tabItem {
+                                        Image(systemName: "circle.grid.hex")
+                                        Text("My Apiary")
+                                    }
+                                
                                 Text("Hives")
+                                    .tabItem {
+                                        Image(systemName: "hexagon.fill")
+                                        Text("Hives")
+                                    }
                             }
                         }
-                        .tabItem {
-                            Image(systemName: "hexagon.fill")
-                            Text("Hives")
-                        }
+                        .transition(.opacity)
                     }
-                    .transition(.opacity)
                 }
+                .animation(.easeInOut(duration: 0.5), value: showWelcomeView)
             }
-            .animation(.easeInOut(duration: 0.5), value: showWelcomeView)
         }
     }
 }

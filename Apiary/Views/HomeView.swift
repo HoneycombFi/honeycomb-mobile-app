@@ -110,11 +110,8 @@ struct HomeView: View {
                 ScrollView {
                     VStack {
                         ForEach(vaults) { vault in
-                            NavigationLink(destination: VaultDetailView(vault: vault, isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)) {
-                                VaultItemView(vault: vault, isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
-                                    .padding(.horizontal)
-                            }
-                            .buttonStyle(PlainButtonStyle())
+                            VaultItemView(vault: vault, isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
+                                .padding(.horizontal)
                         }
                     }
                     .frame(maxWidth: .infinity)

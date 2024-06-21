@@ -71,9 +71,11 @@ struct VaultItemView: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
-                Image(systemName: "chevron.right")
-                    .foregroundColor(.gray)
-                    .frame(width: 20, height: 20)
+                NavigationLink(destination: VaultDetailView(vault: vault, isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)) {
+                    Image(systemName: "chevron.right")
+                        .foregroundColor(.gray)
+                        .frame(width: 20, height: 20)
+                }
             }
         }
         .padding()

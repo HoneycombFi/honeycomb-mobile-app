@@ -13,11 +13,11 @@ struct VaultDetailView: View {
     var body: some View {
         ScrollView {
             VStack {
-                TopBarView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
-
                 HStack {
                     Button(action: {
-                        presentationMode.wrappedValue.dismiss()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                            presentationMode.wrappedValue.dismiss()
+                        }
                     }) {
                         Image(systemName: "chevron.left")
                             .foregroundColor(.white)

@@ -17,7 +17,9 @@ struct TopBarView: View {
             Spacer()
             if isConnected {
                 Button(action: {
-                    showTooltip.toggle()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        showTooltip.toggle()
+                    }
                 }) {
                     Text("0x19t6...9m88") // TODO: Display actual address
                         .lineLimit(1)
@@ -32,7 +34,7 @@ struct TopBarView: View {
                                 .stroke(Color.yellow, lineWidth: 1)
                         )
                 }
-                .popover(isPresented: $showTooltip) {
+                .sheet(isPresented: $showTooltip) {
                     VStack {
                         Button(action: {
                             isConnected = false
@@ -60,7 +62,9 @@ struct TopBarView: View {
                 }
             } else {
                 Button(action: {
-                    showConnectionPrompt.toggle()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        showConnectionPrompt.toggle()
+                    }
                 }) {
                     Text("Connect")
                         .font(.caption)
@@ -73,7 +77,7 @@ struct TopBarView: View {
                                 .stroke(Color.yellow, lineWidth: 1)
                         )
                 }
-                .popover(isPresented: $showConnectionPrompt) {
+                .sheet(isPresented: $showConnectionPrompt) {
                     VStack {
                         Button(action: {
                             isConnected = true
