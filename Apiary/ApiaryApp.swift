@@ -4,6 +4,9 @@ import SwiftUI
 struct ApiaryApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @State private var showWelcomeView = true
+    @State private var isConnected = false
+    @State private var showTooltip = false
+    @State private var showConnectionPrompt = false
 
     var body: some Scene {
         WindowGroup {
@@ -14,7 +17,10 @@ struct ApiaryApp: App {
                 } else {
                     TabView {
                         NavigationView {
-                            HomeView()
+                            VStack {
+                                TopBarView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
+                                HomeView()
+                            }
                         }
                         .tabItem {
                             Image(systemName: "house.fill")
@@ -22,7 +28,10 @@ struct ApiaryApp: App {
                         }
                         
                         NavigationView {
-                            YieldVaultsView()
+                            VStack {
+                                TopBarView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
+                                YieldVaultsView()
+                            }
                         }
                         .tabItem {
                             Image(systemName: "circle.grid.hex")
@@ -30,11 +39,14 @@ struct ApiaryApp: App {
                         }
                         
                         NavigationView {
-                            Text("Settings")
+                            VStack {
+                                TopBarView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
+                                Text("Hives")
+                            }
                         }
                         .tabItem {
-                            Image(systemName: "gearshape.fill")
-                            Text("Settings")
+                            Image(systemName: "hexagon.fill")
+                            Text("Hives")
                         }
                     }
                     .transition(.opacity)
