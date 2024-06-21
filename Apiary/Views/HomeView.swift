@@ -71,32 +71,32 @@ struct HomeView: View {
                             .fill(LinearGradient(gradient: Gradient(colors: [Color(hex: "0xFFCB31"), Color(hex: "0xEC6A5E")]), startPoint: .leading, endPoint: .trailing))
                             .frame(height: 150)
                         
-                        VStack {
-                            Text("Connect wallet to deposit funds")
-                                .font(.caption)
+                        VStack(alignment: .leading) {
+                            Text("Connect your wallet to\("\n")deposit funds & earn yield")
+                                .font(.system(size: 24).bold())
                                 .foregroundColor(.black)
+                                .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
+                                .padding(.bottom, 20)
                             
-                            HStack {
-                                Button(action: {}) {
-                                    Text("Deposit")
-                                        .font(.caption)
-                                        .padding(10)
-                                        .background(Color.black.opacity(0.2))
-                                        .foregroundColor(.white)
-                                        .cornerRadius(5)
+                            Button(action: {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                    showConnectionPrompt.toggle()
                                 }
-                                .disabled(true)
-                                Button(action: {}) {
-                                    Text("Withdraw")
-                                        .font(.caption)
-                                        .padding(10)
-                                        .background(Color.black.opacity(0.2))
-                                        .foregroundColor(.white)
-                                        .cornerRadius(5)
+                            }) {
+                                HStack {
+                                    Image(systemName: "creditcard")
+                                        .font(.system(size: 16))
+                                    Text("Connect Wallet")
+                                        .font(.system(size: 16).bold())
                                 }
-                                .disabled(true)
+                                .padding()
+                                .frame(maxWidth: .infinity)
+                                .background(Color.black)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
                             }
                         }
+                        .padding()
                     }
                     .padding(.horizontal)
                 }
