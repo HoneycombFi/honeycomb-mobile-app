@@ -81,7 +81,7 @@ struct PortfolioBalanceView: View {
                     .padding(.top, 4)
                 
                 HStack {
-                    Text("$88.00")
+                    Text("$88.00") // TODO: Display total vault balance and/or wallet balance
                         .font(.system(size: 48).bold())
                         .foregroundColor(.black)
                         .multilineTextAlignment(.leading)
