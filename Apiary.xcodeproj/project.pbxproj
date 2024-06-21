@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9C8A26842C2508F200A81DF0 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A26832C2508F200A81DF0 /* TopBarView.swift */; };
+		9CA858352C26075200C54E05 /* HivesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA858342C26075200C54E05 /* HivesView.swift */; };
 		9CFFE9CF2C230C8500D42950 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9BD2C230C8500D42950 /* Models.swift */; };
 		9CFFE9D02C230C8500D42950 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CFFE9BF2C230C8500D42950 /* Preview Assets.xcassets */; };
 		9CFFE9D12C230C8500D42950 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9C12C230C8500D42950 /* Colors.swift */; };
@@ -16,13 +17,14 @@
 		9CFFE9D62C230C8500D42950 /* VaultDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9C72C230C8500D42950 /* VaultDetailView.swift */; };
 		9CFFE9D72C230C8500D42950 /* VaultItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9C82C230C8500D42950 /* VaultItemView.swift */; };
 		9CFFE9D82C230C8500D42950 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9C92C230C8500D42950 /* WelcomeView.swift */; };
-		9CFFE9D92C230C8500D42950 /* YieldVaultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9CA2C230C8500D42950 /* YieldVaultsView.swift */; };
+		9CFFE9D92C230C8500D42950 /* ApiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9CA2C230C8500D42950 /* ApiaryView.swift */; };
 		9CFFE9DA2C230C8500D42950 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CFFE9CC2C230C8500D42950 /* Assets.xcassets */; };
 		9CFFE9DB2C230C8500D42950 /* ApiaryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9CD2C230C8500D42950 /* ApiaryApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9C8A26832C2508F200A81DF0 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
+		9CA858342C26075200C54E05 /* HivesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HivesView.swift; sourceTree = "<group>"; };
 		9CF6228A2C22074700DE50F6 /* Apiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Apiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CFFE9BD2C230C8500D42950 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		9CFFE9BF2C230C8500D42950 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -32,7 +34,7 @@
 		9CFFE9C72C230C8500D42950 /* VaultDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaultDetailView.swift; sourceTree = "<group>"; };
 		9CFFE9C82C230C8500D42950 /* VaultItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaultItemView.swift; sourceTree = "<group>"; };
 		9CFFE9C92C230C8500D42950 /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
-		9CFFE9CA2C230C8500D42950 /* YieldVaultsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YieldVaultsView.swift; sourceTree = "<group>"; };
+		9CFFE9CA2C230C8500D42950 /* ApiaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiaryView.swift; sourceTree = "<group>"; };
 		9CFFE9CC2C230C8500D42950 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9CFFE9CD2C230C8500D42950 /* ApiaryApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiaryApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,12 +94,13 @@
 		9CFFE9CB2C230C8500D42950 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9CFFE9CA2C230C8500D42950 /* ApiaryView.swift */,
+				9CA858342C26075200C54E05 /* HivesView.swift */,
 				9CFFE9C62C230C8500D42950 /* HomeView.swift */,
+				9C8A26832C2508F200A81DF0 /* TopBarView.swift */,
 				9CFFE9C72C230C8500D42950 /* VaultDetailView.swift */,
 				9CFFE9C82C230C8500D42950 /* VaultItemView.swift */,
 				9CFFE9C92C230C8500D42950 /* WelcomeView.swift */,
-				9CFFE9CA2C230C8500D42950 /* YieldVaultsView.swift */,
-				9C8A26832C2508F200A81DF0 /* TopBarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -195,9 +198,10 @@
 				9CFFE9D62C230C8500D42950 /* VaultDetailView.swift in Sources */,
 				9CFFE9D12C230C8500D42950 /* Colors.swift in Sources */,
 				9CFFE9DB2C230C8500D42950 /* ApiaryApp.swift in Sources */,
-				9CFFE9D92C230C8500D42950 /* YieldVaultsView.swift in Sources */,
+				9CFFE9D92C230C8500D42950 /* ApiaryView.swift in Sources */,
 				9C8A26842C2508F200A81DF0 /* TopBarView.swift in Sources */,
 				9CFFE9D82C230C8500D42950 /* WelcomeView.swift in Sources */,
+				9CA858352C26075200C54E05 /* HivesView.swift in Sources */,
 				9CFFE9D72C230C8500D42950 /* VaultItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

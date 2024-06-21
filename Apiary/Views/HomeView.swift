@@ -28,7 +28,7 @@ struct HomeView: View {
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
                             .fill(LinearGradient(gradient: Gradient(colors: [Color(hex: "0xFFCB31"), Color(hex: "0xEC6A5E")]), startPoint: .leading, endPoint: .trailing))
-                            .frame(height: 150)
+                            .frame(height: 180)
                         
                         VStack {
                             Text("YOUR PORTFOLIO BALANCE")
@@ -69,7 +69,7 @@ struct HomeView: View {
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
                             .fill(LinearGradient(gradient: Gradient(colors: [Color(hex: "0xFFCB31"), Color(hex: "0xEC6A5E")]), startPoint: .leading, endPoint: .trailing))
-                            .frame(height: 150)
+                            .frame(height: 180)
                         
                         VStack(alignment: .leading) {
                             Text("Connect your wallet to\("\n")deposit funds & earn yield")

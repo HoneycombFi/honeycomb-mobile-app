@@ -25,13 +25,13 @@ struct ApiaryApp: App {
                                         Text("Home")
                                     }
                                 
-                                YieldVaultsView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
+                                ApiaryView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
                                     .tabItem {
                                         Image(systemName: "circle.grid.hex")
                                         Text("My Apiary")
                                     }
                                 
-                                Text("Hives")
+                                HivesView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
                                     .tabItem {
                                         Image(systemName: "hexagon.fill")
                                         Text("Hives")

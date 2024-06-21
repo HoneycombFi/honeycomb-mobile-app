@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct YieldVaultsView: View {
+struct ApiaryView: View {
     @State private var selectedTimeframe = 0
     @Binding var isConnected: Bool
     @Binding var showTooltip: Bool
