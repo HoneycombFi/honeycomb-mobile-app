@@ -3,12 +3,11 @@
 Apiary is an iOS app that lets you earn passive income from ERC-4626 yield-bearing vaults.
 
 _This project was built during the Base Onchain Summer buildathon._
+*Please note this is an experimental proof-of-concept application that runs on the Base Sepolia test network. No real ETH or funds are used and it is under active development.*
 
 ## Overview
 
 Apiary aims to simplify DeFi by providing an intuitive mobile interface for interacting with aggregator vaults on Ethereum. We're on a mission to make DeFi easier for everyone by abstracting away as much of the Web3 jargon and financial complexity as possible.
-
-Please note this is an experimental proof-of-concept application that runs on the Base Sepolia test network. No real ETH or funds are used and it is under active development.
 
 ## Prerequisites
 
