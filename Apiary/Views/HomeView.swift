@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var isConnected = false
+    @Binding var isConnected: Bool
     @State private var showTooltip = false
     @State private var showConnectionPrompt = false
 
@@ -131,33 +131,5 @@ struct HomeView: View {
             }
         }
         .navigationBarHidden(true)
-    }
-}
-
-struct ConnectButton: View {
-    @Binding var showConnectionPrompt: Bool
-    @State private var isPressed = false
-
-    var body: some View {
-        Button(action: {
-            withAnimation {
-                isPressed.toggle()
-                showConnectionPrompt = true
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                    isPressed.toggle()
-                }
-            }
-        }) {
-            Text("Connect")
-                .font(.caption)
-                .foregroundColor(isPressed ? .black : .yellow)
-                .padding(10)
-                .background(isPressed ? Color.yellow : Color.black)
-                .cornerRadius(5)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 5)
-                        .stroke(Color.yellow, lineWidth: 1)
-                )
-        }
     }
 }

@@ -19,7 +19,7 @@ struct ApiaryApp: App {
                         NavigationView {
                             VStack {
                                 TopBarView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
-                                HomeView()
+                                HomeView(isConnected: $isConnected)
                             }
                         }
                         .tabItem {

@@ -12,7 +12,7 @@ struct VaultItemView: View {
                 Spacer()
                 if vault.name != "New Hives Coming Soon" {
                     Button(action: {
-                        // Add Vault action
+                        // TODO: add Vault action
                     }) {
                         Image(systemName: "plus.circle.fill")
                             .resizable()
