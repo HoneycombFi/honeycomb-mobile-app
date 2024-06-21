@@ -4,12 +4,17 @@ struct VaultDetailView: View {
     let vault: Vault
 
     @Environment(\.presentationMode) var presentationMode
+    @Binding var isConnected: Bool
+    @Binding var showTooltip: Bool
+    @Binding var showConnectionPrompt: Bool
     @State private var selectedTimeframe = 0
     let timeframes = ["1D", "1W", "1M", "YTD", "1Y", "ALL"]
 
     var body: some View {
         ScrollView {
             VStack {
+                TopBarView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
+
                 HStack {
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()
@@ -35,7 +40,7 @@ struct VaultDetailView: View {
                                 .foregroundColor(.white)
                             Spacer()
                             Button(action: {
-                                // TODO: Action for adding
+                                // TODO: add action
                             }) {
                                 Image(systemName: "plus.circle.fill")
                                     .foregroundColor(.yellow)
@@ -153,7 +158,7 @@ struct VaultDetailView: View {
                     .padding()
 
                     Button(action: {
-                        // Add to Hive action
+                        // TODO: Add to Hive action
                     }) {
                         Text("Add To Apiary")
                             .font(.title2)

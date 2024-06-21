@@ -19,7 +19,7 @@ struct ApiaryApp: App {
                         NavigationView {
                             VStack {
                                 TopBarView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
-                                HomeView(isConnected: $isConnected)
+                                HomeView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
                             }
                         }
                         .tabItem {
@@ -30,7 +30,7 @@ struct ApiaryApp: App {
                         NavigationView {
                             VStack {
                                 TopBarView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
-                                YieldVaultsView()
+                                YieldVaultsView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
                             }
                         }
                         .tabItem {

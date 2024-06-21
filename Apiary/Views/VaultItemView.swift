@@ -2,6 +2,9 @@ import SwiftUI
 
 struct VaultItemView: View {
     let vault: Vault
+    @Binding var isConnected: Bool
+    @Binding var showTooltip: Bool
+    @Binding var showConnectionPrompt: Bool
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -68,11 +71,9 @@ struct VaultItemView: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
-                NavigationLink(destination: VaultDetailView(vault: vault)) {
-                    Image(systemName: "chevron.right")
-                        .foregroundColor(.gray)
-                }
-                .frame(width: 20, height: 20)
+                Image(systemName: "chevron.right")
+                    .foregroundColor(.gray)
+                    .frame(width: 20, height: 20)
             }
         }
         .padding()

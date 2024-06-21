@@ -2,6 +2,10 @@ import SwiftUI
 
 struct YieldVaultsView: View {
     @State private var selectedTimeframe = 0
+    @Binding var isConnected: Bool
+    @Binding var showTooltip: Bool
+    @Binding var showConnectionPrompt: Bool
+
     let timeframes = ["1D", "1W", "1M", "YTD", "1Y", "ALL"]
 
     let vaults = [
@@ -28,8 +32,8 @@ struct YieldVaultsView: View {
             ScrollView {
                 VStack {
                     ForEach(vaults) { vault in
-                        NavigationLink(destination: VaultDetailView(vault: vault)) {
-                            VaultItemView(vault: vault)
+                        NavigationLink(destination: VaultDetailView(vault: vault, isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)) {
+                            VaultItemView(vault: vault, isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
                                 .padding(.horizontal)
                         }
                         .buttonStyle(PlainButtonStyle())
@@ -47,5 +51,3 @@ struct YieldVaultsView: View {
         .navigationBarHidden(true)
     }
 }
-
-
