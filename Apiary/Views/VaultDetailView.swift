@@ -3,6 +3,7 @@ import SwiftUI
 struct VaultDetailView: View {
     let vault: Vault
 
+    @Environment(\.presentationMode) var presentationMode
     @State private var selectedTimeframe = 0
     let timeframes = ["1D", "1W", "1M", "YTD", "1Y", "ALL"]
 
@@ -11,7 +12,7 @@ struct VaultDetailView: View {
             VStack {
                 HStack {
                     Button(action: {
-                        // Go back action
+                        presentationMode.wrappedValue.dismiss()
                     }) {
                         Image(systemName: "chevron.left")
                             .foregroundColor(.white)
@@ -34,7 +35,7 @@ struct VaultDetailView: View {
                                 .foregroundColor(.white)
                             Spacer()
                             Button(action: {
-                                // Action for adding performance
+                                // TODO: Action for adding
                             }) {
                                 Image(systemName: "plus.circle.fill")
                                     .foregroundColor(.yellow)
@@ -124,7 +125,7 @@ struct VaultDetailView: View {
                             Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
                                 .foregroundColor(.white)
                             Button(action: {
-                                // Learn more about Synthetix
+                                // TODO: Learn more about Synthetix
                             }) {
                                 Text("Learn More About Synthetix")
                                     .foregroundColor(.yellow)
@@ -139,7 +140,7 @@ struct VaultDetailView: View {
                             Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
                                 .foregroundColor(.white)
                             Button(action: {
-                                // Learn more about Panoptic
+                                // TODO: Learn more about Panoptic
                             }) {
                                 Text("Learn More About Panoptic")
                                     .foregroundColor(.yellow)
@@ -168,5 +169,6 @@ struct VaultDetailView: View {
             .background(Color.black)
             .edgesIgnoringSafeArea(.all)
         }
+        .navigationBarHidden(true)
     }
 }

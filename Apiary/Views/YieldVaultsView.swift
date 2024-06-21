@@ -44,8 +44,7 @@ struct YieldVaultsView: View {
         }
         .background(Color.black)
         .edgesIgnoringSafeArea(.all)
-        .navigationTitle("My Apiary")
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarHidden(true)
     }
 }
 

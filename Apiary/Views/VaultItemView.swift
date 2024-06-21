@@ -16,14 +16,21 @@ struct VaultItemView: View {
                     }) {
                         Image(systemName: "plus.circle.fill")
                             .resizable()
-                            .frame(width: 30, height: 30)
+                            .frame(width: 32, height: 32)
                             .foregroundColor(.yellow)
                     }
                 }
             }
             .padding(.bottom, 10)
             
-            HStack {
+            Text("Chain: 🟦 Base")
+                .font(.caption)
+                .foregroundColor(.gray)
+                .padding(.bottom, 10)
+            
+            Divider().background(Color.gray)
+            
+            HStack(alignment: .top) {
                 VStack(alignment: .leading) {
                     Text("HOLDINGS")
                         .font(.caption)
@@ -65,6 +72,7 @@ struct VaultItemView: View {
                     Image(systemName: "chevron.right")
                         .foregroundColor(.gray)
                 }
+                .frame(width: 20, height: 20)
             }
         }
         .padding()
