@@ -19,7 +19,7 @@ struct VaultItemView: View {
                     }) {
                         Image(systemName: "plus.circle.fill")
                             .resizable()
-                            .frame(width: 32, height: 32)
+                            .frame(width: 28, height: 28)
                             .foregroundColor(.yellow)
                     }
                 }
@@ -27,8 +27,8 @@ struct VaultItemView: View {
             .padding(.bottom, 10)
             
             Text("Chain: 🟦 Base")
-                .font(.caption)
-                .foregroundColor(.gray)
+                .font(.caption2)
+                .foregroundColor(.white)
                 .padding(.bottom, 10)
             
             Divider().background(Color.gray)
@@ -38,16 +38,19 @@ struct VaultItemView: View {
                     Text("HOLDINGS")
                         .font(.caption)
                         .foregroundColor(.gray)
-                    HStack {
-                        Image(systemName: "xmark.circle.fill")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(.blue)
+                    ZStack {
                         Image(systemName: "circle.fill")
                             .resizable()
-                            .frame(width: 20, height: 20)
+                            .frame(width: 28, height: 28)
                             .foregroundColor(.purple)
+                            .offset(x: 18)
+                        Image(systemName: "xmark.circle.fill")
+                            .resizable()
+                            .frame(width: 28, height: 28)
+                            .foregroundColor(.blue)
+                            .offset(x: -2)
                     }
+                    .frame(width: 34, height: 28)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
@@ -55,9 +58,10 @@ struct VaultItemView: View {
                     Text("APR")
                         .font(.caption)
                         .foregroundColor(.gray)
-                    Text("\(vault.yield, specifier: "%.2f")%")
-                        .font(.headline)
+                    Text("\(vault.yield, specifier: "%.0f")%")
+                        .font(.system(size: 28).bold())
                         .foregroundColor(.white)
+                        .frame(width: 60, height: 28, alignment: .leading)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
@@ -65,18 +69,23 @@ struct VaultItemView: View {
                     Text("RISK RATING")
                         .font(.caption)
                         .foregroundColor(.gray)
-                    Text(vault.riskRating)
-                        .font(.headline)
+                    Image(systemName: "circle.fill")
+                        .resizable()
+                        .frame(width: 28, height: 28)
                         .foregroundColor(.green)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
                 NavigationLink(destination: VaultDetailView(vault: vault, isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)) {
                     Image(systemName: "chevron.right")
-                        .foregroundColor(.gray)
-                        .frame(width: 20, height: 20)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .foregroundColor(.white)
+                        .frame(height: 20)
+                        .padding(.top, 20)
                 }
             }
+            .padding(.bottom, 10)
         }
         .padding()
         .background(Color.gray.opacity(0.2))
