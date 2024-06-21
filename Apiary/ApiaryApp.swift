@@ -7,6 +7,7 @@ struct ApiaryApp: App {
     @State private var isConnected = false
     @State private var showTooltip = false
     @State private var showConnectionPrompt = false
+    @State private var selectedTab = 0
 
     var body: some Scene {
         WindowGroup {
@@ -18,24 +19,27 @@ struct ApiaryApp: App {
                     } else {
                         VStack {
                             TopBarView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
-                            TabView {
-                                HomeView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
+                            TabView(selection: $selectedTab) {
+                                HomeView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt, selectedTab: $selectedTab)
                                     .tabItem {
                                         Image(systemName: "house.fill")
                                         Text("Home")
                                     }
+                                    .tag(0)
                                 
                                 ApiaryView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
                                     .tabItem {
                                         Image(systemName: "circle.grid.hex")
                                         Text("My Apiary")
                                     }
+                                    .tag(1)
                                 
                                 HivesView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
                                     .tabItem {
                                         Image(systemName: "hexagon.fill")
                                         Text("Hives")
                                     }
+                                    .tag(2)
                             }
                         }
                         .transition(.opacity)
