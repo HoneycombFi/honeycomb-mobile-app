@@ -2,6 +2,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var isConnected = false
+    @State private var showTooltip = false
     @State private var showConnectionPrompt = false
 
     let vaults = [
@@ -25,7 +26,9 @@ struct HomeView: View {
                             .foregroundColor(.white)
                         Spacer()
                         if isConnected {
-                            HStack {
+                            Button(action: {
+                                showTooltip.toggle()
+                            }) {
                                 Text("0x19t6...9m88") // TODO: Display actual address
                                     .lineLimit(1)
                                     .truncationMode(.middle)
@@ -38,23 +41,74 @@ struct HomeView: View {
                                         RoundedRectangle(cornerRadius: 5)
                                             .stroke(Color.yellow, lineWidth: 1)
                                     )
-                                Button(action: {
-                                    isConnected = false
-                                }) {
-                                    Text("Disconnect Wallet")
-                                        .font(.caption)
-                                        .foregroundColor(.yellow)
+                            }
+                            .popover(isPresented: $showTooltip) {
+                                VStack {
+                                    Button(action: {
+                                        isConnected = false
+                                        showTooltip = false
+                                    }) {
+                                        HStack {
+                                            Text("Disconnect Wallet")
+                                                .font(.caption)
+                                                .foregroundColor(.white)
+                                            Image(systemName: "wallet.pass")
+                                                .foregroundColor(.white)
+                                        }
                                         .padding(10)
                                         .background(Color.black)
                                         .cornerRadius(5)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 5)
-                                                .stroke(Color.yellow, lineWidth: 1)
-                                        )
+                                    }
                                 }
+                                .padding()
+                                .background(Color.black)
+                                .cornerRadius(10)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.yellow, lineWidth: 1)
+                                )
                             }
                         } else {
-                            ConnectButton(showConnectionPrompt: $showConnectionPrompt)
+                            Button(action: {
+                                showConnectionPrompt.toggle()
+                            }) {
+                                Text("Connect")
+                                    .font(.caption)
+                                    .foregroundColor(.yellow)
+                                    .padding(10)
+                                    .background(Color.black)
+                                    .cornerRadius(5)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 5)
+                                            .stroke(Color.yellow, lineWidth: 1)
+                                    )
+                            }
+                            .popover(isPresented: $showConnectionPrompt) {
+                                VStack {
+                                    Button(action: {
+                                        isConnected = true
+                                        showConnectionPrompt = false
+                                    }) {
+                                        HStack {
+                                            Text("Connect Wallet")
+                                                .font(.caption)
+                                                .foregroundColor(.white)
+                                            Image(systemName: "wallet.pass")
+                                                .foregroundColor(.white)
+                                        }
+                                        .padding(10)
+                                        .background(Color.black)
+                                        .cornerRadius(5)
+                                    }
+                                }
+                                .padding()
+                                .background(Color.black)
+                                .cornerRadius(10)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.yellow, lineWidth: 1)
+                                )
+                            }
                         }
                     }
                     .padding(.horizontal)
@@ -74,7 +128,7 @@ struct HomeView: View {
                         ZStack {
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(LinearGradient(gradient: Gradient(colors: [Color(hex: "0xFFCB31"), Color(hex: "0xEC6A5E")]), startPoint: .leading, endPoint: .trailing))
-                                .frame(height: 200)
+                                .frame(height: 150)
                             
                             VStack {
                                 Text("YOUR PORTFOLIO BALANCE")
@@ -115,7 +169,7 @@ struct HomeView: View {
                         ZStack {
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(LinearGradient(gradient: Gradient(colors: [Color(hex: "0xFFCB31"), Color(hex: "0xEC6A5E")]), startPoint: .leading, endPoint: .trailing))
-                                .frame(height: 200)
+                                .frame(height: 150)
                             
                             VStack {
                                 Text("Connect wallet to deposit funds")
@@ -173,17 +227,6 @@ struct HomeView: View {
                 .background(Color.black)
                 .edgesIgnoringSafeArea(.all)
                 .blur(radius: showConnectionPrompt ? 5 : 0)
-                
-                if showConnectionPrompt {
-                    Color.black.opacity(0.4)
-                        .edgesIgnoringSafeArea(.all)
-                    VStack {
-                        Spacer()
-                        ConnectionPromptView(isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
-                        Spacer()
-                    }
-                    .transition(.opacity)
-                }
             }
         }
         .navigationBarHidden(true)

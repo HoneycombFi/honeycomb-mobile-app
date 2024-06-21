@@ -11,7 +11,6 @@
 		9CFFE9D02C230C8500D42950 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CFFE9BF2C230C8500D42950 /* Preview Assets.xcassets */; };
 		9CFFE9D12C230C8500D42950 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9C12C230C8500D42950 /* Colors.swift */; };
 		9CFFE9D22C230C8500D42950 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9C22C230C8500D42950 /* Fonts.swift */; };
-		9CFFE9D32C230C8500D42950 /* ConnectionPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9C42C230C8500D42950 /* ConnectionPromptView.swift */; };
 		9CFFE9D42C230C8500D42950 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9C52C230C8500D42950 /* ContentView.swift */; };
 		9CFFE9D52C230C8500D42950 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9C62C230C8500D42950 /* HomeView.swift */; };
 		9CFFE9D62C230C8500D42950 /* VaultDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9C72C230C8500D42950 /* VaultDetailView.swift */; };
@@ -28,7 +27,6 @@
 		9CFFE9BF2C230C8500D42950 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9CFFE9C12C230C8500D42950 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		9CFFE9C22C230C8500D42950 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
-		9CFFE9C42C230C8500D42950 /* ConnectionPromptView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionPromptView.swift; sourceTree = "<group>"; };
 		9CFFE9C52C230C8500D42950 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9CFFE9C62C230C8500D42950 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9CFFE9C72C230C8500D42950 /* VaultDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaultDetailView.swift; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 		9CFFE9CB2C230C8500D42950 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9CFFE9C42C230C8500D42950 /* ConnectionPromptView.swift */,
 				9CFFE9C52C230C8500D42950 /* ContentView.swift */,
 				9CFFE9C62C230C8500D42950 /* HomeView.swift */,
 				9CFFE9C72C230C8500D42950 /* VaultDetailView.swift */,
@@ -195,7 +192,6 @@
 				9CFFE9D22C230C8500D42950 /* Fonts.swift in Sources */,
 				9CFFE9D42C230C8500D42950 /* ContentView.swift in Sources */,
 				9CFFE9D52C230C8500D42950 /* HomeView.swift in Sources */,
-				9CFFE9D32C230C8500D42950 /* ConnectionPromptView.swift in Sources */,
 				9CFFE9CF2C230C8500D42950 /* Models.swift in Sources */,
 				9CFFE9D62C230C8500D42950 /* VaultDetailView.swift in Sources */,
 				9CFFE9D12C230C8500D42950 /* Colors.swift in Sources */,
