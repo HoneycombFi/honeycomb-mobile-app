@@ -67,18 +67,31 @@ struct ApiaryView: View {
             }
             .padding()
 
-            ScrollView {
-                VStack {
-                    ForEach(vaults) { vault in
-                        VaultItemView(vault: vault, isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
-                            .padding(.horizontal)
-                    }
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("My Hives")
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .padding(.top, 10)
+                        .padding(.leading, 10)
+                    Spacer()
                 }
-                .frame(maxWidth: .infinity) // Make vault items wider
-                .padding(.horizontal)
+                .padding(.leading)
+                .padding(.trailing)
+                ScrollView {
+                    VStack {
+                        ForEach(vaults) { vault in
+                            VaultItemView(vault: vault, isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
+                                .padding(.horizontal)
+                        }
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(.horizontal)
+                }
+                .foregroundColor(.white)
+                .cornerRadius(10)
             }
-            .foregroundColor(.white)
-            .cornerRadius(10)
         }
         .background(Color.black)
         .edgesIgnoringSafeArea(.all)
