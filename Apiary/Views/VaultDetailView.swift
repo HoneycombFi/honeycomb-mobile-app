@@ -12,7 +12,7 @@ struct VaultDetailView: View {
 
     var body: some View {
         ScrollView {
-            VStack {
+            VStack(alignment: .leading) {
                 HStack {
                     Button(action: {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -23,163 +23,217 @@ struct VaultDetailView: View {
                             .foregroundColor(.white)
                             .padding()
                     }
-                    Spacer()
-                }
-                
-                VStack(alignment: .leading) {
+                    
                     Text(vault.name)
-                        .font(.largeTitle)
+                        .font(.title)
                         .bold()
                         .foregroundColor(.white)
-                        .padding([.leading, .bottom, .trailing])
+                        .padding([.top, .bottom, .trailing])
+                    
+                    Spacer()
+                }
 
-                    VStack {
+                VStack(alignment: .leading) {
+                    Text("MY BALANCE")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                        .padding(.leading)
+
+                    HStack {
+                        Text("$44.00") // TODO: replace with actual data
+                            .font(.largeTitle)
+                            .bold()
+                            .foregroundColor(.white)
+                        
+                        Spacer()
+                        
                         HStack {
-                            Text("Apiary Hive Performance")
-                                .font(.headline)
-                                .foregroundColor(.white)
-                            Spacer()
                             if isConnected {
                                 Button(action: {
-                                    // TODO: add Vault action
+                                    // TODO: Add buy action
                                 }) {
                                     Image(systemName: "plus.circle.fill")
                                         .foregroundColor(.yellow)
                                         .font(.title)
                                 }
+                                Text("BUY")
+                                    .font(.headline)
+                                    .foregroundColor(.white)
+                                                            
+                                Button(action: {
+                                    // TODO: Add sell action
+                                }) {
+                                    Image(systemName: "minus.circle.fill")
+                                        .foregroundColor(.yellow)
+                                        .font(.title)
+                                }
+                                Text("SELL")
+                                    .font(.headline)
+                                    .foregroundColor(.white)
                             } else {
                                 Button(action: {}) {
                                     Image(systemName: "plus.circle.fill")
                                         .foregroundColor(.gray)
                                         .font(.title)
                                         .opacity(0.2)
+
                                 }
                                 .disabled(true)
-                            }
-                        }
-                        .padding([.leading, .trailing, .top])
+                                
+                                Text("BUY")
+                                    .font(.headline)
+                                    .foregroundColor(.white)
+                                                            
+                                Button(action: {}) {
+                                    Image(systemName: "minus.circle.fill")
+                                        .foregroundColor(.gray)
+                                        .font(.title)
+                                        .opacity(0.2)
 
-                        Picker("Timeframe", selection: $selectedTimeframe) {
-                            ForEach(timeframes.indices, id: \.self) { index in
-                                Text(self.timeframes[index])
-                            }
-                        }
-                        .pickerStyle(SegmentedPickerStyle())
-                        .padding([.leading, .trailing])
-
-                        // Placeholder for chart
-                        Rectangle()
-                            .fill(Color.gray)
-                            .frame(height: 200)
-                            .padding()
-
-                        HStack {
-                            Text("$8.33%")
-                                .font(.largeTitle)
-                                .bold()
-                                .foregroundColor(.white)
-                            Spacer()
-                            Text("+1.6%")
-                                .font(.headline)
-                                .foregroundColor(.green)
-                        }
-                        .padding([.leading, .trailing, .bottom])
-                    }
-                    .background(Color.black.opacity(0.8))
-                    .cornerRadius(10)
-                    .padding([.leading, .trailing])
-                    
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text("About This Hive")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding([.leading, .top])
-
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text("HOLDINGS")
-                                    .font(.caption)
-                                    .foregroundColor(.gray)
-                                HStack {
-                                    // Example holdings icons
-                                    Image(systemName: "bitcoinsign.circle")
-                                        .foregroundColor(.yellow)
-                                    Image(systemName: "bitcoinsign.circle")
-                                        .foregroundColor(.yellow)
                                 }
-                            }
-
-                            Spacer()
-
-                            VStack(alignment: .leading) {
-                                Text("APR")
-                                    .font(.caption)
-                                    .foregroundColor(.gray)
-                                Text("\(vault.yield, specifier: "%.1f")%")
+                                .disabled(true)
+                                Text("SELL")
                                     .font(.headline)
                                     .foregroundColor(.white)
                             }
-
-                            Spacer()
-
-                            VStack(alignment: .leading) {
-                                Text("RISK RATING")
-                                    .font(.caption)
-                                    .foregroundColor(.gray)
-                                Text(vault.riskRating)
-                                    .font(.headline)
-                                    .foregroundColor(.green)
-                            }
                         }
-                        .padding([.leading, .trailing])
-
-                        VStack(alignment: .leading, spacing: 10) {
-                            Text("Synthetix V3 Vault")
-                                .font(.headline)
-                                .foregroundColor(.white)
-                            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
-                                .foregroundColor(.white)
-                            Button(action: {
-                                // TODO: Learn more about Synthetix
-                            }) {
-                                Text("Learn More About Synthetix")
-                                    .foregroundColor(.yellow)
-                            }
-                        }
-                        .padding([.leading, .trailing, .bottom])
-
-                        VStack(alignment: .leading, spacing: 10) {
-                            Text("Panoptic Vault")
-                                .font(.headline)
-                                .foregroundColor(.white)
-                            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
-                                .foregroundColor(.white)
-                            Button(action: {
-                                // TODO: Learn more about Panoptic
-                            }) {
-                                Text("Learn More About Panoptic")
-                                    .foregroundColor(.yellow)
-                            }
-                        }
-                        .padding([.leading, .trailing, .bottom])
                     }
-                    .background(Color.black.opacity(0.8))
-                    .cornerRadius(10)
-                    .padding()
-
-                    Button(action: {
-                        // TODO: Add to Hive action
-                    }) {
-                        Text("Add To Apiary")
-                            .font(.title2)
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(Color.yellow)
-                            .foregroundColor(.black)
-                            .cornerRadius(10)
-                            .padding(.horizontal)
-                    }
+                    .padding(.horizontal)
                 }
+
+                VStack(alignment: .leading) {
+                    Text("Apiary Hive Performance")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding([.leading, .top, .trailing])
+
+                    Picker("Timeframe", selection: $selectedTimeframe) {
+                        ForEach(timeframes.indices, id: \.self) { index in
+                            Text(self.timeframes[index])
+                        }
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                    .padding(.horizontal)
+
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+                            .fill(Color(hex: "0x191919"))
+                            .frame(height: 200)
+                            .shadow(color: Color.purple.opacity(0.4), radius: 10, x: 0, y: 5)
+
+                        VStack(alignment: .leading) {
+                            HStack {
+                                Text("8.33%")
+                                    .font(.system(size: 36, weight: .bold))
+                                    .foregroundColor(.white)
+                                    .padding(.leading)
+                                
+                                Spacer()
+                                
+                                Text("+1.6%")
+                                    .font(.system(size: 24))
+                                    .foregroundColor(.green)
+                                    .padding(.trailing)
+                            }
+                            
+                            Spacer()
+                            
+                            PriceChartView()
+                        }
+                        .padding()
+                    }
+                    .padding()
+                }
+                .background(Color(hex: "0x191919"))
+                .cornerRadius(10)
+                .padding(.horizontal)
+
+                VStack(alignment: .leading, spacing: 10) {
+                    HStack {
+                        Text("About This Hive")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding([.leading, .top, .bottom])
+                        
+                        Spacer()
+                         
+                        Text("Chain: 🟦 Base")
+                            .font(.caption)
+                            .foregroundColor(.white)
+                            .padding([.trailing, .top, .bottom])
+                    }
+
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("HOLDINGS")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                            HStack {
+                                // TODO: holdings icons
+                                Image(systemName: "bitcoinsign.circle")
+                                    .foregroundColor(.yellow)
+                                Image(systemName: "bitcoinsign.circle")
+                                    .foregroundColor(.yellow)
+                            }
+                        }
+
+                        Spacer()
+
+                        VStack(alignment: .leading) {
+                            Text("APR")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                            Text("\(vault.yield, specifier: "%.1f")%")
+                                .font(.headline)
+                                .foregroundColor(.white)
+                        }
+
+                        Spacer()
+
+                        VStack(alignment: .leading) {
+                            Text("RISK RATING")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                            Text(vault.riskRating)
+                                .font(.headline)
+                                .foregroundColor(.green)
+                        }
+                    }
+                    .padding([.leading, .trailing, .bottom])
+
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("Synthetix V3 Vault")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                        Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+                            .foregroundColor(.white)
+                        Button(action: {
+                            // TODO: Learn more about Synthetix
+                        }) {
+                            Text("Learn More About Synthetix")
+                                .foregroundColor(.yellow)
+                        }
+                    }
+                    .padding([.leading, .trailing, .bottom])
+
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("Panoptic Vault")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                        Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+                            .foregroundColor(.white)
+                        Button(action: {
+                            // TODO: Learn more about Panoptic
+                        }) {
+                            Text("Learn More About Panoptic")
+                                .foregroundColor(.yellow)
+                        }
+                    }
+                    .padding([.leading, .trailing, .bottom])
+                }
+                .background(Color(hex: "0x191919"))
+                .cornerRadius(10)
+                .padding()
             }
             .background(Color.black)
             .edgesIgnoringSafeArea(.all)
