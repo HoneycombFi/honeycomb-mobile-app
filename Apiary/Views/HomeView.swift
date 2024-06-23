@@ -1,7 +1,5 @@
 import SwiftUI
 
-import SwiftUI
-
 struct HomeView: View {
     @Binding var isConnected: Bool
     @Binding var showTooltip: Bool
@@ -14,30 +12,30 @@ struct HomeView: View {
     ]
 
     var body: some View {
-        ZStack {
-            VStack(alignment: .leading) {
-                Text("Welcome to Apiary")
-                    .font(.largeTitle)
-                    .bold()
-                    .foregroundColor(.white)
-                    .padding(.top, 10)
-                    .padding(.bottom, 20)
-                    .padding(.horizontal)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-
-                if isConnected {
-                    PortfolioBalanceView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt, selectedTab: $selectedTab)
-                } else {
-                    ConnectWalletView(showConnectionPrompt: $showConnectionPrompt)
-                }
-
-                Text("Trending Hives")
-                    .font(.title2)
-                    .foregroundColor(.white)
-                    .padding(.top, 20)
-                    .padding(.horizontal)
-
-                ScrollView {
+        ScrollView {
+            ZStack {
+                VStack(alignment: .leading) {
+                    Text("Welcome to Apiary")
+                        .font(.largeTitle)
+                        .bold()
+                        .foregroundColor(.white)
+                        .padding(.top, 10)
+                        .padding(.bottom, 20)
+                        .padding(.horizontal)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    if isConnected {
+                        PortfolioBalanceView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt, selectedTab: $selectedTab)
+                    } else {
+                        ConnectWalletView(showConnectionPrompt: $showConnectionPrompt)
+                    }
+                    
+                    Text("Trending Hives")
+                        .font(.title2)
+                        .foregroundColor(.white)
+                        .padding(.top, 20)
+                        .padding(.horizontal)
+                    
                     VStack {
                         ForEach(vaults) { vault in
                             VaultItemView(vault: vault, isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
@@ -48,19 +46,13 @@ struct HomeView: View {
                     .frame(maxWidth: .infinity)
                 }
                 .background(Color.black)
-                .foregroundColor(.white)
-                .cornerRadius(10)
-                .padding(.horizontal)
+                .edgesIgnoringSafeArea(.all)
+                .blur(radius: showConnectionPrompt ? 5 : 0)
             }
-            .background(Color.black)
-            .edgesIgnoringSafeArea(.all)
-            .blur(radius: showConnectionPrompt ? 5 : 0)
+            .navigationBarHidden(true)
         }
-        .navigationBarHidden(true)
     }
 }
-
-import SwiftUI
 
 struct PortfolioBalanceView: View {
     @Binding var isConnected: Bool
@@ -72,7 +64,7 @@ struct PortfolioBalanceView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)
                 .fill(LinearGradient(gradient: Gradient(colors: [Color(hex: "0xFFCB31"), Color(hex: "0xEC6A5E")]), startPoint: .leading, endPoint: .trailing))
-                .frame(height: 180)
+                .frame(height: 200)
             
             VStack(alignment: .leading) {
                 Text("MY PORTFOLIO BALANCE")
@@ -88,51 +80,38 @@ struct PortfolioBalanceView: View {
                     
                     Spacer()
                     
-                    Button(action: {
-                        selectedTab = 1
-                    }) {
-                        Image(systemName: "chevron.right")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .foregroundColor(.black)
-                            .frame(width: 28, height: 28, alignment: .trailing)
+                    if selectedTab != 1 {
+                        Button(action: {
+                            selectedTab = 1
+                        }) {
+                            Image(systemName: "chevron.right")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .foregroundColor(.black)
+                                .frame(width: 20, height: 20, alignment: .trailing)
+                                .padding(.top, 4)
+                        }
                     }
                 }
                 .padding(.bottom, 20)
                 
-                HStack(spacing: 16) {
-                    Button(action: {
-                        // TODO: Deposit action
-                    }) {
-                        HStack {
-                            Image(systemName: "building.columns")
-                                .font(.system(size: 16))
-                            Text("Deposit")
-                                .font(.system(size: 16).bold())
-                        }
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.black)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                    }
-                    
-                    Button(action: {
+                Button(action: {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                         // TODO: Withdraw action
-                    }) {
-                        HStack {
-                            Image(systemName: "creditcard")
-                                .font(.system(size: 16))
-                            Text("Withdraw")
-                                .font(.system(size: 16).bold())
-                        }
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.black)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
                     }
-                }
+                }) {
+                    HStack {
+                        Image(systemName: "creditcard")
+                            .font(.system(size: 16))
+                        Text("Withdraw Rewards")
+                            .font(.system(size: 16).bold())
+                    }
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.black)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                }.padding(.bottom, 10)
             }
             .padding()
         }

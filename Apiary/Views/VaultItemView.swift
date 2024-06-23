@@ -165,6 +165,6 @@ struct EmptyVaultItem: View {
         }
         .padding(.horizontal, 16)
         .padding(.top, 2)
-        .padding(.bottom, 100)
+        .padding(.bottom, 20)
     }
 }

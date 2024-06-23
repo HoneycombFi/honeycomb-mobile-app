@@ -11,34 +11,34 @@ struct VaultDetailView: View {
     let timeframes = ["1D", "1W", "1M", "YTD", "1Y", "ALL"]
 
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading) {
-                HStack {
-                    Button(action: {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                            presentationMode.wrappedValue.dismiss()
-                        }
-                    }) {
-                        Image(systemName: "chevron.left")
-                            .foregroundColor(.white)
-                            .padding()
+        VStack(alignment: .leading) {
+            HStack {
+                Button(action: {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        presentationMode.wrappedValue.dismiss()
                     }
-                    
-                    Text(vault.name)
-                        .font(.title)
-                        .bold()
+                }) {
+                    Image(systemName: "chevron.left")
                         .foregroundColor(.white)
-                        .padding([.top, .bottom, .trailing])
-                    
-                    Spacer()
+                        .padding()
                 }
-
+                
+                Text(vault.name)
+                    .font(.title)
+                    .bold()
+                    .foregroundColor(.white)
+                    .padding([.top, .bottom, .trailing])
+                
+                Spacer()
+            }
+            
+            ScrollView {
                 VStack(alignment: .leading) {
                     Text("MY BALANCE")
                         .font(.caption)
                         .foregroundColor(.gray)
                         .padding(.leading)
-
+                    
                     HStack {
                         Text("$44.00") // TODO: replace with actual data
                             .font(.largeTitle)
@@ -59,7 +59,7 @@ struct VaultDetailView: View {
                                 Text("BUY")
                                     .font(.headline)
                                     .foregroundColor(.white)
-                                                            
+                                
                                 Button(action: {
                                     // TODO: Add sell action
                                 }) {
@@ -76,20 +76,20 @@ struct VaultDetailView: View {
                                         .foregroundColor(.gray)
                                         .font(.title)
                                         .opacity(0.2)
-
+                                    
                                 }
                                 .disabled(true)
                                 
                                 Text("BUY")
                                     .font(.headline)
                                     .foregroundColor(.white)
-                                                            
+                                
                                 Button(action: {}) {
                                     Image(systemName: "minus.circle.fill")
                                         .foregroundColor(.gray)
                                         .font(.title)
                                         .opacity(0.2)
-
+                                    
                                 }
                                 .disabled(true)
                                 Text("SELL")
@@ -100,13 +100,13 @@ struct VaultDetailView: View {
                     }
                     .padding(.horizontal)
                 }
-
+                
                 VStack(alignment: .leading) {
                     Text("Apiary Hive Performance")
                         .font(.headline)
                         .foregroundColor(.white)
                         .padding([.leading, .top, .trailing])
-
+                    
                     Picker("Timeframe", selection: $selectedTimeframe) {
                         ForEach(timeframes.indices, id: \.self) { index in
                             Text(self.timeframes[index])
@@ -114,13 +114,13 @@ struct VaultDetailView: View {
                     }
                     .pickerStyle(SegmentedPickerStyle())
                     .padding(.horizontal)
-
+                    
                     ZStack {
                         RoundedRectangle(cornerRadius: 25.0, style: .continuous)
                             .fill(Color(hex: "0x191919"))
                             .frame(height: 200)
                             .shadow(color: Color.purple.opacity(0.4), radius: 10, x: 0, y: 5)
-
+                        
                         VStack(alignment: .leading) {
                             HStack {
                                 Text("8.33%")
@@ -147,7 +147,7 @@ struct VaultDetailView: View {
                 .background(Color(hex: "0x191919"))
                 .cornerRadius(10)
                 .padding(.horizontal)
-
+                
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {
                         Text("About This Hive")
@@ -156,13 +156,13 @@ struct VaultDetailView: View {
                             .padding([.leading, .top, .bottom])
                         
                         Spacer()
-                         
+                        
                         Text("Chain: 🟦 Base")
                             .font(.caption)
                             .foregroundColor(.white)
                             .padding([.trailing, .top, .bottom])
                     }
-
+                    
                     HStack {
                         VStack(alignment: .leading) {
                             Text("HOLDINGS")
@@ -176,9 +176,9 @@ struct VaultDetailView: View {
                                     .foregroundColor(.yellow)
                             }
                         }
-
+                        
                         Spacer()
-
+                        
                         VStack(alignment: .leading) {
                             Text("APR")
                                 .font(.caption)
@@ -187,9 +187,9 @@ struct VaultDetailView: View {
                                 .font(.headline)
                                 .foregroundColor(.white)
                         }
-
+                        
                         Spacer()
-
+                        
                         VStack(alignment: .leading) {
                             Text("RISK RATING")
                                 .font(.caption)
@@ -200,7 +200,7 @@ struct VaultDetailView: View {
                         }
                     }
                     .padding([.leading, .trailing, .bottom])
-
+                    
                     VStack(alignment: .leading, spacing: 10) {
                         Text("Synthetix V3 Vault")
                             .font(.headline)
@@ -215,7 +215,7 @@ struct VaultDetailView: View {
                         }
                     }
                     .padding([.leading, .trailing, .bottom])
-
+                    
                     VStack(alignment: .leading, spacing: 10) {
                         Text("Panoptic Vault")
                             .font(.headline)

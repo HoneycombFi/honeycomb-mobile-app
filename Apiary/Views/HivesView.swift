@@ -11,36 +11,38 @@ struct HivesView: View {
     ]
 
     var body: some View {
-        ZStack {
-            VStack(alignment: .leading) {
-                Text("Explore Hives")
-                    .font(.title)
-                    .bold()
-                    .foregroundColor(.white)
-                    .padding(.top, 10)
-                    .padding(.bottom, 20)
-                    .padding(.horizontal)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-
-                ScrollView {
-                    VStack {
-                        ForEach(vaults) { vault in
-                            VaultItemView(vault: vault, isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
-                                .padding(.horizontal)
+        ScrollView {
+            ZStack {
+                VStack(alignment: .leading) {
+                    Text("Explore Hives")
+                        .font(.title)
+                        .bold()
+                        .foregroundColor(.white)
+                        .padding(.top, 10)
+                        .padding(.bottom, 20)
+                        .padding(.horizontal)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    ScrollView {
+                        VStack {
+                            ForEach(vaults) { vault in
+                                VaultItemView(vault: vault, isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
+                                    .padding(.horizontal)
+                            }
+                            EmptyVaultItem()
                         }
-                        EmptyVaultItem()
+                        .frame(maxWidth: .infinity)
                     }
-                    .frame(maxWidth: .infinity)
+                    .background(Color.black)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                    .padding(.horizontal)
                 }
                 .background(Color.black)
-                .foregroundColor(.white)
-                .cornerRadius(10)
-                .padding(.horizontal)
+                .edgesIgnoringSafeArea(.all)
+                .blur(radius: showConnectionPrompt ? 5 : 0)
             }
-            .background(Color.black)
-            .edgesIgnoringSafeArea(.all)
-            .blur(radius: showConnectionPrompt ? 5 : 0)
+            .navigationBarHidden(true)
         }
-        .navigationBarHidden(true)
     }
 }

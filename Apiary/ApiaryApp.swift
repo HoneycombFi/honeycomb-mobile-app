@@ -27,7 +27,7 @@ struct ApiaryApp: App {
                                     }
                                     .tag(0)
                                 
-                                ApiaryView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
+                                ApiaryView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt, selectedTab: $selectedTab)
                                     .tabItem {
                                         Image(systemName: "circle.grid.hex")
                                         Text("My Apiary")
