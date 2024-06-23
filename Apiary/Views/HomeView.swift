@@ -11,7 +11,6 @@ struct HomeView: View {
     let vaults = [
         Vault(name: "Apiary Aggregated Hive", yield: 12.0, riskRating: "A", info: "Some information about this vault."),
         Vault(name: "Apiary Aggregated Hive", yield: 12.0, riskRating: "A", info: "Some information about this vault."),
-        Vault(name: "New Hives Coming Soon", yield: 0.0, riskRating: "", info: "")
     ]
 
     var body: some View {
@@ -44,6 +43,7 @@ struct HomeView: View {
                             VaultItemView(vault: vault, isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
                                 .padding(.horizontal)
                         }
+                        EmptyVaultItem()
                     }
                     .frame(maxWidth: .infinity)
                 }
