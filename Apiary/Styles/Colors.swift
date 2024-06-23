@@ -1,13 +1,9 @@
 import SwiftUI
 
 extension Color {
-    static let primaryYellow = Color(hex: "0xFFCB31")
-    static let lightBlue = Color(hex: "0x9D7DFF")
-    static let mediumBlue = Color(hex: "0x7DDFFF")
-    static let lightGray = Color(hex: "0x9E9E9E")
-    static let lightPurple = Color(hex: "0xED72D5")
-    static let green = Color(hex: "0x61C555")
-    static let red = Color(hex: "0xEC6A5E")
+    static let yellow5 = Color(hex: "0xFFE083")
+    static let gray12 = Color(hex: "0x282828")
+    static let gray13 = Color(hex: "0x191919")
 
     init(hex: String) {
         let scanner = Scanner(string: hex)

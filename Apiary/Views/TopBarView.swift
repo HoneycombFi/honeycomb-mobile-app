@@ -2,7 +2,6 @@ import SwiftUI
 
 struct TopBarView: View {
     @Binding var isConnected: Bool
-    @Binding var showTooltip: Bool
     @Binding var showConnectionPrompt: Bool
 
     var body: some View {
@@ -10,7 +9,7 @@ struct TopBarView: View {
             Image(systemName: "circle.grid.hex")
                 .resizable()
                 .frame(width: 30, height: 30)
-                .foregroundColor(.yellow)
+                .foregroundColor(.yellow5)
             Text("APIARY")
                 .font(.title)
                 .foregroundColor(.white)
@@ -18,47 +17,24 @@ struct TopBarView: View {
             if isConnected {
                 Button(action: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                        showTooltip.toggle()
+                        showConnectionPrompt.toggle()
                     }
                 }) {
                     Text("0x19t6...9m88") // TODO: Display actual address
                         .lineLimit(1)
                         .truncationMode(.middle)
                         .font(.caption)
-                        .foregroundColor(.yellow)
+                        .foregroundColor(.yellow5)
                         .padding(10)
                         .background(Color.black)
                         .cornerRadius(5)
                         .overlay(
                             RoundedRectangle(cornerRadius: 5)
-                                .stroke(Color.yellow, lineWidth: 1)
+                                .stroke(Color.yellow5, lineWidth: 1)
                         )
                 }
-                .sheet(isPresented: $showTooltip) {
-                    VStack {
-                        Button(action: {
-                            isConnected = false
-                            showTooltip = false
-                        }) {
-                            HStack {
-                                Text("Disconnect Wallet")
-                                    .font(.caption)
-                                    .foregroundColor(.white)
-                                Image(systemName: "wallet.pass")
-                                    .foregroundColor(.white)
-                            }
-                            .padding(10)
-                            .background(Color.black)
-                            .cornerRadius(5)
-                        }
-                    }
-                    .padding()
-                    .background(Color.black)
-                    .cornerRadius(10)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.yellow, lineWidth: 1)
-                    )
+                .sheet(isPresented: $showConnectionPrompt) {
+                    WalletView(isConnected: $isConnected)
                 }
             } else {
                 Button(action: {
@@ -68,40 +44,17 @@ struct TopBarView: View {
                 }) {
                     Text("Connect")
                         .font(.caption)
-                        .foregroundColor(.yellow)
+                        .foregroundColor(.yellow5)
                         .padding(10)
                         .background(Color.black)
                         .cornerRadius(5)
                         .overlay(
                             RoundedRectangle(cornerRadius: 5)
-                                .stroke(Color.yellow, lineWidth: 1)
+                                .stroke(Color.yellow5, lineWidth: 1)
                         )
                 }
                 .sheet(isPresented: $showConnectionPrompt) {
-                    VStack {
-                        Button(action: {
-                            isConnected = true
-                            showConnectionPrompt = false
-                        }) {
-                            HStack {
-                                Text("Connect Wallet")
-                                    .font(.caption)
-                                    .foregroundColor(.white)
-                                Image(systemName: "wallet.pass")
-                                    .foregroundColor(.white)
-                            }
-                            .padding(10)
-                            .background(Color.black)
-                            .cornerRadius(5)
-                        }
-                    }
-                    .padding()
-                    .background(Color.black)
-                    .cornerRadius(10)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.yellow, lineWidth: 1)
-                    )
+                    WalletView(isConnected: $isConnected)
                 }
             }
         }

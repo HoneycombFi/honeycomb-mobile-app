@@ -3,7 +3,6 @@ import SwiftUI
 struct VaultItemView: View {
     let vault: Vault
     @Binding var isConnected: Bool
-    @Binding var showTooltip: Bool
     @Binding var showConnectionPrompt: Bool
 
     var body: some View {
@@ -22,7 +21,7 @@ struct VaultItemView: View {
                         Image(systemName: "plus.circle.fill")
                             .resizable()
                             .frame(width: 28, height: 28)
-                            .foregroundColor(.yellow)
+                            .foregroundColor(.yellow5)
                     }
                 } else {
                     Image(systemName: "plus.circle.fill")
@@ -84,7 +83,7 @@ struct VaultItemView: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
-                NavigationLink(destination: VaultDetailView(vault: vault, isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)) {
+                NavigationLink(destination: VaultDetailView(vault: vault, isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)) {
                     Image(systemName: "chevron.right")
                         .resizable()
                         .aspectRatio(contentMode: .fit)

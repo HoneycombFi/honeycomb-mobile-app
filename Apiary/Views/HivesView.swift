@@ -2,7 +2,6 @@ import SwiftUI
 
 struct HivesView: View {
     @Binding var isConnected: Bool
-    @Binding var showTooltip: Bool
     @Binding var showConnectionPrompt: Bool
 
     let vaults = [
@@ -26,7 +25,7 @@ struct HivesView: View {
                     ScrollView {
                         VStack {
                             ForEach(vaults) { vault in
-                                VaultItemView(vault: vault, isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
+                                VaultItemView(vault: vault, isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
                                     .padding(.horizontal)
                             }
                             EmptyVaultItem()

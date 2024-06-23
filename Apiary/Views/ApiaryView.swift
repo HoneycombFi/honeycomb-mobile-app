@@ -3,7 +3,6 @@ import SwiftUI
 struct ApiaryView: View {
     @State private var selectedTimeframe = 0
     @Binding var isConnected: Bool
-    @Binding var showTooltip: Bool
     @Binding var showConnectionPrompt: Bool
     @Binding var selectedTab: Int
 
@@ -41,7 +40,7 @@ struct ApiaryView: View {
                 // Placeholder for chart
                 ZStack {
                     RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                        .fill(Color(hex: "0x191919"))
+                        .fill(Color.gray13)
                         .frame(height: 300)
                         .shadow(color: Color.purple.opacity(0.4), radius: 10, x: 0, y: 5)
                     
@@ -72,7 +71,7 @@ struct ApiaryView: View {
                     ConnectWalletView(showConnectionPrompt: $showConnectionPrompt)
 
                 } else {
-                    PortfolioBalanceView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt, selectedTab: $selectedTab)
+                    PortfolioBalanceView(isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt, selectedTab: $selectedTab)
                     
                     VStack(alignment: .leading) {
                         HStack {
@@ -89,7 +88,7 @@ struct ApiaryView: View {
                         ScrollView {
                             VStack {
                                 ForEach(vaults) { vault in
-                                    VaultItemView(vault: vault, isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
+                                    VaultItemView(vault: vault, isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
                                         .padding(.horizontal)
                                 }
                             }

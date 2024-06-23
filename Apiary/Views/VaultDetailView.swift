@@ -5,7 +5,6 @@ struct VaultDetailView: View {
 
     @Environment(\.presentationMode) var presentationMode
     @Binding var isConnected: Bool
-    @Binding var showTooltip: Bool
     @Binding var showConnectionPrompt: Bool
     @State private var selectedTimeframe = 0
     let timeframes = ["1D", "1W", "1M", "YTD", "1Y", "ALL"]
@@ -53,7 +52,7 @@ struct VaultDetailView: View {
                                     // TODO: Add buy action
                                 }) {
                                     Image(systemName: "plus.circle.fill")
-                                        .foregroundColor(.yellow)
+                                        .foregroundColor(.yellow5)
                                         .font(.title)
                                 }
                                 Text("BUY")
@@ -64,7 +63,7 @@ struct VaultDetailView: View {
                                     // TODO: Add sell action
                                 }) {
                                     Image(systemName: "minus.circle.fill")
-                                        .foregroundColor(.yellow)
+                                        .foregroundColor(.yellow5)
                                         .font(.title)
                                 }
                                 Text("SELL")
@@ -117,7 +116,7 @@ struct VaultDetailView: View {
                     
                     ZStack {
                         RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                            .fill(Color(hex: "0x191919"))
+                            .fill(Color.gray13)
                             .frame(height: 200)
                             .shadow(color: Color.purple.opacity(0.4), radius: 10, x: 0, y: 5)
                         
@@ -144,7 +143,7 @@ struct VaultDetailView: View {
                     }
                     .padding()
                 }
-                .background(Color(hex: "0x191919"))
+                .background(Color.gray13)
                 .cornerRadius(10)
                 .padding(.horizontal)
                 
@@ -171,9 +170,9 @@ struct VaultDetailView: View {
                             HStack {
                                 // TODO: holdings icons
                                 Image(systemName: "bitcoinsign.circle")
-                                    .foregroundColor(.yellow)
+                                    .foregroundColor(.yellow5)
                                 Image(systemName: "bitcoinsign.circle")
-                                    .foregroundColor(.yellow)
+                                    .foregroundColor(.yellow5)
                             }
                         }
                         
@@ -211,7 +210,7 @@ struct VaultDetailView: View {
                             // TODO: Learn more about Synthetix
                         }) {
                             Text("Learn More About Synthetix")
-                                .foregroundColor(.yellow)
+                                .foregroundColor(.yellow5)
                         }
                     }
                     .padding([.leading, .trailing, .bottom])
@@ -226,12 +225,12 @@ struct VaultDetailView: View {
                             // TODO: Learn more about Panoptic
                         }) {
                             Text("Learn More About Panoptic")
-                                .foregroundColor(.yellow)
+                                .foregroundColor(.yellow5)
                         }
                     }
                     .padding([.leading, .trailing, .bottom])
                 }
-                .background(Color(hex: "0x191919"))
+                .background(Color.gray13)
                 .cornerRadius(10)
                 .padding()
             }

@@ -2,7 +2,6 @@ import SwiftUI
 
 struct HomeView: View {
     @Binding var isConnected: Bool
-    @Binding var showTooltip: Bool
     @Binding var showConnectionPrompt: Bool
     @Binding var selectedTab: Int
 
@@ -25,7 +24,7 @@ struct HomeView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
                     if isConnected {
-                        PortfolioBalanceView(isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt, selectedTab: $selectedTab)
+                        PortfolioBalanceView(isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt, selectedTab: $selectedTab)
                     } else {
                         ConnectWalletView(showConnectionPrompt: $showConnectionPrompt)
                     }
@@ -38,7 +37,7 @@ struct HomeView: View {
                     
                     VStack {
                         ForEach(vaults) { vault in
-                            VaultItemView(vault: vault, isConnected: $isConnected, showTooltip: $showTooltip, showConnectionPrompt: $showConnectionPrompt)
+                            VaultItemView(vault: vault, isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
                                 .padding(.horizontal)
                         }
                         EmptyVaultItem()
@@ -56,7 +55,6 @@ struct HomeView: View {
 
 struct PortfolioBalanceView: View {
     @Binding var isConnected: Bool
-    @Binding var showTooltip: Bool
     @Binding var showConnectionPrompt: Bool
     @Binding var selectedTab: Int
 
