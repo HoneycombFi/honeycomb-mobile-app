@@ -106,13 +106,7 @@ struct VaultDetailView: View {
                         .foregroundColor(.white)
                         .padding([.leading, .top, .trailing])
                     
-                    Picker("Timeframe", selection: $selectedTimeframe) {
-                        ForEach(timeframes.indices, id: \.self) { index in
-                            Text(self.timeframes[index])
-                        }
-                    }
-                    .pickerStyle(SegmentedPickerStyle())
-                    .padding(.horizontal)
+                    TimeframePicker().padding()
                     
                     ZStack {
                         RoundedRectangle(cornerRadius: 25.0, style: .continuous)
@@ -126,9 +120,7 @@ struct VaultDetailView: View {
                                     .font(.system(size: 36, weight: .bold))
                                     .foregroundColor(.white)
                                     .padding(.leading)
-                                
-                                Spacer()
-                                
+                                                                
                                 Text("+1.6%")
                                     .font(.system(size: 24))
                                     .foregroundColor(.green)
@@ -137,7 +129,7 @@ struct VaultDetailView: View {
                             
                             Spacer()
                             
-                            PriceChartView()
+                            PerformanceChartView()
                         }
                         .padding()
                     }

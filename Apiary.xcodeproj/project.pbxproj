@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C16BC032C28AB3F005F62F3 /* TimeframePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16BC022C28AB3F005F62F3 /* TimeframePicker.swift */; };
+		9C16BC052C28CF1C005F62F3 /* PerformanceChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16BC042C28CF1C005F62F3 /* PerformanceChartView.swift */; };
 		9C3622E62C2881490015225E /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3622E52C2881490015225E /* WalletView.swift */; };
 		9C8A26842C2508F200A81DF0 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A26832C2508F200A81DF0 /* TopBarView.swift */; };
 		9CA858352C26075200C54E05 /* HivesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA858342C26075200C54E05 /* HivesView.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C16BC022C28AB3F005F62F3 /* TimeframePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeframePicker.swift; sourceTree = "<group>"; };
+		9C16BC042C28CF1C005F62F3 /* PerformanceChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceChartView.swift; sourceTree = "<group>"; };
 		9C3622E52C2881490015225E /* WalletView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
 		9C8A26832C2508F200A81DF0 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		9CA858342C26075200C54E05 /* HivesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HivesView.swift; sourceTree = "<group>"; };
@@ -104,6 +108,8 @@
 				9CFFE9C82C230C8500D42950 /* VaultItemView.swift */,
 				9C3622E52C2881490015225E /* WalletView.swift */,
 				9CFFE9C92C230C8500D42950 /* WelcomeView.swift */,
+				9C16BC022C28AB3F005F62F3 /* TimeframePicker.swift */,
+				9C16BC042C28CF1C005F62F3 /* PerformanceChartView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -195,7 +201,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C16BC052C28CF1C005F62F3 /* PerformanceChartView.swift in Sources */,
 				9CFFE9D22C230C8500D42950 /* Fonts.swift in Sources */,
+				9C16BC032C28AB3F005F62F3 /* TimeframePicker.swift in Sources */,
 				9CFFE9D52C230C8500D42950 /* HomeView.swift in Sources */,
 				9CFFE9CF2C230C8500D42950 /* Models.swift in Sources */,
 				9CFFE9D62C230C8500D42950 /* VaultDetailView.swift in Sources */,

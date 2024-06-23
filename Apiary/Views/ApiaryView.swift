@@ -1,12 +1,9 @@
 import SwiftUI
 
 struct ApiaryView: View {
-    @State private var selectedTimeframe = 0
     @Binding var isConnected: Bool
     @Binding var showConnectionPrompt: Bool
     @Binding var selectedTab: Int
-
-    let timeframes = ["1D", "1W", "1M", "YTD", "1Y", "ALL"]
 
     let vaults = [
         Vault(name: "Apiary Aggregated Vault", yield: 12.0, riskRating: "A", info: "Some information about this vault."),
@@ -26,16 +23,7 @@ struct ApiaryView: View {
                 .padding(.leading)
                 .padding(.trailing)
                 
-                Picker("Timeframe", selection: $selectedTimeframe) {
-                    ForEach(timeframes.indices, id: \.self) { index in
-                        Text(self.timeframes[index])
-                    }
-                }
-                .pickerStyle(SegmentedPickerStyle())
-                .padding()
-                .background(Color.gray.opacity(0.2))
-                .cornerRadius(25)
-                .padding(.horizontal)
+                TimeframePicker().padding()
                 
                 // Placeholder for chart
                 ZStack {
@@ -50,9 +38,7 @@ struct ApiaryView: View {
                                 .font(.system(size: 36, weight: .bold))
                                 .foregroundColor(.white)
                                 .padding(.leading)
-                            
-                            Spacer()
-                            
+                                                        
                             Text("+1.6%")
                                 .font(.system(size: 24))
                                 .foregroundColor(.green)
@@ -61,7 +47,7 @@ struct ApiaryView: View {
                         
                         Spacer()
                         
-                        PriceChartView()
+                        PerformanceChartView()
                     }
                     .padding()
                 }
@@ -69,7 +55,6 @@ struct ApiaryView: View {
                 
                 if !isConnected {
                     ConnectWalletView(showConnectionPrompt: $showConnectionPrompt)
-
                 } else {
                     PortfolioBalanceView(isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt, selectedTab: $selectedTab)
                     
@@ -105,33 +90,5 @@ struct ApiaryView: View {
             .edgesIgnoringSafeArea(.all)
             .navigationBarHidden(true)
         }
-    }
-}
-
-struct PriceChartView: View {
-    var body: some View {
-        GeometryReader { geometry in
-            Path { path in
-                let width = geometry.size.width
-                let height = geometry.size.height
-                
-                let points = [
-                    CGPoint(x: 0, y: height * 0.8),
-                    CGPoint(x: width * 0.2, y: height * 0.6),
-                    CGPoint(x: width * 0.4, y: height * 0.7),
-                    CGPoint(x: width * 0.6, y: height * 0.5),
-                    CGPoint(x: width * 0.8, y: height * 0.3),
-                    CGPoint(x: width, y: height * 0.2)
-                ]
-                
-                path.move(to: points[0])
-                
-                for i in 1..<points.count {
-                    path.addLine(to: points[i])
-                }
-            }
-            .stroke(Color.purple, lineWidth: 3)
-        }
-        .padding(.horizontal)
     }
 }
