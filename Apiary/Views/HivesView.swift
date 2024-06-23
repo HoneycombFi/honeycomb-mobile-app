@@ -22,20 +22,14 @@ struct HivesView: View {
                         .padding(.horizontal)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
-                    ScrollView {
-                        VStack {
-                            ForEach(vaults) { vault in
-                                VaultItemView(vault: vault, isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
-                                    .padding(.horizontal)
-                            }
-                            EmptyVaultItem()
+                    VStack {
+                        ForEach(vaults) { vault in
+                            VaultItemView(vault: vault, isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
+                                .padding(.horizontal)
                         }
-                        .frame(maxWidth: .infinity)
+                        EmptyVaultItem()
                     }
-                    .background(Color.black)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-                    .padding(.horizontal)
+                    .frame(maxWidth: .infinity)
                 }
                 .background(Color.black)
                 .edgesIgnoringSafeArea(.all)
