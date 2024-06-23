@@ -1,8 +1,12 @@
 import SwiftUI
 
 struct WalletView: View {
-    @Binding var isConnected: Bool
     @Environment(\.presentationMode) var presentationMode
+
+    @Binding var isConnected: Bool
+    @State private var showCopyTooltip = false
+    
+    let address = "0x19t6...9m88" // TODO: Display actual address
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -26,17 +30,29 @@ struct WalletView: View {
             
             if isConnected {
                 HStack(alignment: .center, spacing: 20) {
-                    Text("0x19t6...9m88") // TODO: Display actual address
-                        .font(.caption)
-                        .foregroundColor(.yellow5)
-                        .padding(10)
-                        .background(Color.gray12)
-                        .cornerRadius(5)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(Color.yellow5, lineWidth: 1)
-                        )
-                    
+                    Button(action: {
+                        UIPasteboard.general.string = address
+                        withAnimation(.easeInOut(duration: 0.3)) {
+                            showCopyTooltip = true
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            withAnimation(.easeInOut(duration: 0.3)) {
+                                showCopyTooltip = false
+                            }
+                        }
+                    }) {
+                        Text(address)
+                            .font(.caption)
+                            .foregroundColor(.yellow5)
+                            .padding(10)
+                            .background(Color.gray12)
+                            .cornerRadius(5)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 5)
+                                    .stroke(Color.yellow5, lineWidth: 1)
+                            )
+                    }
+
                     Button(action: {
                         isConnected = false
                     }) {
@@ -51,9 +67,22 @@ struct WalletView: View {
                                     .stroke(Color.yellow5, lineWidth: 1)
                             )
                     }
-
-                    // Additional wallet details or actions can be added here
                 }
+                .overlay(
+                    Group {
+                        if showCopyTooltip {
+                            Text("Copied to clipboard")
+                                .font(.caption)
+                                .padding(8)
+                                .background(Color.black)
+                                .foregroundColor(.white)
+                                .cornerRadius(5)
+                                .transition(.opacity)
+                                .offset(y: 40)
+                        }
+                    },
+                    alignment: .bottomLeading
+                )
                 Spacer()
 
             } else {
