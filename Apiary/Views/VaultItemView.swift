@@ -46,15 +46,13 @@ struct VaultItemView: View {
                         .font(.caption)
                         .foregroundColor(.gray)
                     ZStack {
-                        Image(systemName: "circle.fill")
+                        Image("pan")
                             .resizable()
                             .frame(width: 28, height: 28)
-                            .foregroundColor(.purple)
                             .offset(x: 18)
-                        Image(systemName: "xmark.circle.fill")
+                        Image("snx")
                             .resizable()
                             .frame(width: 28, height: 28)
-                            .foregroundColor(.blue)
                             .offset(x: -2)
                     }
                     .frame(width: 34, height: 28)
@@ -76,14 +74,14 @@ struct VaultItemView: View {
                     Text("RISK RATING")
                         .font(.caption)
                         .foregroundColor(.gray)
-                    Image(systemName: "circle.fill")
+                    Image("rating")
                         .resizable()
                         .frame(width: 28, height: 28)
                         .foregroundColor(.green)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
-                NavigationLink(destination: VaultDetailView(vault: vault, isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)) {
+                NavigationLink(destination: VaultDetailView(vault: vault, isConnected: $isConnected)) {
                     Image(systemName: "chevron.right")
                         .resizable()
                         .aspectRatio(contentMode: .fit)

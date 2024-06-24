@@ -26,7 +26,7 @@ struct TopBarView: View {
                         .font(.caption)
                         .foregroundColor(.yellow5)
                         .padding(10)
-                        .background(Color.black)
+                        .background(Color.gray13)
                         .cornerRadius(5)
                         .overlay(
                             RoundedRectangle(cornerRadius: 5)
@@ -46,7 +46,7 @@ struct TopBarView: View {
                         .font(.caption)
                         .foregroundColor(.yellow5)
                         .padding(10)
-                        .background(Color.black)
+                        .background(Color.gray13)
                         .cornerRadius(5)
                         .overlay(
                             RoundedRectangle(cornerRadius: 5)

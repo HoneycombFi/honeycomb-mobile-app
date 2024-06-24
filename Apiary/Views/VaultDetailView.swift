@@ -5,9 +5,6 @@ struct VaultDetailView: View {
 
     @Environment(\.presentationMode) var presentationMode
     @Binding var isConnected: Bool
-    @Binding var showConnectionPrompt: Bool
-    @State private var selectedTimeframe = 0
-    let timeframes = ["1D", "1W", "1M", "YTD", "1Y", "ALL"]
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -142,31 +139,36 @@ struct VaultDetailView: View {
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {
                         Text("About This Hive")
-                            .font(.headline)
+                            .font(.system(size: 24).bold())
                             .foregroundColor(.white)
                             .padding([.leading, .top, .bottom])
                         
                         Spacer()
                         
                         Text("Chain: 🟦 Base")
-                            .font(.caption)
+                            .font(.subheadline)
                             .foregroundColor(.white)
                             .padding([.trailing, .top, .bottom])
                     }
                     
-                    HStack {
+                    HStack(alignment: .top, spacing: 28) {
                         VStack(alignment: .leading) {
                             Text("HOLDINGS")
                                 .font(.caption)
                                 .foregroundColor(.gray)
-                            HStack {
-                                // TODO: holdings icons
-                                Image(systemName: "bitcoinsign.circle")
-                                    .foregroundColor(.yellow5)
-                                Image(systemName: "bitcoinsign.circle")
-                                    .foregroundColor(.yellow5)
+                            ZStack {
+                                Image("pan")
+                                    .resizable()
+                                    .frame(width: 28, height: 28)
+                                    .offset(x: 18)
+                                Image("snx")
+                                    .resizable()
+                                    .frame(width: 28, height: 28)
+                                    .offset(x: -2)
                             }
+                            .frame(width: 34, height: 28)
                         }
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         
                         Spacer()
                         
@@ -174,10 +176,12 @@ struct VaultDetailView: View {
                             Text("APR")
                                 .font(.caption)
                                 .foregroundColor(.gray)
-                            Text("\(vault.yield, specifier: "%.1f")%")
-                                .font(.headline)
+                            Text("\(vault.yield, specifier: "%.0f")%")
+                                .font(.system(size: 28).bold())
                                 .foregroundColor(.white)
+                                .frame(width: 60, height: 28, alignment: .leading)
                         }
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         
                         Spacer()
                         
@@ -185,10 +189,12 @@ struct VaultDetailView: View {
                             Text("RISK RATING")
                                 .font(.caption)
                                 .foregroundColor(.gray)
-                            Text(vault.riskRating)
-                                .font(.headline)
+                            Image("rating")
+                                .resizable()
+                                .frame(width: 28, height: 28)
                                 .foregroundColor(.green)
                         }
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .padding([.leading, .trailing, .bottom])
                     

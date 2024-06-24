@@ -24,7 +24,7 @@ struct HomeView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
                     if isConnected {
-                        PortfolioBalanceView(isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt, selectedTab: $selectedTab)
+                        RewardsBalanceView(isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt, selectedTab: $selectedTab)
                     } else {
                         ConnectWalletView(showConnectionPrompt: $showConnectionPrompt)
                     }
@@ -53,7 +53,7 @@ struct HomeView: View {
     }
 }
 
-struct PortfolioBalanceView: View {
+struct RewardsBalanceView: View {
     @Binding var isConnected: Bool
     @Binding var showConnectionPrompt: Bool
     @Binding var selectedTab: Int
@@ -65,7 +65,7 @@ struct PortfolioBalanceView: View {
                 .frame(height: 200)
             
             VStack(alignment: .leading) {
-                Text("MY PORTFOLIO BALANCE")
+                Text("MY REWARDS BALANCE")
                     .font(.subheadline)
                     .foregroundColor(.black)
                     .padding(.top, 4)
@@ -99,8 +99,9 @@ struct PortfolioBalanceView: View {
                     }
                 }) {
                     HStack {
-                        Image(systemName: "creditcard")
-                            .font(.system(size: 16))
+                        Image("cash")
+                            .aspectRatio(contentMode: .fit)
+                        
                         Text("Withdraw Rewards")
                             .font(.system(size: 16).bold())
                     }
@@ -139,8 +140,9 @@ struct ConnectWalletView: View {
                     }
                 }) {
                     HStack {
-                        Image(systemName: "creditcard")
-                            .font(.system(size: 16))
+                        Image("wallet")
+                            .aspectRatio(contentMode: .fit)
+                        
                         Text("Connect Wallet")
                             .font(.system(size: 16).bold())
                     }

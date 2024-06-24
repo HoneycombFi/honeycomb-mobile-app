@@ -56,7 +56,7 @@ struct ApiaryView: View {
                 if !isConnected {
                     ConnectWalletView(showConnectionPrompt: $showConnectionPrompt)
                 } else {
-                    PortfolioBalanceView(isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt, selectedTab: $selectedTab)
+                    RewardsBalanceView(isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt, selectedTab: $selectedTab)
                     
                     VStack(alignment: .leading) {
                         HStack {
@@ -70,18 +70,15 @@ struct ApiaryView: View {
                         }
                         .padding(.leading)
                         .padding(.trailing)
-                        ScrollView {
-                            VStack {
-                                ForEach(vaults) { vault in
-                                    VaultItemView(vault: vault, isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
-                                        .padding(.horizontal)
-                                }
+                        
+                        VStack {
+                            ForEach(vaults) { vault in
+                                VaultItemView(vault: vault, isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
+                                    .padding(.horizontal)
                             }
-                            .frame(maxWidth: .infinity)
-                            .padding(.horizontal)
                         }
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
+                        .frame(maxWidth: .infinity)
+                        .padding(.horizontal)
                     }
                     .padding(.bottom, 20)
                 }
