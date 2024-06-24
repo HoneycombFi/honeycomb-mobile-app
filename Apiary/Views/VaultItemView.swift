@@ -33,10 +33,21 @@ struct VaultItemView: View {
             }
             .padding(.bottom, 10)
             
-            Text("Chain: 🟦 Base")
-                .font(.caption2)
-                .foregroundColor(.white)
-                .padding(.bottom, 10)
+            HStack(alignment: .center) {
+                // TODO: display position balance & spacer if holding BEES && in ApiaryView
+                
+                // Spacer()
+                
+                Text("Chain:")
+                    .font(.subheadline)
+                    .foregroundColor(.white)
+                Image("base")
+                    .resizable()
+                    .frame(width: 16, height: 16, alignment: .leading)
+                Text("Base")
+                    .font(.subheadline)
+                    .foregroundColor(.white)
+            }
             
             Divider().background(Color.gray)
             

@@ -30,7 +30,7 @@ struct VaultDetailView: View {
             
             ScrollView {
                 VStack(alignment: .leading) {
-                    Text("MY BALANCE")
+                    Text("MY POSITION")
                         .font(.caption)
                         .foregroundColor(.gray)
                         .padding(.leading)
@@ -145,10 +145,18 @@ struct VaultDetailView: View {
                         
                         Spacer()
                         
-                        Text("Chain: 🟦 Base")
-                            .font(.subheadline)
-                            .foregroundColor(.white)
-                            .padding([.trailing, .top, .bottom])
+                        HStack(alignment: .center) {
+                            Text("Chain:")
+                                .font(.subheadline)
+                                .foregroundColor(.white)
+                            Image("base")
+                                .resizable()
+                                .frame(width: 16, height: 16, alignment: .leading)
+                            Text("Base")
+                                .font(.subheadline)
+                                .foregroundColor(.white)
+                        }
+                        .padding(.trailing, 20)
                     }
                     
                     HStack(alignment: .top, spacing: 28) {
