@@ -5,9 +5,8 @@ struct WalletView: View {
 
     @Binding var isConnected: Bool
     @State private var showCopyTooltip = false
-    
-    let address = "0x19t6...9m88" // TODO: Display actual address
-    
+    @State private var walletAddress: String = UserDefaults.standard.string(forKey: "walletAddress") ?? "0x"
+
     // TODO: Get actual token balances
     let cryptoTokens: [ERC20Token] = [
         ERC20Token(name: "USD Coin", symbol: "USDC", logo: "usdc", balance: 3000.0, priceInUSD: 1.0),
@@ -43,7 +42,7 @@ struct WalletView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     HStack(alignment: .center, spacing: 20) {
                         Button(action: {
-                            UIPasteboard.general.string = address
+                            UIPasteboard.general.string = walletAddress
                             withAnimation(.easeInOut(duration: 0.3)) {
                                 showCopyTooltip = true
                             }
@@ -53,7 +52,7 @@ struct WalletView: View {
                                 }
                             }
                         }) {
-                            Text(address)
+                            Text(AddressHelper.shared.formatAddress(walletAddress))
                                 .font(.caption)
                                 .foregroundColor(.yellow5)
                                 .padding(10)

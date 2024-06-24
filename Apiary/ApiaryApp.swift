@@ -3,10 +3,20 @@ import SwiftUI
 @main
 struct ApiaryApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    @State private var showWelcomeView = true
-    @State private var isConnected = false
+    @State private var showWelcomeView: Bool
+    @State private var isConnected: Bool
     @State private var showConnectionPrompt = false
     @State private var selectedTab = 0
+
+    init() {
+        if let _ = WalletManager.shared.getSavedWalletAddress() {
+            _isConnected = State(initialValue: true)
+            _showWelcomeView = State(initialValue: false)
+        } else {
+            _isConnected = State(initialValue: false)
+            _showWelcomeView = State(initialValue: true)
+        }
+    }
 
     var body: some Scene {
         WindowGroup {

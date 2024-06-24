@@ -103,7 +103,7 @@ struct VaultDetailView: View {
                         .foregroundColor(.white)
                         .padding([.leading, .top, .trailing])
                     
-                    TimeframePicker().padding()
+                    TimeframePickerView().padding()
                     
                     ZStack {
                         RoundedRectangle(cornerRadius: 25.0, style: .continuous)

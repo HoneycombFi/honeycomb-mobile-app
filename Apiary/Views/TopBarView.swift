@@ -3,6 +3,7 @@ import SwiftUI
 struct TopBarView: View {
     @Binding var isConnected: Bool
     @Binding var showConnectionPrompt: Bool
+    @State private var walletAddress: String = UserDefaults.standard.string(forKey: "walletAddress") ?? "0x"
 
     var body: some View {
         HStack {
@@ -20,7 +21,7 @@ struct TopBarView: View {
                         showConnectionPrompt.toggle()
                     }
                 }) {
-                    Text("0x19t6...9m88") // TODO: Display actual address
+                    Text(AddressHelper.shared.formatAddress(walletAddress))
                         .lineLimit(1)
                         .truncationMode(.middle)
                         .font(.caption)

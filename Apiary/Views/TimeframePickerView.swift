@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct TimeframePicker: View {
+struct TimeframePickerView: View {
     @State private var selectedTimeframe = "1D"
     
     let timeframes = ["1D", "1W", "1M", "YTD", "1Y", "ALL"]

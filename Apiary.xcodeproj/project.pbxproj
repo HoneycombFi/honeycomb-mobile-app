@@ -7,11 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C16BC032C28AB3F005F62F3 /* TimeframePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16BC022C28AB3F005F62F3 /* TimeframePicker.swift */; };
+		9C16BC032C28AB3F005F62F3 /* TimeframePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16BC022C28AB3F005F62F3 /* TimeframePickerView.swift */; };
 		9C16BC052C28CF1C005F62F3 /* PerformanceChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16BC042C28CF1C005F62F3 /* PerformanceChartView.swift */; };
 		9C3622E62C2881490015225E /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3622E52C2881490015225E /* WalletView.swift */; };
 		9C8A26842C2508F200A81DF0 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A26832C2508F200A81DF0 /* TopBarView.swift */; };
 		9CA858352C26075200C54E05 /* HivesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA858342C26075200C54E05 /* HivesView.swift */; };
+		9CF1F3242C29EAD500AC6D10 /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = 9CF1F3232C29EAD500AC6D10 /* web3swift */; };
+		9CF1F3272C29F02200AC6D10 /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1F3262C29F02200AC6D10 /* WalletManager.swift */; };
+		9CF1F3292C29F02900AC6D10 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1F3282C29F02900AC6D10 /* NetworkManager.swift */; };
+		9CF1F32C2C29F0A300AC6D10 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1F32B2C29F0A300AC6D10 /* KeychainHelper.swift */; };
+		9CF1F32E2C29F33400AC6D10 /* ConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1F32D2C29F33400AC6D10 /* ConfigurationManager.swift */; };
+		9CF1F3302C29FB3500AC6D10 /* AddressHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1F32F2C29FB3500AC6D10 /* AddressHelper.swift */; };
 		9CFFE9CF2C230C8500D42950 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9BD2C230C8500D42950 /* Models.swift */; };
 		9CFFE9D02C230C8500D42950 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CFFE9BF2C230C8500D42950 /* Preview Assets.xcassets */; };
 		9CFFE9D12C230C8500D42950 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9C12C230C8500D42950 /* Colors.swift */; };
@@ -26,11 +32,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9C16BC022C28AB3F005F62F3 /* TimeframePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeframePicker.swift; sourceTree = "<group>"; };
+		9C16BC022C28AB3F005F62F3 /* TimeframePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeframePickerView.swift; sourceTree = "<group>"; };
 		9C16BC042C28CF1C005F62F3 /* PerformanceChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceChartView.swift; sourceTree = "<group>"; };
 		9C3622E52C2881490015225E /* WalletView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
 		9C8A26832C2508F200A81DF0 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		9CA858342C26075200C54E05 /* HivesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HivesView.swift; sourceTree = "<group>"; };
+		9CF1F3262C29F02200AC6D10 /* WalletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManager.swift; sourceTree = "<group>"; };
+		9CF1F3282C29F02900AC6D10 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		9CF1F32B2C29F0A300AC6D10 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
+		9CF1F32D2C29F33400AC6D10 /* ConfigurationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationManager.swift; sourceTree = "<group>"; };
+		9CF1F32F2C29FB3500AC6D10 /* AddressHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressHelper.swift; sourceTree = "<group>"; };
 		9CF6228A2C22074700DE50F6 /* Apiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Apiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CFFE9BD2C230C8500D42950 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		9CFFE9BF2C230C8500D42950 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -50,12 +61,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CF1F3242C29EAD500AC6D10 /* web3swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9CF1F3252C29F00B00AC6D10 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				9CF1F32D2C29F33400AC6D10 /* ConfigurationManager.swift */,
+				9CF1F3282C29F02900AC6D10 /* NetworkManager.swift */,
+				9CF1F3262C29F02200AC6D10 /* WalletManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		9CF1F32A2C29F09600AC6D10 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9CF1F32F2C29FB3500AC6D10 /* AddressHelper.swift */,
+				9CF1F32B2C29F0A300AC6D10 /* KeychainHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		9CF622812C22074700DE50F6 = {
 			isa = PBXGroup;
 			children = (
@@ -108,7 +139,7 @@
 				9CFFE9C82C230C8500D42950 /* VaultItemView.swift */,
 				9C3622E52C2881490015225E /* WalletView.swift */,
 				9CFFE9C92C230C8500D42950 /* WelcomeView.swift */,
-				9C16BC022C28AB3F005F62F3 /* TimeframePicker.swift */,
+				9C16BC022C28AB3F005F62F3 /* TimeframePickerView.swift */,
 				9C16BC042C28CF1C005F62F3 /* PerformanceChartView.swift */,
 			);
 			path = Views;
@@ -117,12 +148,14 @@
 		9CFFE9CE2C230C8500D42950 /* Apiary */ = {
 			isa = PBXGroup;
 			children = (
+				9CFFE9CC2C230C8500D42950 /* Assets.xcassets */,
+				9CFFE9CD2C230C8500D42950 /* ApiaryApp.swift */,
 				9CFFE9BE2C230C8500D42950 /* Data */,
+				9CF1F32A2C29F09600AC6D10 /* Helpers */,
+				9CF1F3252C29F00B00AC6D10 /* Managers */,
 				9CFFE9C02C230C8500D42950 /* Preview Content */,
 				9CFFE9C32C230C8500D42950 /* Styles */,
 				9CFFE9CB2C230C8500D42950 /* Views */,
-				9CFFE9CC2C230C8500D42950 /* Assets.xcassets */,
-				9CFFE9CD2C230C8500D42950 /* ApiaryApp.swift */,
 			);
 			path = Apiary;
 			sourceTree = "<group>";
@@ -144,6 +177,7 @@
 			);
 			name = Apiary;
 			packageProductDependencies = (
+				9CF1F3232C29EAD500AC6D10 /* web3swift */,
 			);
 			productName = HoneyFarm;
 			productReference = 9CF6228A2C22074700DE50F6 /* Apiary.app */;
@@ -174,6 +208,7 @@
 			);
 			mainGroup = 9CF622812C22074700DE50F6;
 			packageReferences = (
+				9CF1F3222C29EAD500AC6D10 /* XCRemoteSwiftPackageReference "web3swift" */,
 			);
 			productRefGroup = 9CF6228B2C22074700DE50F6 /* Products */;
 			projectDirPath = "";
@@ -201,9 +236,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CF1F3292C29F02900AC6D10 /* NetworkManager.swift in Sources */,
 				9C16BC052C28CF1C005F62F3 /* PerformanceChartView.swift in Sources */,
+				9CF1F32E2C29F33400AC6D10 /* ConfigurationManager.swift in Sources */,
 				9CFFE9D22C230C8500D42950 /* Fonts.swift in Sources */,
-				9C16BC032C28AB3F005F62F3 /* TimeframePicker.swift in Sources */,
+				9C16BC032C28AB3F005F62F3 /* TimeframePickerView.swift in Sources */,
+				9CF1F3272C29F02200AC6D10 /* WalletManager.swift in Sources */,
+				9CF1F3302C29FB3500AC6D10 /* AddressHelper.swift in Sources */,
 				9CFFE9D52C230C8500D42950 /* HomeView.swift in Sources */,
 				9CFFE9CF2C230C8500D42950 /* Models.swift in Sources */,
 				9CFFE9D62C230C8500D42950 /* VaultDetailView.swift in Sources */,
@@ -215,6 +254,7 @@
 				9CA858352C26075200C54E05 /* HivesView.swift in Sources */,
 				9CFFE9D72C230C8500D42950 /* VaultItemView.swift in Sources */,
 				9C3622E62C2881490015225E /* WalletView.swift in Sources */,
+				9CF1F32C2C29F0A300AC6D10 /* KeychainHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +464,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9CF1F3222C29EAD500AC6D10 /* XCRemoteSwiftPackageReference "web3swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/web3swift-team/web3swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9CF1F3232C29EAD500AC6D10 /* web3swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9CF1F3222C29EAD500AC6D10 /* XCRemoteSwiftPackageReference "web3swift" */;
+			productName = web3swift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9CF622822C22074700DE50F6 /* Project object */;
 }

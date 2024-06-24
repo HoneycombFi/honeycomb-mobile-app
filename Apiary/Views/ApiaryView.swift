@@ -23,7 +23,7 @@ struct ApiaryView: View {
                 .padding(.leading)
                 .padding(.trailing)
                 
-                TimeframePicker().padding()
+                TimeframePickerView().padding()
                 
                 // Placeholder for chart
                 ZStack {

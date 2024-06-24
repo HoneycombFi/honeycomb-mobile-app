@@ -2,15 +2,15 @@ import Foundation
 import web3swift
 import Web3Core
 
-class NetworkController {
-    static let shared = NetworkController()
+class NetworkManager {
+    static let shared = NetworkManager()
 
     private init() {}
 
     func getNetwork() async throws -> Web3 {
         let url = URL(string: ConfigurationManager.shared.rpcURL)!
-        let web3Provider = Web3HttpProvider(url)
-        let web3 = Web3(provider: web3Provider!)
+        let web3Provider = try await Web3HttpProvider(url: url, network: nil, keystoreManager: nil)
+        let web3 = Web3(provider: web3Provider)
         return web3
     }
 
