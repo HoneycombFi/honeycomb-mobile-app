@@ -6,17 +6,9 @@ struct WalletView: View {
     @Binding var isConnected: Bool
     @State private var showCopyTooltip = false
     @State private var walletAddress: String = UserDefaults.standard.string(forKey: "walletAddress") ?? "0x"
-
-    // TODO: Get actual token balances
-    let cryptoTokens: [ERC20Token] = [
-        ERC20Token(name: "USD Coin", symbol: "USDC", logo: "usdc", balance: 3000.0, priceInUSD: 1.0),
-        ERC20Token(name: "Ether", symbol: "ETH", logo: "eth", balance: 200.09, priceInUSD: 2000.0),
-    ]
-    
-    let apiaryTokens: [ERC20Token] = [
-        ERC20Token(name: "Apiary Aggregated Hive", symbol: "BEE", logo: "bee", balance: 120.0, priceInUSD: 1.0),
-        ERC20Token(name: "Apiary Aggregated Hive", symbol: "BEE", logo: "bee", balance: 80.0, priceInUSD: 1.0)
-    ]
+    @State private var tokens: [ERC20Token] = []
+    @State private var isLoading = true
+    @State private var errorMessage: String?
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -95,64 +87,47 @@ struct WalletView: View {
                         alignment: .bottomLeading
                     )
                     
-                    Text("Token Balances")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding(.top, 30)
+                    if isLoading {
+                        ProgressView("Fetching balances...")
+                            .padding(.top, 30)
+                    } else if let errorMessage = errorMessage {
+                        Text(errorMessage)
+                            .font(.headline)
+                            .foregroundColor(.red)
+                            .padding(.top, 30)
+                    } else {
+                        Text("Token Balances")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding(.top, 30)
 
-                    ForEach(cryptoTokens) { token in
-                        HStack {
-                            Image(token.logo)
-                                .resizable()
-                                .frame(width: 32, height: 32)
-                            VStack(alignment: .leading) {
-                                Text(token.name)
+                        ForEach(tokens) { token in
+                            HStack {
+                                Image(token.logo)
+                                    .resizable()
+                                    .frame(width: 32, height: 32)
+                                VStack(alignment: .leading) {
+                                    Text(token.name)
+                                        .foregroundColor(.white)
+                                        .font(.body)
+                                    Text(token.symbol)
+                                        .foregroundColor(.gray)
+                                        .font(.caption)
+                                }
+                                Spacer()
+                                Text("\(token.balance, specifier: "%.2f")")
                                     .foregroundColor(.white)
                                     .font(.body)
-                                Text(token.symbol)
+                                Text("$\(token.priceInUSD * token.balance, specifier: "%.2f")")
                                     .foregroundColor(.gray)
                                     .font(.caption)
                             }
-                            Spacer()
-                            Text("\(token.balance, specifier: "%.2f")")
-                                .foregroundColor(.white)
-                                .font(.body)
-                            Text("$\(token.priceInUSD * token.balance, specifier: "%.2f")")
-                                .foregroundColor(.gray)
-                                .font(.caption)
+                            .padding(.vertical, 5)
                         }
-                        .padding(.vertical, 5)
                     }
-                    
-                    Text("Apiary Positions")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding(.top, 10)
-
-                    ForEach(apiaryTokens) { token in
-                        HStack {
-                            Image(token.logo)
-                                .resizable()
-                                .frame(width: 32, height: 32)
-                            VStack(alignment: .leading) {
-                                Text(token.name)
-                                    .foregroundColor(.white)
-                                    .font(.body)
-                                Text(token.symbol)
-                                    .foregroundColor(.gray)
-                                    .font(.caption)
-                            }
-                            Spacer()
-                            Text("\(token.balance, specifier: "%.2f")")
-                                .foregroundColor(.white)
-                                .font(.body)
-                            Text("$\(token.priceInUSD * token.balance, specifier: "%.2f")")
-                                .foregroundColor(.gray)
-                                .font(.caption)
-                        }
-                        .padding(.vertical, 5)
-                    }
-
+                }
+                .onAppear {
+                    fetchBalances()
                 }
             } else {
                 VStack(alignment: .leading, spacing: 20) {
@@ -177,5 +152,22 @@ struct WalletView: View {
         .padding()
         .cornerRadius(10)
         .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
+    private func fetchBalances() {
+        Task {
+            do {
+                let ethBalance = try await WalletManager.shared.getETHBalance(address: walletAddress)
+                let usdcBalance = try await WalletManager.shared.getERC20TokenBalance(address: walletAddress, contractAddress: "0xD4fA4dE9D8F8DB39EAf4de9A19bF6910F6B5bD60") // USDC contract address on Base Sepolia
+                
+                let ethToken = ERC20Token(name: "Ether", symbol: "ETH", logo: "eth", balance: ethBalance, priceInUSD: 2000.0) // TODO: Replace with actual price
+                let usdcToken = ERC20Token(name: "USD Coin", symbol: "USDC", logo: "usdc", balance: usdcBalance, priceInUSD: 1.0)
+
+                tokens = [ethToken, usdcToken]
+            } catch {
+                errorMessage = error.localizedDescription
+            }
+            isLoading = false
+        }
     }
 }
