@@ -192,17 +192,6 @@ struct VaultDetailView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         
                         Spacer()
-                        
-                        VStack(alignment: .leading) {
-                            Text("RISK RATING")
-                                .font(.caption)
-                                .foregroundColor(.gray)
-                            Image("rating")
-                                .resizable()
-                                .frame(width: 28, height: 28)
-                                .foregroundColor(.green)
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .padding([.leading, .trailing, .bottom])
                     

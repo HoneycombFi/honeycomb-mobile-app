@@ -81,17 +81,6 @@ struct VaultItemView: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
-                VStack(alignment: .leading) {
-                    Text("RISK RATING")
-                        .font(.caption)
-                        .foregroundColor(.gray)
-                    Image("rating")
-                        .resizable()
-                        .frame(width: 28, height: 28)
-                        .foregroundColor(.green)
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                
                 NavigationLink(destination: VaultDetailView(vault: vault, isConnected: $isConnected)) {
                     Image(systemName: "chevron.right")
                         .resizable()

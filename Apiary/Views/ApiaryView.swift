@@ -6,7 +6,7 @@ struct ApiaryView: View {
     @Binding var selectedTab: Int
 
     let vaults = [
-        Vault(name: "Apiary Aggregated Vault", yield: 12.0, riskRating: "A", info: "Some information about this vault."),
+        Vault(name: "Apiary Aggregated Vault", yield: 12.0, info: "Some information about this vault."),
     ]
 
     var body: some View {
