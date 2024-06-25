@@ -44,7 +44,7 @@ struct VaultItemView: View {
                 Image("base")
                     .resizable()
                     .frame(width: 16, height: 16, alignment: .leading)
-                Text("Base")
+                Text("Base Sepolia")
                     .font(.subheadline)
                     .foregroundColor(.white)
             }
@@ -53,7 +53,7 @@ struct VaultItemView: View {
             
             HStack(alignment: .top) {
                 VStack(alignment: .leading) {
-                    Text("HOLDINGS")
+                    Text("Flowers")
                         .font(.caption)
                         .foregroundColor(.gray)
                     ZStack {
@@ -71,7 +71,7 @@ struct VaultItemView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
                 VStack(alignment: .leading) {
-                    Text("APR")
+                    Text("Estimated APR")
                         .font(.caption)
                         .foregroundColor(.gray)
                     Text("\(vault.yield, specifier: "%.0f")%")

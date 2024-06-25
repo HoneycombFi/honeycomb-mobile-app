@@ -33,10 +33,10 @@ struct VaultDetailView: View {
                     Text("MY POSITION")
                         .font(.caption)
                         .foregroundColor(.gray)
-                        .padding(.leading)
+                        .padding([.top, .leading])
                     
                     HStack {
-                        Text("$44.00") // TODO: replace with actual data
+                        Text("$0.00") // TODO: replace with actual data
                             .font(.largeTitle)
                             .bold()
                             .foregroundColor(.white)
@@ -48,48 +48,41 @@ struct VaultDetailView: View {
                                 Button(action: {
                                     // TODO: Add buy action
                                 }) {
-                                    Image(systemName: "plus.circle.fill")
-                                        .foregroundColor(.yellow5)
-                                        .font(.title)
+                                    Image("pollinate")
+                                        .resizable()
+                                        .frame(width: 32, height: 32)
                                 }
-                                Text("BUY")
-                                    .font(.headline)
+                                Text("POLLINATE")
+                                    .font(.subheadline)
                                     .foregroundColor(.white)
+                                    .padding(.trailing)
                                 
                                 Button(action: {
                                     // TODO: Add sell action
                                 }) {
-                                    Image(systemName: "minus.circle.fill")
-                                        .foregroundColor(.yellow5)
-                                        .font(.title)
+                                    Image("harvest")
+                                        .resizable()
+                                        .frame(width: 32, height: 32)
                                 }
-                                Text("SELL")
-                                    .font(.headline)
+                                Text("HARVEST")
+                                    .font(.subheadline)
                                     .foregroundColor(.white)
                             } else {
-                                Button(action: {}) {
-                                    Image(systemName: "plus.circle.fill")
-                                        .foregroundColor(.gray)
-                                        .font(.title)
-                                        .opacity(0.2)
-                                    
-                                }
-                                .disabled(true)
-                                
-                                Text("BUY")
-                                    .font(.headline)
+                                Image("pollinate")
+                                    .resizable()
+                                    .frame(width: 32, height: 32)
+                                    .opacity(0.2)
+                                Text("POLLINATE")
+                                    .font(.subheadline)
                                     .foregroundColor(.white)
-                                
-                                Button(action: {}) {
-                                    Image(systemName: "minus.circle.fill")
-                                        .foregroundColor(.gray)
-                                        .font(.title)
-                                        .opacity(0.2)
-                                    
-                                }
-                                .disabled(true)
-                                Text("SELL")
-                                    .font(.headline)
+                                    .padding(.trailing)
+
+                                Image("harvest")
+                                    .resizable()
+                                    .frame(width: 32, height: 32)
+                                    .opacity(0.2)
+                                Text("HARVEST")
+                                    .font(.subheadline)
                                     .foregroundColor(.white)
                             }
                         }
@@ -152,7 +145,7 @@ struct VaultDetailView: View {
                             Image("base")
                                 .resizable()
                                 .frame(width: 16, height: 16, alignment: .leading)
-                            Text("Base")
+                            Text("Base Sepolia")
                                 .font(.subheadline)
                                 .foregroundColor(.white)
                         }
@@ -161,7 +154,7 @@ struct VaultDetailView: View {
                     
                     HStack(alignment: .top, spacing: 28) {
                         VStack(alignment: .leading) {
-                            Text("HOLDINGS")
+                            Text("Flowers")
                                 .font(.caption)
                                 .foregroundColor(.gray)
                             ZStack {
@@ -181,7 +174,7 @@ struct VaultDetailView: View {
                         Spacer()
                         
                         VStack(alignment: .leading) {
-                            Text("APR")
+                            Text("Estimated APR")
                                 .font(.caption)
                                 .foregroundColor(.gray)
                             Text("\(vault.yield, specifier: "%.0f")%")

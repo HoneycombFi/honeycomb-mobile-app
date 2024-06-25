@@ -87,6 +87,18 @@ struct WalletView: View {
                         alignment: .bottomLeading
                     )
                     
+                    HStack(alignment: .center) {
+                        Text("Chain:")
+                            .font(.subheadline)
+                            .foregroundColor(.white)
+                        Image("base")
+                            .resizable()
+                            .frame(width: 16, height: 16, alignment: .leading)
+                        Text("Base Sepolia")
+                            .font(.subheadline)
+                            .foregroundColor(.white)
+                    }
+                    
                     if isLoading {
                         ProgressView("Fetching balances...")
                             .padding(.top, 30)
