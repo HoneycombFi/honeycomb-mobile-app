@@ -26,20 +26,21 @@ class WalletManager {
         return UserDefaults.standard.string(forKey: "walletAddress")
     }
 
-    func getETHBalance(address: String) async throws -> Double {
+    func getETHBalance(address: String) async throws -> String {
         do {
             let web3 = try await NetworkManager.shared.getNetwork()
             guard let ethAddress = EthereumAddress(address) else {
                 throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid Ethereum address"])
             }
             let balanceResult = try await web3.eth.getBalance(for: ethAddress)
-            return Double(balanceResult)
+            let balanceInEther = Web3Core.Utilities.formatToPrecision(balanceResult, formattingDecimals: 6)
+            return balanceInEther
         } catch {
             throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to fetch ETH balance: \(error.localizedDescription)"])
         }
     }
 
-    func getERC20TokenBalance(address: String, contractAddress: String) async throws -> Double {
+    func getERC20TokenBalance(address: String, contractAddress: String) async throws -> String {
         do {
             let web3 = try await NetworkManager.shared.getNetwork()
             guard let ethAddress = EthereumAddress(address), let contractAddress = EthereumAddress(contractAddress) else {
@@ -53,7 +54,8 @@ class WalletManager {
             guard let tokenBalance = tokenBalanceResponse["0"] as? BigUInt else {
                 throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to get token balance"])
             }
-            return Double(tokenBalance)
+            let formattedTokenBalance = Web3Core.Utilities.formatToPrecision(tokenBalance, formattingDecimals: 6)
+            return formattedTokenBalance
         } catch {
             throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to fetch token balance: \(error.localizedDescription)"])
         }

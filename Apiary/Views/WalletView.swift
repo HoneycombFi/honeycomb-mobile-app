@@ -70,6 +70,16 @@ struct WalletView: View {
                                         .stroke(Color.yellow5, lineWidth: 1)
                                 )
                         }
+                        
+                        HStack(alignment: .center) {
+                            Spacer()
+                            Image("base")
+                                .resizable()
+                                .frame(width: 16, height: 16, alignment: .leading)
+                            Text("Base Sepolia")
+                                .font(.subheadline)
+                                .foregroundColor(.white)
+                        }
                     }
                     .overlay(
                         Group {
@@ -86,18 +96,6 @@ struct WalletView: View {
                         },
                         alignment: .bottomLeading
                     )
-                    
-                    HStack(alignment: .center) {
-                        Text("Chain:")
-                            .font(.subheadline)
-                            .foregroundColor(.white)
-                        Image("base")
-                            .resizable()
-                            .frame(width: 16, height: 16, alignment: .leading)
-                        Text("Base Sepolia")
-                            .font(.subheadline)
-                            .foregroundColor(.white)
-                    }
                     
                     if isLoading {
                         ProgressView("Fetching balances...")
@@ -127,10 +125,10 @@ struct WalletView: View {
                                         .font(.caption)
                                 }
                                 Spacer()
-                                Text("\(token.balance, specifier: "%.2f")")
+                                Text(FormatHelper.trimTrailingZeroes(from: token.balance))
                                     .foregroundColor(.white)
                                     .font(.body)
-                                Text("$\(token.priceInUSD * token.balance, specifier: "%.2f")")
+                                Text("$\(token.priceInUSD * Double(token.balance)!, specifier: "%.2f")")
                                     .foregroundColor(.gray)
                                     .font(.caption)
                             }
@@ -171,6 +169,10 @@ struct WalletView: View {
             do {
                 let ethBalance = try await WalletManager.shared.getETHBalance(address: walletAddress)
                 let usdcBalance = try await WalletManager.shared.getERC20TokenBalance(address: walletAddress, contractAddress: "0xD4fA4dE9D8F8DB39EAf4de9A19bF6910F6B5bD60") // USDC contract address on Base Sepolia
+                
+                // TODO: Fetch BEES balance
+                
+                // TODO: Fetch total balance in Flowers + Hives
                 
                 let ethToken = ERC20Token(name: "Ether", symbol: "ETH", logo: "eth", balance: ethBalance, priceInUSD: 2000.0) // TODO: Replace with actual price
                 let usdcToken = ERC20Token(name: "USD Coin", symbol: "USDC", logo: "usdc", balance: usdcBalance, priceInUSD: 1.0)

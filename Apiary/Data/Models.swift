@@ -5,7 +5,7 @@ struct ERC20Token: Identifiable {
     let name: String
     let symbol: String
     let logo: String
-    let balance: Double
+    let balance: String
     let priceInUSD: Double
 }
 
