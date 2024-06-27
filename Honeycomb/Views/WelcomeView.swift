@@ -16,7 +16,7 @@ struct WelcomeView: View {
                         .frame(width: 30, height: 30)
                         .foregroundColor(.black)
 
-                    Text("APIARY")
+                    Text("Honeycomb")
                         .font(.title)
                         .foregroundColor(.black)
                 }.padding(.top, 50)

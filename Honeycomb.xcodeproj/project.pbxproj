@@ -11,7 +11,7 @@
 		9C16BC052C28CF1C005F62F3 /* PerformanceChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16BC042C28CF1C005F62F3 /* PerformanceChartView.swift */; };
 		9C3622E62C2881490015225E /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3622E52C2881490015225E /* WalletView.swift */; };
 		9C8A26842C2508F200A81DF0 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A26832C2508F200A81DF0 /* TopBarView.swift */; };
-		9CA858352C26075200C54E05 /* HivesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA858342C26075200C54E05 /* HivesView.swift */; };
+		9CA858352C26075200C54E05 /* FlowersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA858342C26075200C54E05 /* FlowersView.swift */; };
 		9CF1F3242C29EAD500AC6D10 /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = 9CF1F3232C29EAD500AC6D10 /* web3swift */; };
 		9CF1F3272C29F02200AC6D10 /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1F3262C29F02200AC6D10 /* WalletManager.swift */; };
 		9CF1F3292C29F02900AC6D10 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1F3282C29F02900AC6D10 /* NetworkManager.swift */; };
@@ -24,12 +24,12 @@
 		9CFFE9D12C230C8500D42950 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9C12C230C8500D42950 /* Colors.swift */; };
 		9CFFE9D22C230C8500D42950 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9C22C230C8500D42950 /* Fonts.swift */; };
 		9CFFE9D52C230C8500D42950 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9C62C230C8500D42950 /* HomeView.swift */; };
-		9CFFE9D62C230C8500D42950 /* VaultDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9C72C230C8500D42950 /* VaultDetailView.swift */; };
-		9CFFE9D72C230C8500D42950 /* VaultItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9C82C230C8500D42950 /* VaultItemView.swift */; };
+		9CFFE9D62C230C8500D42950 /* FlowerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9C72C230C8500D42950 /* FlowerDetailView.swift */; };
+		9CFFE9D72C230C8500D42950 /* FlowerCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9C82C230C8500D42950 /* FlowerCellView.swift */; };
 		9CFFE9D82C230C8500D42950 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9C92C230C8500D42950 /* WelcomeView.swift */; };
-		9CFFE9D92C230C8500D42950 /* ApiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9CA2C230C8500D42950 /* ApiaryView.swift */; };
+		9CFFE9D92C230C8500D42950 /* HiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9CA2C230C8500D42950 /* HiveView.swift */; };
 		9CFFE9DA2C230C8500D42950 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CFFE9CC2C230C8500D42950 /* Assets.xcassets */; };
-		9CFFE9DB2C230C8500D42950 /* ApiaryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9CD2C230C8500D42950 /* ApiaryApp.swift */; };
+		9CFFE9DB2C230C8500D42950 /* HoneycombApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9CD2C230C8500D42950 /* HoneycombApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,25 +37,25 @@
 		9C16BC042C28CF1C005F62F3 /* PerformanceChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceChartView.swift; sourceTree = "<group>"; };
 		9C3622E52C2881490015225E /* WalletView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
 		9C8A26832C2508F200A81DF0 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
-		9CA858342C26075200C54E05 /* HivesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HivesView.swift; sourceTree = "<group>"; };
+		9CA858342C26075200C54E05 /* FlowersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowersView.swift; sourceTree = "<group>"; };
 		9CF1F3262C29F02200AC6D10 /* WalletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManager.swift; sourceTree = "<group>"; };
 		9CF1F3282C29F02900AC6D10 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		9CF1F32B2C29F0A300AC6D10 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		9CF1F32D2C29F33400AC6D10 /* ConfigurationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationManager.swift; sourceTree = "<group>"; };
 		9CF1F32F2C29FB3500AC6D10 /* AddressHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressHelper.swift; sourceTree = "<group>"; };
 		9CF1F3312C2B5B8600AC6D10 /* FormatHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatHelper.swift; sourceTree = "<group>"; };
-		9CF6228A2C22074700DE50F6 /* Apiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Apiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CF6228A2C22074700DE50F6 /* Honeycomb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Honeycomb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CFFE9BD2C230C8500D42950 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		9CFFE9BF2C230C8500D42950 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9CFFE9C12C230C8500D42950 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		9CFFE9C22C230C8500D42950 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		9CFFE9C62C230C8500D42950 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		9CFFE9C72C230C8500D42950 /* VaultDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaultDetailView.swift; sourceTree = "<group>"; };
-		9CFFE9C82C230C8500D42950 /* VaultItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaultItemView.swift; sourceTree = "<group>"; };
+		9CFFE9C72C230C8500D42950 /* FlowerDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowerDetailView.swift; sourceTree = "<group>"; };
+		9CFFE9C82C230C8500D42950 /* FlowerCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowerCellView.swift; sourceTree = "<group>"; };
 		9CFFE9C92C230C8500D42950 /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
-		9CFFE9CA2C230C8500D42950 /* ApiaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiaryView.swift; sourceTree = "<group>"; };
+		9CFFE9CA2C230C8500D42950 /* HiveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiveView.swift; sourceTree = "<group>"; };
 		9CFFE9CC2C230C8500D42950 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9CFFE9CD2C230C8500D42950 /* ApiaryApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiaryApp.swift; sourceTree = "<group>"; };
+		9CFFE9CD2C230C8500D42950 /* HoneycombApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoneycombApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +93,7 @@
 		9CF622812C22074700DE50F6 = {
 			isa = PBXGroup;
 			children = (
-				9CFFE9CE2C230C8500D42950 /* Apiary */,
+				9CFFE9CE2C230C8500D42950 /* Honeycomb */,
 				9CF6228B2C22074700DE50F6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,7 +101,7 @@
 		9CF6228B2C22074700DE50F6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9CF6228A2C22074700DE50F6 /* Apiary.app */,
+				9CF6228A2C22074700DE50F6 /* Honeycomb.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,25 +134,25 @@
 		9CFFE9CB2C230C8500D42950 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9CFFE9CA2C230C8500D42950 /* ApiaryView.swift */,
-				9CA858342C26075200C54E05 /* HivesView.swift */,
+				9CFFE9C82C230C8500D42950 /* FlowerCellView.swift */,
+				9CFFE9C72C230C8500D42950 /* FlowerDetailView.swift */,
+				9CA858342C26075200C54E05 /* FlowersView.swift */,
+				9CFFE9CA2C230C8500D42950 /* HiveView.swift */,
 				9CFFE9C62C230C8500D42950 /* HomeView.swift */,
+				9C16BC042C28CF1C005F62F3 /* PerformanceChartView.swift */,
+				9C16BC022C28AB3F005F62F3 /* TimeframePickerView.swift */,
 				9C8A26832C2508F200A81DF0 /* TopBarView.swift */,
-				9CFFE9C72C230C8500D42950 /* VaultDetailView.swift */,
-				9CFFE9C82C230C8500D42950 /* VaultItemView.swift */,
 				9C3622E52C2881490015225E /* WalletView.swift */,
 				9CFFE9C92C230C8500D42950 /* WelcomeView.swift */,
-				9C16BC022C28AB3F005F62F3 /* TimeframePickerView.swift */,
-				9C16BC042C28CF1C005F62F3 /* PerformanceChartView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		9CFFE9CE2C230C8500D42950 /* Apiary */ = {
+		9CFFE9CE2C230C8500D42950 /* Honeycomb */ = {
 			isa = PBXGroup;
 			children = (
 				9CFFE9CC2C230C8500D42950 /* Assets.xcassets */,
-				9CFFE9CD2C230C8500D42950 /* ApiaryApp.swift */,
+				9CFFE9CD2C230C8500D42950 /* HoneycombApp.swift */,
 				9CFFE9BE2C230C8500D42950 /* Data */,
 				9CF1F32A2C29F09600AC6D10 /* Helpers */,
 				9CF1F3252C29F00B00AC6D10 /* Managers */,
@@ -160,15 +160,15 @@
 				9CFFE9C32C230C8500D42950 /* Styles */,
 				9CFFE9CB2C230C8500D42950 /* Views */,
 			);
-			path = Apiary;
+			path = Honeycomb;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9CF622892C22074700DE50F6 /* Apiary */ = {
+		9CF622892C22074700DE50F6 /* Honeycomb */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9CF622982C22074800DE50F6 /* Build configuration list for PBXNativeTarget "Apiary" */;
+			buildConfigurationList = 9CF622982C22074800DE50F6 /* Build configuration list for PBXNativeTarget "Honeycomb" */;
 			buildPhases = (
 				9CF622862C22074700DE50F6 /* Sources */,
 				9CF622872C22074700DE50F6 /* Frameworks */,
@@ -178,12 +178,12 @@
 			);
 			dependencies = (
 			);
-			name = Apiary;
+			name = Honeycomb;
 			packageProductDependencies = (
 				9CF1F3232C29EAD500AC6D10 /* web3swift */,
 			);
 			productName = HoneyFarm;
-			productReference = 9CF6228A2C22074700DE50F6 /* Apiary.app */;
+			productReference = 9CF6228A2C22074700DE50F6 /* Honeycomb.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -201,7 +201,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9CF622852C22074700DE50F6 /* Build configuration list for PBXProject "Apiary" */;
+			buildConfigurationList = 9CF622852C22074700DE50F6 /* Build configuration list for PBXProject "Honeycomb" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -217,7 +217,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9CF622892C22074700DE50F6 /* Apiary */,
+				9CF622892C22074700DE50F6 /* Honeycomb */,
 			);
 		};
 /* End PBXProject section */
@@ -249,14 +249,14 @@
 				9CF1F3302C29FB3500AC6D10 /* AddressHelper.swift in Sources */,
 				9CFFE9D52C230C8500D42950 /* HomeView.swift in Sources */,
 				9CFFE9CF2C230C8500D42950 /* Models.swift in Sources */,
-				9CFFE9D62C230C8500D42950 /* VaultDetailView.swift in Sources */,
+				9CFFE9D62C230C8500D42950 /* FlowerDetailView.swift in Sources */,
 				9CFFE9D12C230C8500D42950 /* Colors.swift in Sources */,
-				9CFFE9DB2C230C8500D42950 /* ApiaryApp.swift in Sources */,
-				9CFFE9D92C230C8500D42950 /* ApiaryView.swift in Sources */,
+				9CFFE9DB2C230C8500D42950 /* HoneycombApp.swift in Sources */,
+				9CFFE9D92C230C8500D42950 /* HiveView.swift in Sources */,
 				9C8A26842C2508F200A81DF0 /* TopBarView.swift in Sources */,
 				9CFFE9D82C230C8500D42950 /* WelcomeView.swift in Sources */,
-				9CA858352C26075200C54E05 /* HivesView.swift in Sources */,
-				9CFFE9D72C230C8500D42950 /* VaultItemView.swift in Sources */,
+				9CA858352C26075200C54E05 /* FlowersView.swift in Sources */,
+				9CFFE9D72C230C8500D42950 /* FlowerCellView.swift in Sources */,
 				9C3622E62C2881490015225E /* WalletView.swift in Sources */,
 				9CF1F32C2C29F0A300AC6D10 /* KeychainHelper.swift in Sources */,
 			);
@@ -391,11 +391,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Apiary/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Honeycomb/Preview Content\"";
 				DEVELOPMENT_TEAM = 3GBQ2H4QX7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Apiary;
+				INFOPLIST_KEY_CFBundleDisplayName = Honeycomb;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -407,7 +407,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.meb.Apiary;
+				PRODUCT_BUNDLE_IDENTIFIER = com.meb.Honeycomb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -422,11 +422,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Apiary/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Honeycomb/Preview Content\"";
 				DEVELOPMENT_TEAM = 3GBQ2H4QX7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Apiary;
+				INFOPLIST_KEY_CFBundleDisplayName = Honeycomb;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -438,7 +438,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.meb.Apiary;
+				PRODUCT_BUNDLE_IDENTIFIER = com.meb.Honeycomb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -449,7 +449,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9CF622852C22074700DE50F6 /* Build configuration list for PBXProject "Apiary" */ = {
+		9CF622852C22074700DE50F6 /* Build configuration list for PBXProject "Honeycomb" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9CF622962C22074800DE50F6 /* Debug */,
@@ -458,7 +458,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9CF622982C22074800DE50F6 /* Build configuration list for PBXNativeTarget "Apiary" */ = {
+		9CF622982C22074800DE50F6 /* Build configuration list for PBXNativeTarget "Honeycomb" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9CF622992C22074800DE50F6 /* Debug */,

@@ -6,15 +6,15 @@ struct HomeView: View {
     @Binding var selectedTab: Int
 
     let vaults = [
-        Vault(name: "Apiary Aggregated Hive", yield: 12.0, info: "Some information about this vault."),
-        Vault(name: "Apiary Aggregated Hive", yield: 12.0, info: "Some information about this vault."),
+        Vault(name: "Honeycomb Aggregated Hive", yield: 12.0, info: "Some information about this vault."),
+        Vault(name: "Honeycomb Aggregated Hive", yield: 12.0, info: "Some information about this vault."),
     ]
 
     var body: some View {
         ScrollView {
             ZStack {
                 VStack(alignment: .leading) {
-                    Text("Welcome to Apiary")
+                    Text("Welcome to Honeycomb")
                         .font(.largeTitle)
                         .bold()
                         .foregroundColor(.white)
@@ -37,7 +37,7 @@ struct HomeView: View {
                     
                     VStack {
                         ForEach(vaults) { vault in
-                            VaultItemView(vault: vault, isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
+                            FlowerCellView(vault: vault, isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
                                 .padding(.horizontal)
                         }
                         EmptyVaultItem()

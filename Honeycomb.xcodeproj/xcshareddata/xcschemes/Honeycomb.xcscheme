@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9CF622892C22074700DE50F6"
-               BuildableName = "Apiary.app"
-               BlueprintName = "Apiary"
-               ReferencedContainer = "container:Apiary.xcodeproj">
+               BuildableName = "Honeycomb.app"
+               BlueprintName = "Honeycomb"
+               ReferencedContainer = "container:Honeycomb.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9CF622892C22074700DE50F6"
-            BuildableName = "Apiary.app"
-            BlueprintName = "Apiary"
-            ReferencedContainer = "container:Apiary.xcodeproj">
+            BuildableName = "Honeycomb.app"
+            BlueprintName = "Honeycomb"
+            ReferencedContainer = "container:Honeycomb.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9CF622892C22074700DE50F6"
-            BuildableName = "Apiary.app"
-            BlueprintName = "Apiary"
-            ReferencedContainer = "container:Apiary.xcodeproj">
+            BuildableName = "Honeycomb.app"
+            BlueprintName = "Honeycomb"
+            ReferencedContainer = "container:Honeycomb.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

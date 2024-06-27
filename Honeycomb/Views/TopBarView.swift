@@ -11,7 +11,7 @@ struct TopBarView: View {
                 .resizable()
                 .frame(width: 30, height: 30)
                 .foregroundColor(.yellow5)
-            Text("APIARY")
+            Text("Honeycomb")
                 .font(.title)
                 .foregroundColor(.white)
             Spacer()

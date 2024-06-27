@@ -1,19 +1,19 @@
 import SwiftUI
 
-struct ApiaryView: View {
+struct HiveView: View {
     @Binding var isConnected: Bool
     @Binding var showConnectionPrompt: Bool
     @Binding var selectedTab: Int
 
     let vaults = [
-        Vault(name: "Apiary Aggregated Vault", yield: 12.0, info: "Some information about this vault."),
+        Vault(name: "Honeycomb Aggregated Vault", yield: 12.0, info: "Some information about this vault."),
     ]
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
                 HStack {
-                    Text("Apiary Hive Performance")
+                    Text("Honeycomb Hive Performance")
                         .font(.title2)
                         .fontWeight(.bold)
                         .foregroundColor(.white)
@@ -73,7 +73,7 @@ struct ApiaryView: View {
                         
                         VStack {
                             ForEach(vaults) { vault in
-                                VaultItemView(vault: vault, isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
+                                FlowerCellView(vault: vault, isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
                                     .padding(.horizontal)
                             }
                         }

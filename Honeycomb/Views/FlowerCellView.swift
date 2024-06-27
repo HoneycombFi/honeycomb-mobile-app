@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct VaultItemView: View {
+struct FlowerCellView: View {
     let vault: Vault
     @Binding var isConnected: Bool
     @Binding var showConnectionPrompt: Bool
@@ -34,7 +34,7 @@ struct VaultItemView: View {
             .padding(.bottom, 10)
             
             HStack(alignment: .center) {
-                // TODO: display position balance & spacer if holding BEES && in ApiaryView
+                // TODO: display position balance & spacer if holding BEES && in HiveView
                 
                 // Spacer()
                 
@@ -81,7 +81,7 @@ struct VaultItemView: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
-                NavigationLink(destination: VaultDetailView(vault: vault, isConnected: $isConnected)) {
+                NavigationLink(destination: FlowerDetailView(vault: vault, isConnected: $isConnected)) {
                     Image(systemName: "chevron.right")
                         .resizable()
                         .aspectRatio(contentMode: .fit)

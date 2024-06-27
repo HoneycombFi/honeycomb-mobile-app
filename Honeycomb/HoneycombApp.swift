@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct ApiaryApp: App {
+struct HoneycombApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @State private var showWelcomeView: Bool
     @State private var isConnected: Bool
@@ -36,14 +36,14 @@ struct ApiaryApp: App {
                                     }
                                     .tag(0)
                                 
-                                ApiaryView(isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt, selectedTab: $selectedTab)
+                                HiveView(isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt, selectedTab: $selectedTab)
                                     .tabItem {
                                         Image(systemName: "circle.grid.hex")
-                                        Text("My Apiary")
+                                        Text("My Honeycomb")
                                     }
                                     .tag(1)
                                 
-                                HivesView(isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
+                                FlowersView(isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
                                     .tabItem {
                                         Image(systemName: "hexagon.fill")
                                         Text("Hives")

@@ -1,12 +1,12 @@
 import SwiftUI
 
-struct HivesView: View {
+struct FlowersView: View {
     @Binding var isConnected: Bool
     @Binding var showConnectionPrompt: Bool
 
     let vaults = [
-        Vault(name: "Apiary Aggregated Hive", yield: 12.0, info: "Some information about this vault."),
-        Vault(name: "Apiary Aggregated Hive", yield: 12.0, info: "Some information about this vault."),
+        Vault(name: "Honeycomb Aggregated Hive", yield: 12.0, info: "Some information about this vault."),
+        Vault(name: "Honeycomb Aggregated Hive", yield: 12.0, info: "Some information about this vault."),
     ]
 
     var body: some View {
@@ -24,7 +24,7 @@ struct HivesView: View {
                     
                     VStack {
                         ForEach(vaults) { vault in
-                            VaultItemView(vault: vault, isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
+                            FlowerCellView(vault: vault, isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
                                 .padding(.horizontal)
                         }
                         EmptyVaultItem()

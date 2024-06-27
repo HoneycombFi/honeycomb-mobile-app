@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct VaultDetailView: View {
+struct FlowerDetailView: View {
     let vault: Vault
 
     @Environment(\.presentationMode) var presentationMode
@@ -91,7 +91,7 @@ struct VaultDetailView: View {
                 }
                 
                 VStack(alignment: .leading) {
-                    Text("Apiary Hive Performance")
+                    Text("Honeycomb Hive Performance")
                         .font(.headline)
                         .foregroundColor(.white)
                         .padding([.leading, .top, .trailing])
