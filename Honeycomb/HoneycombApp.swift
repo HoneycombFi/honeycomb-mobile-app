@@ -23,7 +23,7 @@ struct HoneycombApp: App {
             NavigationView {
                 Group {
                     if showWelcomeView {
-                        WelcomeView(showWelcomeView: $showWelcomeView)
+                        WelcomeView(showWelcomeView: $showWelcomeView, isConnected: $isConnected)
                             .transition(.opacity)
                     } else {
                         VStack {
