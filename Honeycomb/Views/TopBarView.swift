@@ -7,13 +7,10 @@ struct TopBarView: View {
 
     var body: some View {
         HStack {
-            Image(systemName: "circle.grid.hex")
+            Image("honeycomb")
                 .resizable()
-                .frame(width: 30, height: 30)
-                .foregroundColor(.yellow5)
-            Text("Honeycomb")
-                .font(.title)
-                .foregroundColor(.white)
+                .frame(width: 131, height: 24)
+                .aspectRatio(contentMode: .fit)
             Spacer()
             if isConnected {
                 Button(action: {

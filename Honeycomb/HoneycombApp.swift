@@ -39,14 +39,14 @@ struct HoneycombApp: App {
                                 HiveView(isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt, selectedTab: $selectedTab)
                                     .tabItem {
                                         Image(systemName: "circle.grid.hex")
-                                        Text("My Honeycomb")
+                                        Text("My Hive")
                                     }
                                     .tag(1)
                                 
                                 FlowersView(isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
                                     .tabItem {
                                         Image(systemName: "hexagon.fill")
-                                        Text("Hives")
+                                        Text("Flowers")
                                     }
                                     .tag(2)
                             }
