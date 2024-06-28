@@ -5,15 +5,16 @@ struct HiveView: View {
     @Binding var showConnectionPrompt: Bool
     @Binding var selectedTab: Int
 
-    let vaults = [
-        Vault(name: "Honeycomb Aggregated Vault", yield: 12.0, info: "Some information about this vault."),
+    let flowers = [
+        Flower(name: "Synthetix Flower", logo: "synthetix", yield: 21.92, info: "Some information about this vault."),
+        Flower(name: "Panoptic Flower", logo: "panoptic", yield: 6.70, info: "Some information about this vault."),
     ]
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
                 HStack {
-                    Text("Honeycomb Hive Performance")
+                    Text("My Hive Performance")
                         .font(.title2)
                         .fontWeight(.bold)
                         .foregroundColor(.white)
@@ -60,7 +61,7 @@ struct HiveView: View {
                     
                     VStack(alignment: .leading) {
                         HStack {
-                            Text("My Hives")
+                            Text("My Flowers")
                                 .font(.title3)
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
@@ -72,8 +73,8 @@ struct HiveView: View {
                         .padding(.trailing)
                         
                         VStack {
-                            ForEach(vaults) { vault in
-                                FlowerCellView(vault: vault, isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
+                            ForEach(flowers) { flower in
+                                FlowerCellView(flower: flower, isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
                                     .padding(.horizontal)
                             }
                         }

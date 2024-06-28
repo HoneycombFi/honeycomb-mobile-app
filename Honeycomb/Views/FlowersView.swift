@@ -4,9 +4,11 @@ struct FlowersView: View {
     @Binding var isConnected: Bool
     @Binding var showConnectionPrompt: Bool
 
-    let vaults = [
-        Vault(name: "Honeycomb Aggregated Hive", yield: 12.0, info: "Some information about this vault."),
-        Vault(name: "Honeycomb Aggregated Hive", yield: 12.0, info: "Some information about this vault."),
+    let flowers = [
+        Flower(name: "Synthetix Flower", logo: "synthetix", yield: 21.92, info: "Some information about this vault."),
+        Flower(name: "Aerodrome Flower", logo: "aerodrome", yield: 12.4, info: "Some information about this vault."),
+        Flower(name: "Beefy Flower", logo: "beefy", yield: 9.08, info: "Some information about this vault."),
+        Flower(name: "Panoptic Flower", logo: "panoptic", yield: 6.70, info: "Some information about this vault."),
     ]
 
     var body: some View {
@@ -23,11 +25,11 @@ struct FlowersView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
                     VStack {
-                        ForEach(vaults) { vault in
-                            FlowerCellView(vault: vault, isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
+                        ForEach(flowers) { flower in
+                            FlowerCellView(flower: flower, isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
                                 .padding(.horizontal)
                         }
-                        EmptyVaultItem()
+                        EmptyFlowerCell()
                     }
                     .frame(maxWidth: .infinity)
                 }

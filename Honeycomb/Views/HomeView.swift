@@ -5,9 +5,9 @@ struct HomeView: View {
     @Binding var showConnectionPrompt: Bool
     @Binding var selectedTab: Int
 
-    let vaults = [
-        Vault(name: "Honeycomb Aggregated Hive", yield: 12.0, info: "Some information about this vault."),
-        Vault(name: "Honeycomb Aggregated Hive", yield: 12.0, info: "Some information about this vault."),
+    let flowers = [
+        Flower(name: "Synthetix Flower", logo: "synthetix", yield: 12.0, info: "Some information about this vault."),
+        Flower(name: "Aerodrome Flower", logo: "aerodrome", yield: 12.0, info: "Some information about this vault."),
     ]
 
     var body: some View {
@@ -29,18 +29,18 @@ struct HomeView: View {
                         ConnectWalletView(showConnectionPrompt: $showConnectionPrompt)
                     }
                     
-                    Text("Trending Hives")
+                    Text("Trending Flowers")
                         .font(.title2)
                         .foregroundColor(.white)
                         .padding(.top, 20)
                         .padding(.horizontal)
                     
                     VStack {
-                        ForEach(vaults) { vault in
-                            FlowerCellView(vault: vault, isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
+                        ForEach(flowers) { flower in
+                            FlowerCellView(flower: flower, isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
                                 .padding(.horizontal)
                         }
-                        EmptyVaultItem()
+                        EmptyFlowerCell()
                     }
                     .frame(maxWidth: .infinity)
                 }
@@ -61,7 +61,7 @@ struct RewardsBalanceView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)
-                .fill(LinearGradient(gradient: Gradient(colors: [Color(hex: "0xFFCB31"), Color(hex: "0xEC6A5E")]), startPoint: .leading, endPoint: .trailing))
+                .fill(LinearGradient(gradient: Gradient(colors: [Color(hex: "0xFFD700"), Color(hex: "0xFF69B4")]), startPoint: .leading, endPoint: .trailing))
                 .frame(height: 200)
             
             VStack(alignment: .leading) {
@@ -124,7 +124,7 @@ struct ConnectWalletView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)
-                .fill(LinearGradient(gradient: Gradient(colors: [Color(hex: "0xFFCB31"), Color(hex: "0xEC6A5E")]), startPoint: .leading, endPoint: .trailing))
+                .fill(LinearGradient(gradient: Gradient(colors: [Color(hex: "0xFFD700"), Color(hex: "0xFF69B4")]), startPoint: .leading, endPoint: .trailing))
                 .frame(height: 180)
             
             VStack(alignment: .leading) {

@@ -9,9 +9,10 @@ struct ERC20Token: Identifiable {
     let priceInUSD: Double
 }
 
-struct Vault: Identifiable {
+struct Flower: Identifiable {
     let id = UUID()
     let name: String
+    let logo: String
     let yield: Double
     let info: String
 }
