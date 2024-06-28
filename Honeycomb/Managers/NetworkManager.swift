@@ -8,7 +8,7 @@ class NetworkManager {
     private init() {}
 
     func getNetwork() async throws -> Web3 {
-        let url = URL(string: ConfigurationManager.shared.rpcURL)!
+        let url = URL(string: ConfigManager.shared.rpcURL)!
         let web3Provider = try await Web3HttpProvider(url: url, network: nil, keystoreManager: nil)
         let web3 = Web3(provider: web3Provider)
         return web3
