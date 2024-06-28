@@ -12,11 +12,12 @@
 		9C3622E62C2881490015225E /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3622E52C2881490015225E /* WalletView.swift */; };
 		9C8A26842C2508F200A81DF0 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A26832C2508F200A81DF0 /* TopBarView.swift */; };
 		9CA858352C26075200C54E05 /* FlowersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA858342C26075200C54E05 /* FlowersView.swift */; };
+		9CDFC32B2C2F44F50073090D /* HiveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDFC32A2C2F44F50073090D /* HiveManager.swift */; };
 		9CF1F3242C29EAD500AC6D10 /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = 9CF1F3232C29EAD500AC6D10 /* web3swift */; };
 		9CF1F3272C29F02200AC6D10 /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1F3262C29F02200AC6D10 /* WalletManager.swift */; };
 		9CF1F3292C29F02900AC6D10 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1F3282C29F02900AC6D10 /* NetworkManager.swift */; };
 		9CF1F32C2C29F0A300AC6D10 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1F32B2C29F0A300AC6D10 /* KeychainHelper.swift */; };
-		9CF1F32E2C29F33400AC6D10 /* ConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1F32D2C29F33400AC6D10 /* ConfigurationManager.swift */; };
+		9CF1F32E2C29F33400AC6D10 /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1F32D2C29F33400AC6D10 /* ConfigManager.swift */; };
 		9CF1F3302C29FB3500AC6D10 /* AddressHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1F32F2C29FB3500AC6D10 /* AddressHelper.swift */; };
 		9CF1F3322C2B5B8600AC6D10 /* FormatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1F3312C2B5B8600AC6D10 /* FormatHelper.swift */; };
 		9CFFE9CF2C230C8500D42950 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFE9BD2C230C8500D42950 /* Models.swift */; };
@@ -38,10 +39,11 @@
 		9C3622E52C2881490015225E /* WalletView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
 		9C8A26832C2508F200A81DF0 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		9CA858342C26075200C54E05 /* FlowersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowersView.swift; sourceTree = "<group>"; };
+		9CDFC32A2C2F44F50073090D /* HiveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveManager.swift; sourceTree = "<group>"; };
 		9CF1F3262C29F02200AC6D10 /* WalletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManager.swift; sourceTree = "<group>"; };
 		9CF1F3282C29F02900AC6D10 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		9CF1F32B2C29F0A300AC6D10 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
-		9CF1F32D2C29F33400AC6D10 /* ConfigurationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationManager.swift; sourceTree = "<group>"; };
+		9CF1F32D2C29F33400AC6D10 /* ConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
 		9CF1F32F2C29FB3500AC6D10 /* AddressHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressHelper.swift; sourceTree = "<group>"; };
 		9CF1F3312C2B5B8600AC6D10 /* FormatHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatHelper.swift; sourceTree = "<group>"; };
 		9CF6228A2C22074700DE50F6 /* Honeycomb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Honeycomb.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,7 +75,8 @@
 		9CF1F3252C29F00B00AC6D10 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				9CF1F32D2C29F33400AC6D10 /* ConfigurationManager.swift */,
+				9CF1F32D2C29F33400AC6D10 /* ConfigManager.swift */,
+				9CDFC32A2C2F44F50073090D /* HiveManager.swift */,
 				9CF1F3282C29F02900AC6D10 /* NetworkManager.swift */,
 				9CF1F3262C29F02200AC6D10 /* WalletManager.swift */,
 			);
@@ -241,10 +244,11 @@
 			files = (
 				9CF1F3292C29F02900AC6D10 /* NetworkManager.swift in Sources */,
 				9C16BC052C28CF1C005F62F3 /* PerformanceChartView.swift in Sources */,
-				9CF1F32E2C29F33400AC6D10 /* ConfigurationManager.swift in Sources */,
+				9CF1F32E2C29F33400AC6D10 /* ConfigManager.swift in Sources */,
 				9CFFE9D22C230C8500D42950 /* Fonts.swift in Sources */,
 				9C16BC032C28AB3F005F62F3 /* TimeframePickerView.swift in Sources */,
 				9CF1F3272C29F02200AC6D10 /* WalletManager.swift in Sources */,
+				9CDFC32B2C2F44F50073090D /* HiveManager.swift in Sources */,
 				9CF1F3322C2B5B8600AC6D10 /* FormatHelper.swift in Sources */,
 				9CF1F3302C29FB3500AC6D10 /* AddressHelper.swift in Sources */,
 				9CFFE9D52C230C8500D42950 /* HomeView.swift in Sources */,

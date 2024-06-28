@@ -1,13 +1,13 @@
-# Apiary
+# Honeycomb
 
-Apiary is an iOS app that lets you earn passive income from ERC-4626 yield-bearing vaults.
+Honeycomb is an iOS app that lets you earn passive income from ERC-4626 yield-bearing vaults.
 
 _This project was built during the Base Onchain Summer buildathon._
 _Please note this is an experimental proof-of-concept application that runs on the Base Sepolia test network. No real ETH or funds are used and it is under active development._
 
 ## Overview
 
-Apiary aims to simplify DeFi by providing an intuitive mobile interface for interacting with aggregator vaults on Ethereum. We're on a mission to make DeFi easier for everyone by abstracting away as much of the Web3 jargon and financial complexity as possible.
+Honeycomb aims to simplify DeFi by providing an intuitive mobile interface for interacting with aggregator vaults on Ethereum. We're on a mission to make DeFi easier for everyone by abstracting away as much of the Web3 jargon and financial complexity as possible.
 
 ## Prerequisites
 
@@ -22,13 +22,13 @@ Ensure you have the following installed:
 
    ```bash
    git clone <repository-url>
-   cd ApiaryApp
+   cd HoneycombApp
    ```
 
 2. **Open the Project in Xcode**
 
    ```bash
-   open ApiaryApp.xcodeproj
+   open HoneycombApp.xcodeproj
    ```
 
 3. **Install Dependencies**
@@ -41,8 +41,8 @@ Ensure you have the following installed:
 
 4. **Configure Signing & Capabilities**
 
-   - In Xcode, select the `ApiaryApp` project.
-   - Select the `ApiaryApp` target.
+   - In Xcode, select the `HoneycombApp` project.
+   - Select the `HoneycombApp` target.
    - Go to the `Signing & Capabilities` tab.
    - Ensure a valid `Team` is selected under the `Signing` section.
    - Ensure the `Bundle Identifier` is unique.
@@ -57,8 +57,8 @@ Upon running the app, you can:
 
 - Connect your wallet to Base Sepolia.
 - View your portfolio balance.
-- Deposit into (test) yield vaults and claim rewards.
-- Navigate through different tabs (Home, My Apiary, Hives).
+- Deposit and withdraw into (test) yield vaults.
+- Navigate through different tabs (Home, My Hive, Flowers).
 
 ## Support
 

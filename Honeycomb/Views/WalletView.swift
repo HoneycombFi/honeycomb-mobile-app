@@ -76,7 +76,7 @@ struct WalletView: View {
                             Image("base")
                                 .resizable()
                                 .frame(width: 16, height: 16, alignment: .leading)
-                            Text("Base Sepolia")
+                            Text("Base")
                                 .font(.subheadline)
                                 .foregroundColor(.white)
                         }

@@ -1,87 +1,66 @@
 import SwiftUI
 
 struct FlowerCellView: View {
-    let vault: Vault
+    let flower: Flower
     @Binding var isConnected: Bool
     @Binding var showConnectionPrompt: Bool
+    @State private var walletAddress: String = UserDefaults.standard.string(forKey: "walletAddress") ?? "0x"
+    @State private var balance: Double = 0
 
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text(vault.name)
+                Image(flower.logo)
+                    .resizable()
+                    .frame(width: 48, height: 48)
+                Text(flower.name)
                     .font(.headline)
                     .foregroundColor(.white)
                 
                 Spacer()
-                
-                if isConnected {
-                    Button(action: {
-                        // TODO: add Vault action
-                    }) {
-                        Image(systemName: "plus.circle.fill")
-                            .resizable()
-                            .frame(width: 28, height: 28)
-                            .foregroundColor(.yellow5)
-                    }
-                } else {
-                    Image(systemName: "plus.circle.fill")
-                        .resizable()
-                        .frame(width: 28, height: 28)
-                        .foregroundColor(.gray)
-                        .opacity(0.2)
-                }
             }
             .padding(.bottom, 10)
-            
-            HStack(alignment: .center) {
-                // TODO: display position balance & spacer if holding BEES && in HiveView
-                
-                // Spacer()
-                
-                Text("Chain:")
-                    .font(.subheadline)
-                    .foregroundColor(.white)
-                Image("base")
-                    .resizable()
-                    .frame(width: 16, height: 16, alignment: .leading)
-                Text("Base Sepolia")
-                    .font(.subheadline)
-                    .foregroundColor(.white)
-            }
-            
-            Divider().background(Color.gray)
-            
+                        
             HStack(alignment: .top) {
                 VStack(alignment: .leading) {
-                    Text("Flowers")
+                    Text("APR")
                         .font(.caption)
                         .foregroundColor(.gray)
-                    ZStack {
-                        Image("pan")
-                            .resizable()
-                            .frame(width: 28, height: 28)
-                            .offset(x: 18)
-                        Image("snx")
-                            .resizable()
-                            .frame(width: 28, height: 28)
-                            .offset(x: -2)
-                    }
-                    .frame(width: 34, height: 28)
+                    Text("\(flower.yield, specifier: "%.0f")%")
+                        .font(.system(size: 24).bold())
+                        .foregroundColor(.white)
+                        .frame(width: 100, height: 28, alignment: .leading)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
                 VStack(alignment: .leading) {
-                    Text("Estimated APR")
+                    Text("BALANCE")
                         .font(.caption)
                         .foregroundColor(.gray)
-                    Text("\(vault.yield, specifier: "%.0f")%")
-                        .font(.system(size: 28).bold())
+                    Text("$\(balance, specifier: "%.2f")")
+                        .font(.system(size: 24).bold())
                         .foregroundColor(.white)
-                        .frame(width: 60, height: 28, alignment: .leading)
+                        .frame(width: 100, height: 28, alignment: .leading)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
-                NavigationLink(destination: FlowerDetailView(vault: vault, isConnected: $isConnected)) {
+                VStack(alignment: .leading) {
+                    Text("CHAIN")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                    HStack(alignment: .center) {
+                        Image("base")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                        Text("Base")
+                            .font(.subheadline)
+                            .foregroundColor(.white)
+                    }
+                    .frame(height: 28)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                
+                NavigationLink(destination: FlowerDetailView(flower: flower, isConnected: $isConnected)) {
                     Image(systemName: "chevron.right")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -90,15 +69,83 @@ struct FlowerCellView: View {
                         .padding(.top, 20)
                 }
             }
-            .padding(.bottom, 10)
+            
+            Divider().background(Color.gray).padding([.top, .bottom])
+            
+            HStack {
+                if isConnected {
+                    Button(action: {
+                        // TODO: Add buy action
+                    }) {
+                        Image("pollinate")
+                            .resizable()
+                            .frame(width: 32, height: 32)
+                    }
+                    Text("POLLINATE")
+                        .font(.subheadline)
+                        .foregroundColor(.gray6)
+                        .padding(.trailing)
+                    
+                    Button(action: {
+                        // TODO: Add sell action
+                    }) {
+                        Image("harvest")
+                            .resizable()
+                            .frame(width: 32, height: 32)
+                    }
+                    Text("HARVEST")
+                        .font(.subheadline)
+                        .foregroundColor(.gray6)
+                } else {
+                    Image("pollinate")
+                        .resizable()
+                        .frame(width: 32, height: 32)
+                        .opacity(0.2)
+                    Text("POLLINATE")
+                        .font(.subheadline)
+                        .foregroundColor(.gray6)
+                        .padding(.trailing)
+
+                    Image("harvest")
+                        .resizable()
+                        .frame(width: 32, height: 32)
+                        .opacity(0.2)
+                    Text("HARVEST")
+                        .font(.subheadline)
+                        .foregroundColor(.gray6)
+                }
+            }
         }
         .padding()
         .background(Color.gray.opacity(0.2))
         .cornerRadius(10)
+        .onAppear {
+            fetchFlowerBalance(name: flower.name)
+        }
+    }
+    
+    private func fetchFlowerBalance(name: String) {
+        Task {
+            do {
+                let flowerBalance = try await WalletManager.shared.getERC20TokenBalance(address: walletAddress, contractAddress: "0xD4fA4dE9D8F8DB39EAf4de9A19bF6910F6B5bD60") // USDC contract address on Base Sepolia // TODO: update to flower address
+                
+                // TODO: Fetch BEES balance (i.e. total balance in Flowers + Hives
+                let priceInUSD = 21.92 // TODO: fetch price
+                let amount = "$\(priceInUSD * Double(flowerBalance)!)"
+                
+                DispatchQueue.main.async {
+                    if let a = Double(amount) {
+                        balance = a
+                    }
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
     }
 }
 
-struct EmptyVaultItem: View {
+struct EmptyFlowerCell: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 12)
@@ -107,13 +154,13 @@ struct EmptyVaultItem: View {
             
             VStack(alignment: .leading, spacing: 5) {
                 HStack {
-                    Text("New Hives Coming Soon")
+                    Text("New Flowers Coming Soon")
                         .foregroundColor(.white)
                         .font(.subheadline)
                     
                     Spacer()
                     
-                    Image(systemName: "plus.circle.fill")
+                    Image("harvest")
                         .resizable()
                         .frame(width: 28, height: 28)
                         .foregroundColor(.gray)

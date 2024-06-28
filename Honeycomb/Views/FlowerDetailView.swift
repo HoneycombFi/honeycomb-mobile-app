@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct FlowerDetailView: View {
-    let vault: Vault
+    let flower: Flower
 
     @Environment(\.presentationMode) var presentationMode
     @Binding var isConnected: Bool
@@ -19,7 +19,11 @@ struct FlowerDetailView: View {
                         .padding()
                 }
                 
-                Text(vault.name)
+                Image(flower.logo)
+                    .resizable()
+                    .frame(width: 48, height: 48)
+                
+                Text(flower.name)
                     .font(.title)
                     .bold()
                     .foregroundColor(.white)
@@ -54,7 +58,7 @@ struct FlowerDetailView: View {
                                 }
                                 Text("POLLINATE")
                                     .font(.subheadline)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(.gray6)
                                     .padding(.trailing)
                                 
                                 Button(action: {
@@ -66,7 +70,7 @@ struct FlowerDetailView: View {
                                 }
                                 Text("HARVEST")
                                     .font(.subheadline)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(.gray6)
                             } else {
                                 Image("pollinate")
                                     .resizable()
@@ -74,7 +78,7 @@ struct FlowerDetailView: View {
                                     .opacity(0.2)
                                 Text("POLLINATE")
                                     .font(.subheadline)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(.gray6)
                                     .padding(.trailing)
 
                                 Image("harvest")
@@ -83,7 +87,7 @@ struct FlowerDetailView: View {
                                     .opacity(0.2)
                                 Text("HARVEST")
                                     .font(.subheadline)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(.gray6)
                             }
                         }
                     }
@@ -91,10 +95,16 @@ struct FlowerDetailView: View {
                 }
                 
                 VStack(alignment: .leading) {
-                    Text("Honeycomb Hive Performance")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding([.leading, .top, .trailing])
+                    HStack {
+                        Image(flower.logo)
+                            .resizable()
+                            .frame(width: 28, height: 28)
+                            .padding([.top, .leading])
+                        Text("\(flower.name) Performance")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding([.top, .trailing])
+                    }
                     
                     TimeframePickerView().padding()
                     
@@ -131,88 +141,70 @@ struct FlowerDetailView: View {
                 
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {
-                        Text("About This Hive")
+                        Text("About This Flower")
                             .font(.system(size: 24).bold())
                             .foregroundColor(.white)
                             .padding([.leading, .top, .bottom])
                         
                         Spacer()
-                        
-                        HStack(alignment: .center) {
-                            Text("Chain:")
-                                .font(.subheadline)
-                                .foregroundColor(.white)
-                            Image("base")
-                                .resizable()
-                                .frame(width: 16, height: 16, alignment: .leading)
-                            Text("Base Sepolia")
-                                .font(.subheadline)
-                                .foregroundColor(.white)
-                        }
-                        .padding(.trailing, 20)
                     }
                     
                     HStack(alignment: .top, spacing: 28) {
                         VStack(alignment: .leading) {
-                            Text("Flowers")
+                            Text("APR")
                                 .font(.caption)
                                 .foregroundColor(.gray)
-                            ZStack {
-                                Image("pan")
-                                    .resizable()
-                                    .frame(width: 28, height: 28)
-                                    .offset(x: 18)
-                                Image("snx")
-                                    .resizable()
-                                    .frame(width: 28, height: 28)
-                                    .offset(x: -2)
-                            }
-                            .frame(width: 34, height: 28)
+                            Text("\(flower.yield, specifier: "%.0f")%")
+                                .font(.system(size: 24).bold())
+                                .foregroundColor(.white)
+                                .frame(width: 100, height: 28, alignment: .leading)
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        
-                        Spacer()
                         
                         VStack(alignment: .leading) {
-                            Text("Estimated APR")
+                            Text("BALANCE")
                                 .font(.caption)
                                 .foregroundColor(.gray)
-                            Text("\(vault.yield, specifier: "%.0f")%")
-                                .font(.system(size: 28).bold())
+                            Text("$\(0, specifier: "%.2f")")
+                                .font(.system(size: 24).bold())
                                 .foregroundColor(.white)
-                                .frame(width: 60, height: 28, alignment: .leading)
+                                .frame(width: 100, height: 28, alignment: .leading)
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                         
-                        Spacer()
+                        VStack(alignment: .leading) {
+                            Text("CHAIN")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                            HStack(alignment: .center) {
+                                Image("base")
+                                    .resizable()
+                                    .frame(width: 20, height: 20)
+                                Text("Base")
+                                    .font(.subheadline)
+                                    .foregroundColor(.white)
+                            }
+                            .frame(height: 28)
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .padding([.leading, .trailing, .bottom])
                     
                     VStack(alignment: .leading, spacing: 10) {
-                        Text("Synthetix V3 Vault")
-                            .font(.headline)
-                            .foregroundColor(.white)
+                        HStack {
+                            Image("snx")
+                                .resizable()
+                                .frame(width: 24, height: 24)
+                            Text("Synthetix V3 Vault")
+                                .font(.headline)
+                                .foregroundColor(.white)
+                        }
                         Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
                             .foregroundColor(.white)
                         Button(action: {
                             // TODO: Learn more about Synthetix
                         }) {
                             Text("Learn More About Synthetix")
-                                .foregroundColor(.yellow5)
-                        }
-                    }
-                    .padding([.leading, .trailing, .bottom])
-                    
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text("Panoptic Vault")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                        Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
-                            .foregroundColor(.white)
-                        Button(action: {
-                            // TODO: Learn more about Panoptic
-                        }) {
-                            Text("Learn More About Panoptic")
                                 .foregroundColor(.yellow5)
                         }
                     }

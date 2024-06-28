@@ -1,7 +1,7 @@
 import Foundation
 
-class ConfigurationManager {
-    static let shared = ConfigurationManager()
+class ConfigManager {
+    static let shared = ConfigManager()
     
     private init() {}
     

@@ -2,6 +2,7 @@ import SwiftUI
 
 extension Color {
     static let yellow5 = Color(hex: "0xFFE083")
+    static let gray6 = Color(hex: "0xB1B1B1")
     static let gray12 = Color(hex: "0x282828")
     static let gray13 = Color(hex: "0x191919")
 
