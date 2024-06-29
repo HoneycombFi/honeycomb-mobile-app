@@ -1,43 +1,39 @@
 import Foundation
 
 struct Constants {
-    struct Network {
-        static let base = "Base"
-        static let baseSepolia = "BaseSepolia"
+    
+    struct Globals {
+        static let maxDepositAmount = 100_000.0
+        static let minDepositAmount = 1.0
+        static let pollinationFee = 0.05
+        static let harvestFee = 0.1
     }
 
-    struct ContractAddresses {
-        struct Base {
-            static let hiveContract = "0x1234567890abcdef1234567890abcdef12345678"
-            static let synthetixFlower = "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd"
-            static let panopticFlower = "0xabcdefabcdefabcdefabcdefabcdefabcdefabce"
-            static let aerodromeFlower = "0xabcdefabcdefabcdefabcdefabcdefabcdefabcf"
-            static let beefyFlower = "0xabcdefabcdefabcdefabcdefabcdefabcdefabcg"
-        }
-        
-        struct BaseSepolia {
-            static let hiveContract = "0x7219cECaA0923dDfE7cDB3b782Aff7a69A2Ae478"
-            static let synthetixFlower = "0xabcdefabcdefabcdefabcdefabcdefabcdefabce"
-            static let panopticFlower = "0xabcdefabcdefabcdefabcdefabcdefabcdefabcf"
-            static let aerodromeFlower = "0xabcdefabcdefabcdefabcdefabcdefabcdefabcg"
-            static let beefyFlower = "0xabcdefabcdefabcdefabcdefabcdefabcdefabch"
-            static let usdcToken = "0xD4fA4dE9D8F8DB39EAf4de9A19bF6910F6B5bD60"
-        }
-    }
+    struct Networks {
+        struct Base {}
 
-    struct StaticValues {
-        struct Base {
-            static let maxDepositAmount = 100_000.0
-            static let minDepositAmount = 1.0
-            static let pollinationFee = 0.05
-            static let harvestFee = 0.1
-        }
-        
         struct BaseSepolia {
-            static let maxDepositAmount = 100_000.0
-            static let minDepositAmount = 1.0
-            static let pollinationFee = 0.05
-            static let harvestFee = 0.1
+            struct HoneyComb {
+                static let hiveContract = "0x7219cECaA0923dDfE7cDB3b782Aff7a69A2Ae478"
+            }
+
+            struct Flowers {
+                static let synthetixFlower = Flower(contract: "0x7219cECaA0923dDfE7cDB3b782Aff7a69A2Ae478", name: "Synthetix Flower", logo: "synthetix", info: "Some description of the flower here.")
+                static let aerodromeFlower = Flower(contract: "0x7219cECaA0923dDfE7cDB3b782Aff7a69A2Ae478", name: "Aerodrome Flower", logo: "aerodrome", info: "Some description of the flower here.")
+                static let panopticFlower = Flower(contract: "0x7219cECaA0923dDfE7cDB3b782Aff7a69A2Ae478", name: "Panoptic Flower", logo: "panoptic", info: "Some description of the flower here.")
+                static let beefyFlower = Flower(contract: "0x7219cECaA0923dDfE7cDB3b782Aff7a69A2Ae478", name: "Beefy Flower", logo: "beefy", info: "Some description of the flower here.")
+
+                static let all: [Flower] = [
+                    synthetixFlower,
+                    aerodromeFlower,
+                    panopticFlower,
+                    beefyFlower
+                ]
+            }
+
+            struct Tokens {
+                static let usdcToken = "0xD4fA4dE9D8F8DB39EAf4de9A19bF6910F6B5bD60"
+            }
         }
     }
 }

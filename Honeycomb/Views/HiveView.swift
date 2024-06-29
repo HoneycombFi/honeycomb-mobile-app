@@ -4,11 +4,8 @@ struct HiveView: View {
     @Binding var isConnected: Bool
     @Binding var showConnectionPrompt: Bool
     @Binding var selectedTab: Int
-
-    let flowers = [
-        Flower(name: "Synthetix Flower", logo: "synthetix", yield: 21.92, info: "Some information about this vault."),
-        Flower(name: "Panoptic Flower", logo: "panoptic", yield: 6.70, info: "Some information about this vault."),
-    ]
+    
+    @StateObject private var viewModel = FlowersViewModel()
 
     var body: some View {
         ScrollView {
@@ -73,9 +70,15 @@ struct HiveView: View {
                         .padding(.trailing)
                         
                         VStack {
-                            ForEach(flowers) { flower in
-                                FlowerCellView(flower: flower, isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
-                                    .padding(.horizontal)
+                            let filteredFlowers = viewModel.flowers.filter { Double($0.balance) ?? 0 > 0 }
+                            
+                            if filteredFlowers.isEmpty {
+                                NoBalanceFlowerView()
+                            } else {
+                                ForEach(filteredFlowers) { flower in
+                                    FlowerCellView(flower: flower, isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
+                                        .padding(.horizontal)
+                                }
                             }
                         }
                         .frame(maxWidth: .infinity)
@@ -87,6 +90,9 @@ struct HiveView: View {
             .background(Color.black)
             .edgesIgnoringSafeArea(.all)
             .navigationBarHidden(true)
+        }
+        .onAppear {
+            viewModel.fetchFlowerBalances(walletAddress: UserDefaults.standard.string(forKey: "walletAddress") ?? "0x")
         }
     }
 }

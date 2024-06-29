@@ -5,7 +5,6 @@ struct FlowerCellView: View {
     @Binding var isConnected: Bool
     @Binding var showConnectionPrompt: Bool
     @State private var walletAddress: String = UserDefaults.standard.string(forKey: "walletAddress") ?? "0x"
-    @State private var balance: Double = 0
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -37,7 +36,7 @@ struct FlowerCellView: View {
                     Text("BALANCE")
                         .font(.caption)
                         .foregroundColor(.gray)
-                    Text("$\(balance, specifier: "%.2f")")
+                    Text("$\(Double(flower.balance)!, specifier: "%.2f")")
                         .font(.system(size: 24).bold())
                         .foregroundColor(.white)
                         .frame(width: 100, height: 28, alignment: .leading)
@@ -119,29 +118,6 @@ struct FlowerCellView: View {
         .padding()
         .background(Color.gray.opacity(0.2))
         .cornerRadius(10)
-        .onAppear {
-            fetchFlowerBalance(name: flower.name)
-        }
-    }
-    
-    private func fetchFlowerBalance(name: String) {
-        Task {
-            do {
-                let flowerBalance = try await WalletManager.shared.getERC20TokenBalance(address: walletAddress, contractAddress: "0xD4fA4dE9D8F8DB39EAf4de9A19bF6910F6B5bD60") // USDC contract address on Base Sepolia // TODO: update to flower address
-                
-                // TODO: Fetch BEES balance (i.e. total balance in Flowers + Hives
-                let priceInUSD = 21.92 // TODO: fetch price
-                let amount = "$\(priceInUSD * Double(flowerBalance)!)"
-                
-                DispatchQueue.main.async {
-                    if let a = Double(amount) {
-                        balance = a
-                    }
-                }
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
     }
 }
 
@@ -204,6 +180,80 @@ struct EmptyFlowerCell: View {
                 .padding(.horizontal, 16)
                 
                 Spacer()
+            }
+            .padding(.vertical, 16)
+        }
+        .padding(.horizontal, 16)
+        .padding(.top, 2)
+        .padding(.bottom, 20)
+    }
+}
+
+struct NoBalanceFlowerView: View {
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 12)
+                .fill(Color(red: 0.098, green: 0.098, blue: 0.098))
+                .shadow(color: Color.black.opacity(0.2), radius: 32, x: 0, y: 0)
+            
+            VStack(alignment: .leading, spacing: 5) {
+                HStack {
+                    Text("No Flower Balance")
+                        .foregroundColor(.white)
+                        .font(.subheadline)
+                    
+                    Spacer()
+                    
+                    Image("pollinate")
+                        .resizable()
+                        .frame(width: 28, height: 28)
+                        .foregroundColor(.gray)
+                        .opacity(0.2)
+                }
+                .padding(.horizontal, 16)
+                
+                Spacer()
+                
+                HStack {
+                    Rectangle()
+                        .fill(Color.gray.opacity(0.2))
+                        .frame(width: 100, height: 10)
+                    
+                    Spacer()
+                }
+                .padding([.bottom, .horizontal], 16)
+                
+                Divider()
+                    .background(Color.gray)
+                    .opacity(0.2)
+                    .padding([.bottom, .horizontal], 16)
+
+                HStack {
+                    Rectangle()
+                        .fill(Color.gray.opacity(0.2))
+                        .frame(width: 80, height: 10)
+                    
+                    Spacer()
+                    
+                    Rectangle()
+                        .fill(Color.gray.opacity(0.2))
+                        .frame(width: 40, height: 10)
+                    
+                    Spacer()
+                    
+                    Rectangle()
+                        .fill(Color.gray.opacity(0.2))
+                        .frame(width: 80, height: 10)
+                }
+                .padding(.horizontal, 16)
+                
+                Spacer()
+                
+                Text("Pollinate your first flower to see the balance here.")
+                    .foregroundColor(.white)
+                    .font(.caption)
+                    .padding(.horizontal, 16)
+                    .padding(.bottom, 16)
             }
             .padding(.vertical, 16)
         }

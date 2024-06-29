@@ -11,8 +11,10 @@ struct ERC20Token: Identifiable {
 
 struct Flower: Identifiable {
     let id = UUID()
+    let contract: String
     let name: String
     let logo: String
-    let yield: Double
     let info: String
+    var balance: String = "0"
+    var yield: Double = 0.0
 }

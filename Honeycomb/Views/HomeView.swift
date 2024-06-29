@@ -4,11 +4,9 @@ struct HomeView: View {
     @Binding var isConnected: Bool
     @Binding var showConnectionPrompt: Bool
     @Binding var selectedTab: Int
-
-    let flowers = [
-        Flower(name: "Synthetix Flower", logo: "synthetix", yield: 12.0, info: "Some information about this vault."),
-        Flower(name: "Aerodrome Flower", logo: "aerodrome", yield: 12.0, info: "Some information about this vault."),
-    ]
+    
+    @State private var walletAddress: String = UserDefaults.standard.string(forKey: "walletAddress") ?? "0x"
+    @StateObject private var viewModel = FlowersViewModel()
 
     var body: some View {
         ScrollView {
@@ -36,7 +34,7 @@ struct HomeView: View {
                         .padding(.horizontal)
                     
                     VStack {
-                        ForEach(flowers) { flower in
+                        ForEach(viewModel.flowers) { flower in
                             FlowerCellView(flower: flower, isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
                                 .padding(.horizontal)
                         }
@@ -49,6 +47,9 @@ struct HomeView: View {
                 .blur(radius: showConnectionPrompt ? 5 : 0)
             }
             .navigationBarHidden(true)
+        }
+        .onAppear {
+            viewModel.fetchFlowerBalances(walletAddress: walletAddress)
         }
     }
 }

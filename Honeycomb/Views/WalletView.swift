@@ -169,7 +169,7 @@ struct WalletView: View {
             do {
                 // Get balances
                 let ethBalance = try await WalletManager.shared.getETHBalance(address: walletAddress)
-                let usdcBalance = try await WalletManager.shared.getERC20TokenBalance(address: walletAddress, contractAddress: Constants.ContractAddresses.BaseSepolia.usdcToken)
+                let usdcBalance = try await WalletManager.shared.getERC20TokenBalance(address: walletAddress, contractAddress: Constants.Networks.BaseSepolia.Tokens.usdcToken)
                 
                 // TODO: Fetch BEES balance
                 

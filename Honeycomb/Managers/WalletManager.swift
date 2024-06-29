@@ -53,7 +53,7 @@ class WalletManager {
 
     func getERC20TokenBalance(address: String, contractAddress: String) async throws -> String {
         let cacheKey = "\(address)_\(contractAddress)"
-        
+                
         if let cachedBalance = balanceCache[cacheKey], Date().timeIntervalSince(cachedBalance.timestamp) < cacheDuration {
             return cachedBalance.balance
         }
@@ -67,10 +67,17 @@ class WalletManager {
             guard let readTX = contract.createReadOperation("balanceOf", parameters: [ethAddress]) else {
                 throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to create read operation"])
             }
+            
             let tokenBalanceResponse = try await readTX.callContractMethod()
+                        
+            if tokenBalanceResponse.isEmpty {
+                throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Empty response from contract"])
+            }
+            
             guard let tokenBalance = tokenBalanceResponse["0"] as? BigUInt else {
                 throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to get token balance"])
             }
+            
             let formattedTokenBalance = Web3Core.Utilities.formatToPrecision(tokenBalance, formattingDecimals: 6)
             
             balanceCache[cacheKey] = (balance: formattedTokenBalance, timestamp: Date())
