@@ -76,7 +76,7 @@ struct WalletView: View {
                             Image("base")
                                 .resizable()
                                 .frame(width: 16, height: 16, alignment: .leading)
-                            Text("Base")
+                            Text("Base Sepolia")
                                 .font(.subheadline)
                                 .foregroundColor(.white)
                         }
@@ -167,15 +167,21 @@ struct WalletView: View {
     private func fetchBalances() {
         Task {
             do {
+                // Get balances
                 let ethBalance = try await WalletManager.shared.getETHBalance(address: walletAddress)
-                let usdcBalance = try await WalletManager.shared.getERC20TokenBalance(address: walletAddress, contractAddress: "0xD4fA4dE9D8F8DB39EAf4de9A19bF6910F6B5bD60") // USDC contract address on Base Sepolia
+                let usdcBalance = try await WalletManager.shared.getERC20TokenBalance(address: walletAddress, contractAddress: Constants.ContractAddresses.BaseSepolia.usdcToken)
                 
                 // TODO: Fetch BEES balance
                 
                 // TODO: Fetch total balance in Flowers + Hives
                 
-                let ethToken = ERC20Token(name: "Ether", symbol: "ETH", logo: "eth", balance: ethBalance, priceInUSD: 2000.0) // TODO: Replace with actual price
-                let usdcToken = ERC20Token(name: "USD Coin", symbol: "USDC", logo: "usdc", balance: usdcBalance, priceInUSD: 1.0)
+                // Get prices
+                let ethPrice = try await WalletManager.shared.getTokenPriceUSD(tokenId: "ethereum")
+                let usdcPrice = try await WalletManager.shared.getTokenPriceUSD(tokenId: "usd-coin")
+                
+                // Instantiate tokens
+                let ethToken = ERC20Token(name: "Ether", symbol: "ETH", logo: "eth", balance: ethBalance, priceInUSD: ethPrice)
+                let usdcToken = ERC20Token(name: "USD Coin", symbol: "USDC", logo: "usdc", balance: usdcBalance, priceInUSD: usdcPrice)
 
                 tokens = [ethToken, usdcToken]
             } catch {
