@@ -76,7 +76,7 @@ struct HiveView: View {
                                 NoBalanceFlowerView()
                             } else {
                                 ForEach(filteredFlowers) { flower in
-                                    FlowerCellView(flower: flower, isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
+                                    FlowerCellView(viewModel: viewModel, flower: flower, isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
                                         .padding(.horizontal)
                                 }
                             }

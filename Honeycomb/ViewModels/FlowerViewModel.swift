@@ -1,5 +1,6 @@
 import SwiftUI
 import Combine
+import BigInt
 
 @MainActor
 class FlowersViewModel: ObservableObject {
@@ -14,7 +15,7 @@ class FlowersViewModel: ObservableObject {
                 try await withThrowingTaskGroup(of: (String, String, Double).self) { group in
                     for flower in Constants.Networks.BaseSepolia.Flowers.all {
                         group.addTask {
-                            let balance = try await HiveManager.shared.getFlowerBalance(userAddress: walletAddress, flowerAddress: flower.contract)
+                            let balance = try await HiveManager.shared.getFlowerBalance(userAddress: walletAddress, flowerAddress: Constants.Networks.BaseSepolia.Honeycomb.hiveContract) // TODO: change back to flower address once getFlowerBalance is fixed
                             let yield = await HiveManager.shared.getFlowerYield(flowerAddress: flower.contract)
                             return (flower.contract, balance, yield)
                         }
@@ -43,5 +44,33 @@ class FlowersViewModel: ObservableObject {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    func handlePollinate(flower: Flower, transactionState: Binding<TransactionState>) async throws -> [String] {
+        let hiveAddress = Constants.Networks.BaseSepolia.Honeycomb.hiveContract
+        var transactionHashes: [String] = []
+
+        // Approve USDC
+        let usdcAmount: BigUInt = 1000000 // 1 USDC
+        transactionState.wrappedValue = .checkingApproval        
+        let approvalResponse = try await HiveManager.shared.approveUSDC(spenderAddress: hiveAddress, amount: usdcAmount)
+        transactionHashes.append(approvalResponse)
+        
+        // Deposit to Hive
+        transactionState.wrappedValue = .depositingToHive
+        let depositResponse = try await HiveManager.shared.depositToHive(hiveAddress: hiveAddress, amount: usdcAmount)
+        transactionHashes.append(depositResponse)
+
+        // Pollinate
+        transactionState.wrappedValue = .pollinatingFlower
+        let pollinateResponse = try await HiveManager.shared.pollinate(flowerAddress: flower.contract)
+        transactionHashes.append(pollinateResponse)
+
+        return transactionHashes
+    }
+
+    func handleHarvest(flower: Flower) async throws -> [String] {
+        let harvestResponse = try await HiveManager.shared.harvest(flowerAddress: flower.contract)
+        return [harvestResponse]
     }
 }

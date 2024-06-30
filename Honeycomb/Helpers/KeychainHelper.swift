@@ -1,24 +1,21 @@
 import Foundation
-import Security
 
 class KeychainHelper {
     static let shared = KeychainHelper()
 
     private init() {}
 
-    func save(_ data: String, for key: String) {
-        let data = Data(data.utf8)
+    func save(_ value: String, for key: String) {
+        let data = Data(value.utf8)
         let query = [
             kSecClass: kSecClassGenericPassword,
             kSecAttrAccount: key,
             kSecValueData: data
         ] as CFDictionary
-
-        SecItemDelete(query)
         SecItemAdd(query, nil)
     }
 
-    func get(for key: String) -> String? {
+    func get(_ key: String) -> String? {
         let query = [
             kSecClass: kSecClassGenericPassword,
             kSecAttrAccount: key,
@@ -29,11 +26,8 @@ class KeychainHelper {
         var dataTypeRef: AnyObject?
         let status = SecItemCopyMatching(query, &dataTypeRef)
 
-        if status == errSecSuccess {
-            if let data = dataTypeRef as? Data {
-                return String(data: data, encoding: .utf8)
-            }
-        }
-        return nil
+        guard status == errSecSuccess else { return nil }
+        guard let data = dataTypeRef as? Data else { return nil }
+        return String(data: data, encoding: .utf8)
     }
 }

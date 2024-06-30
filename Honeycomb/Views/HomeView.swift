@@ -35,7 +35,7 @@ struct HomeView: View {
                     
                     VStack {
                         ForEach(viewModel.flowers) { flower in
-                            FlowerCellView(flower: flower, isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
+                            FlowerCellView(viewModel: viewModel, flower: flower, isConnected: $isConnected, showConnectionPrompt: $showConnectionPrompt)
                                 .padding(.horizontal)
                         }
                         EmptyFlowerCell()

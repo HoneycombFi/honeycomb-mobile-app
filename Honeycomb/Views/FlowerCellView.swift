@@ -1,11 +1,15 @@
 import SwiftUI
+import BigInt
 
 struct FlowerCellView: View {
+    @ObservedObject var viewModel: FlowersViewModel
     let flower: Flower
     @Binding var isConnected: Bool
     @Binding var showConnectionPrompt: Bool
     @State private var walletAddress: String = UserDefaults.standard.string(forKey: "walletAddress") ?? "0x"
-
+    @State private var showTransactionView: Bool = false
+    @State private var transactionState: TransactionState = .checkingApproval
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -73,9 +77,9 @@ struct FlowerCellView: View {
             
             HStack {
                 if isConnected {
-                    Button(action: {
-                        // TODO: Add buy action
-                    }) {
+                    NavigationLink(destination: TransactionView(isPresented: $showTransactionView, transactionState: $transactionState, handleTransaction: {
+                        try await viewModel.handlePollinate(flower: flower, transactionState: $transactionState)
+                    })) {
                         Image("pollinate")
                             .resizable()
                             .frame(width: 32, height: 32)
@@ -85,9 +89,9 @@ struct FlowerCellView: View {
                         .foregroundColor(.gray6)
                         .padding(.trailing)
                     
-                    Button(action: {
-                        // TODO: Add sell action
-                    }) {
+                    NavigationLink(destination: TransactionView(isPresented: $showTransactionView, transactionState: $transactionState, handleTransaction: {
+                        try await viewModel.handleHarvest(flower: flower)
+                    })) {
                         Image("harvest")
                             .resizable()
                             .frame(width: 32, height: 32)
@@ -96,6 +100,7 @@ struct FlowerCellView: View {
                         .font(.subheadline)
                         .foregroundColor(.gray6)
                 } else {
+                    // Disabled state UI
                     Image("pollinate")
                         .resizable()
                         .frame(width: 32, height: 32)
