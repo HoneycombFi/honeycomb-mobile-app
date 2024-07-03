@@ -16,44 +16,45 @@ class HiveManager {
     // Views
 
     func getFlowerBalance(userAddress: String, flowerAddress: String) async throws -> String {
-        let cacheKey = "\(userAddress)_\(flowerAddress)"
-        
-        if let cachedBalance = balanceCache[cacheKey], Date().timeIntervalSince(cachedBalance.timestamp) < balanceCacheDuration {
-            return cachedBalance.balance
-        }
-
-        do {
-            let web3 = try await NetworkManager.shared.getNetwork()
-            guard let ethAddress = EthereumAddress(userAddress), let contractAddress = EthereumAddress(flowerAddress) else {
-                throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid Ethereum address"])
-            }
-            let contract = web3.contract(Web3.Utils.erc20ABI, at: contractAddress, abiVersion: 2)!
-            guard let readTX = contract.createReadOperation("balanceOf", parameters: [ethAddress]) else {
-                throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to create read operation"])
-            }
-            let tokenBalanceResponse = try await readTX.callContractMethod()
-            guard let tokenBalance = tokenBalanceResponse["0"] as? BigUInt else {
-                throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to get token balance"])
-            }
-            let formattedTokenBalance = Web3Core.Utilities.formatToPrecision(tokenBalance, formattingDecimals: 6)
-            print("Formatted Token Balance: \(formattedTokenBalance)")
-
-            balanceCache[cacheKey] = (balance: formattedTokenBalance, timestamp: Date())
-            return formattedTokenBalance
-        } catch {
-            throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to fetch token balance: \(error.localizedDescription)"])
-        }
+        return "0.00"
+//        let cacheKey = "\(userAddress)_\(flowerAddress)"
+//        
+//        if let cachedBalance = balanceCache[cacheKey], Date().timeIntervalSince(cachedBalance.timestamp) < balanceCacheDuration {
+//            return cachedBalance.balance
+//        }
+//
+//        do {
+//            let web3 = try await NetworkManager.shared.getNetwork()
+//            guard let ethAddress = EthereumAddress(userAddress), let contractAddress = EthereumAddress(flowerAddress) else {
+//                throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid Ethereum address"])
+//            }
+//            let contract = web3.contract(Web3.Utils.erc20ABI, at: contractAddress, abiVersion: 2)!
+//            guard let readTX = contract.createReadOperation("balanceOf", parameters: [ethAddress]) else {
+//                throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to create read operation"])
+//            }
+//            let tokenBalanceResponse = try await readTX.callContractMethod()
+//            guard let tokenBalance = tokenBalanceResponse["0"] as? BigUInt else {
+//                throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to get token balance"])
+//            }
+//            let formattedTokenBalance = Web3Core.Utilities.formatToPrecision(tokenBalance, formattingDecimals: 6)
+//            print("Formatted Token Balance: \(formattedTokenBalance)")
+//
+//            balanceCache[cacheKey] = (balance: formattedTokenBalance, timestamp: Date())
+//            return formattedTokenBalance
+//        } catch {
+//            throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to fetch token balance: \(error.localizedDescription)"])
+//        }
     }
 
     func getFlowerYield(flowerAddress: String) async -> Double {
-        let cacheKey = flowerAddress
-
-        if let cachedYield = yieldCache[cacheKey], Date().timeIntervalSince(cachedYield.timestamp) < yieldCacheDuration {
-            return cachedYield.yield
-        }
+//        let cacheKey = flowerAddress
+//
+//        if let cachedYield = yieldCache[cacheKey], Date().timeIntervalSince(cachedYield.timestamp) < yieldCacheDuration {
+//            return cachedYield.yield
+//        }
 
         let yield = Double.random(in: 10...50)
-        yieldCache[cacheKey] = (yield: yield, timestamp: Date())
+//        yieldCache[cacheKey] = (yield: yield, timestamp: Date())
         return yield
     }
 
@@ -91,7 +92,11 @@ class HiveManager {
             throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid USDC contract address"])
         }
         let currentAllowance = try await getAllowance(tokenAddress: usdcAddress, spenderAddress: spenderAddress, ownerAddress: ethAddress.address)
-                
+        
+        print(currentAllowance)
+        print(amount)
+        print(ethAddress.address)
+        
         if currentAllowance >= amount {
             print("no need to approve, sufficient allowance available")
             return "No need to approve, sufficient allowance available"
@@ -121,25 +126,25 @@ class HiveManager {
         writeTX.transaction.chainID = BigUInt(84532)
 
         let policies = Policies(gasLimitPolicy: .automatic)
-        let result = try await writeTX.writeToChain(password: "", policies: policies, sendRaw: false)
+        let result = try await writeTX.writeToChain(password: "", policies: policies, sendRaw: true)
         return result.hash
     }
 
-    func pollinate(flowerAddress: String) async throws -> String {
+    func pollinate(hiveAddress: String, flowerAddress: String) async throws -> String {
         let (keystore, ethAddress) = try loadKeystore()
         let web3 = try await NetworkManager.shared.getProvider()
         web3.addKeystoreManager(KeystoreManager([keystore]))
 
-        guard let contractAddress = EthereumAddress(flowerAddress) else {
+        guard let contractAddress = EthereumAddress(hiveAddress) else {
             throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid Ethereum address"])
         }
         let contract = web3.contract(ABI.HiveABI, at: contractAddress, abiVersion: 2)!
-        let writeTX = contract.createWriteOperation("pollinate", parameters: [ethAddress])!
+        let writeTX = contract.createWriteOperation("pollinate", parameters: [flowerAddress])!
         writeTX.transaction.from = ethAddress
         writeTX.transaction.chainID = BigUInt(84532)
 
         let policies = Policies(gasLimitPolicy: .automatic)
-        let result = try await writeTX.writeToChain(password: "", policies: policies, sendRaw: false)
+        let result = try await writeTX.writeToChain(password: "", policies: policies, sendRaw: true)
         return result.hash
     }
 
@@ -157,7 +162,7 @@ class HiveManager {
         writeTX.transaction.chainID = BigUInt(84532)
 
         let policies = Policies(gasLimitPolicy: .automatic)
-        let result = try await writeTX.writeToChain(password: "", policies: policies, sendRaw: false)
+        let result = try await writeTX.writeToChain(password: "", policies: policies, sendRaw: true)
         return result.hash
     }
     

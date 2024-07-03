@@ -13,12 +13,19 @@ class WalletManager {
     private let cacheDuration: TimeInterval = 60 // Cache duration in seconds
 
     func createWallet() async throws -> String {
+        clearPreviousKeystoreData()
+        
         let mnemonics = try BIP39.generateMnemonics(bitsOfEntropy: 256)!
         let keystore = try BIP32Keystore(mnemonics: mnemonics, password: "", prefixPath: "m/44'/60'/0'/0")!
         let address = keystore.addresses!.first!.address
         saveToKeychain(address: address, mnemonics: mnemonics)
         UserDefaults.standard.set(address, forKey: "walletAddress")
         return address
+    }
+    
+    private func clearPreviousKeystoreData() {
+        KeychainHelper.shared.delete("walletAddress")
+        KeychainHelper.shared.delete("mnemonics")
     }
 
     private func saveToKeychain(address: String, mnemonics: String) {
@@ -51,7 +58,7 @@ class WalletManager {
         }
     }
 
-    func getERC20TokenBalance(address: String, contractAddress: String) async throws -> String {
+    func getERC20TokenBalance(address: String, contractAddress: String, decimals: BigUInt) async throws -> String {
         let cacheKey = "\(address)_\(contractAddress)"
                 
         if let cachedBalance = balanceCache[cacheKey], Date().timeIntervalSince(cachedBalance.timestamp) < cacheDuration {
@@ -69,7 +76,7 @@ class WalletManager {
             }
             
             let tokenBalanceResponse = try await readTX.callContractMethod()
-                        
+            
             if tokenBalanceResponse.isEmpty {
                 throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Empty response from contract"])
             }
@@ -78,10 +85,11 @@ class WalletManager {
                 throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to get token balance"])
             }
             
-            let formattedTokenBalance = Web3Core.Utilities.formatToPrecision(tokenBalance, formattingDecimals: 6)
-            
+            let balanceInDecimal = Double(tokenBalance) / Double(decimals)             
+            let formattedTokenBalance = String(format: "%.3f", balanceInDecimal)
+             
             balanceCache[cacheKey] = (balance: formattedTokenBalance, timestamp: Date())
-            
+             
             return formattedTokenBalance
         } catch {
             throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to fetch token balance: \(error.localizedDescription)"])

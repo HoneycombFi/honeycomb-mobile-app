@@ -30,4 +30,12 @@ class KeychainHelper {
         guard let data = dataTypeRef as? Data else { return nil }
         return String(data: data, encoding: .utf8)
     }
+
+    func delete(_ key: String) {
+        let query = [
+            kSecClass: kSecClassGenericPassword,
+            kSecAttrAccount: key
+        ] as CFDictionary
+        SecItemDelete(query)
+    }
 }

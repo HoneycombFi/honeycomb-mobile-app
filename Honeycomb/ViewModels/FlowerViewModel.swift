@@ -63,7 +63,7 @@ class FlowersViewModel: ObservableObject {
 
         // Pollinate
         transactionState.wrappedValue = .pollinatingFlower
-        let pollinateResponse = try await HiveManager.shared.pollinate(flowerAddress: flower.contract)
+        let pollinateResponse = try await HiveManager.shared.pollinate(hiveAddress: hiveAddress, flowerAddress: flower.contract)
         transactionHashes.append(pollinateResponse)
 
         return transactionHashes

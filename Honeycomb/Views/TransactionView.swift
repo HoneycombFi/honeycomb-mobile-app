@@ -17,9 +17,14 @@ struct TransactionView: View {
         NavigationView {
             VStack {
                 if showError {
-                    Text("Error: \(errorMessage)")
-                        .foregroundColor(.red)
-                        .padding()
+                    VStack {
+                        Image(systemName: "xmark.octagon.fill")
+                            .foregroundColor(.red)
+                        Text("Error: \(errorMessage)")
+                            .foregroundColor(.red)
+                            .padding()
+                            .multilineTextAlignment(.center)
+                    }
                 } else {
                     VStack {
                         Spacer()
@@ -28,8 +33,10 @@ struct TransactionView: View {
                         Spacer()
                     }
 
-                    List(transactionHashes, id: \.self) { hash in
-                        Link("View Transaction \(hash)", destination: URL(string: "https://sepolia.basescan.org/tx/\(hash)")!)
+                    List {
+                        ForEach(transactionHashes, id: \.self) { hash in
+                            TransactionCardView(transactionHash: hash, transactionState: transactionState)
+                        }
                     }
                 }
             }
@@ -52,7 +59,7 @@ struct TransactionView: View {
         case .pollinatingFlower:
             return "Pollinating flower..."
         case .transactionComplete:
-            return "Transaction Complete"
+            return "Transaction Complete!"
         }
     }
 
@@ -66,5 +73,60 @@ struct TransactionView: View {
             showError = true
             errorMessage = error.localizedDescription
         }
+    }
+}
+
+struct TransactionCardView: View {
+    var transactionHash: String
+    var transactionState: TransactionState
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            HStack {
+                Image(systemName: "link.circle")
+                    .foregroundColor(.blue)
+                Link(transactionName, destination: URL(string: "https://sepolia.basescan.org/tx/\(transactionHash)")!)
+                    .foregroundColor(.blue)
+            }
+            if transactionState == .transactionComplete {
+                HStack {
+                    Image(systemName: "checkmark.circle.fill")
+                        .foregroundColor(.green)
+                    Text("Transaction Complete!")
+                        .foregroundColor(.green)
+                }
+            }
+        }
+        .padding()
+        .background(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
+        .padding(.bottom, 10)
+    }
+
+    private var transactionName: String {
+        switch transactionState {
+        case .checkingApproval:
+            return "Checking approval"
+        case .approving:
+            return "Approving"
+        case .depositingToHive:
+            return "Depositing to Hive"
+        case .pollinatingFlower:
+            return "Pollinating flower"
+        case .transactionComplete:
+            return "Transaction Complete"
+        }
+    }
+}
+
+struct TransactionView_Previews: PreviewProvider {
+    static var previews: some View {
+        TransactionView(
+            isPresented: .constant(true),
+            transactionState: .constant(.checkingApproval),
+            handleTransaction: {
+                // Mock implementation for preview
+                return ["0x12345", "0x67890"]
+            }
+        )
     }
 }

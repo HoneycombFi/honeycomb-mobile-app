@@ -125,7 +125,7 @@ struct WalletView: View {
                                         .font(.caption)
                                 }
                                 Spacer()
-                                Text(FormatHelper.trimTrailingZeroes(from: token.balance))
+                                Text(token.balance)
                                     .foregroundColor(.white)
                                     .font(.body)
                                 Text("$\(token.priceInUSD * Double(token.balance)!, specifier: "%.2f")")
@@ -169,11 +169,16 @@ struct WalletView: View {
             do {
                 // Get balances
                 let ethBalance = try await WalletManager.shared.getETHBalance(address: walletAddress)
-                let usdcBalance = try await WalletManager.shared.getERC20TokenBalance(address: walletAddress, contractAddress: Constants.Networks.BaseSepolia.Tokens.usdcToken)
+                let usdcBalance = try await WalletManager.shared.getERC20TokenBalance(address: walletAddress, contractAddress: Constants.Networks.BaseSepolia.Tokens.usdcToken, decimals: 1000000) // 10^6 for USDC
                 
                 // TODO: Fetch BEES balance
                 
                 // TODO: Fetch total balance in Flowers + Hives
+                
+                print(walletAddress)
+                print(Constants.Networks.BaseSepolia.Tokens.usdcToken)
+                print(usdcBalance)
+                print(ethBalance)
                 
                 // Get prices
                 let ethPrice = try await WalletManager.shared.getTokenPriceUSD(tokenId: "ethereum")
